@@ -127,4 +127,4 @@ concrete checked Idriç fixture that requires it.
 
 ## Cross-project Android home
 
-The canonical cross-project explanation and preserved generic copy live in [isomorphisms/android-NDK](https://github.com/isomorphisms/android-NDK/tree/ndk-dex-jni-migration/dex). This repository retains the source history and compiler-experiment context for the backend. Its application-specific fixtures remain here until separately classified.
+The canonical cross-project explanation and preserved generic copy live in [isomorphisms/android-NDK](https://github.com/isomorphisms/android-NDK/tree/main/dex). This repository retains the source history and compiler-experiment context for the backend. Its application-specific fixtures remain here until separately classified.
