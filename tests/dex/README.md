@@ -92,3 +92,28 @@ The adapter is currently Wegert-specific and hand encoded. The tests therefore
 classify it as Android application-boundary acceptance, not as evidence that
 the generic checked-ANF lowerer already supports arbitrary classes or Android
 framework calls.
+
+
+## SMS reader Android-framework slice
+
+The SMS reader is a second Android application-boundary probe, deliberately
+separate from the generic checked-ANF lowering.  Its direct DEX Activity calls
+`ContentResolver.query`, walks a `Cursor`, reads `body` and `address`,
+and closes the cursor.  Message contents are not written to logcat.
+
+Host acceptance is part of `make test` and `make verify`:
+
+```sh
+make sms-reader-host
+```
+
+Physical-phone acceptance, including the real `READ_SMS` permission boundary,
+is separate:
+
+```sh
+make sms-reader-phone
+```
+
+A hard-restricted permission that cannot be granted to the development APK is
+reported as `NOT_VERIFIED`, not PASS and not a compiler failure.  See
+[`docs/android-sms-reader.md`](../../docs/android-sms-reader.md).
