@@ -14,7 +14,7 @@ oracle_dir="$repo_root/build/oracles"
 baksmali="$oracle_dir/baksmali-3.0.10.jar"
 smali="$oracle_dir/smali-3.0.10.jar"
 baksmali_sha=37ae4a41a8886e15c20b8362fa4250f96bbdb55e1a608199ad8b5dff068b588f
-smali_sha=32fa0e88a6c397f3922201adf5f3e534fbaed5a663c71d0c558c3ddce0af844a
+smali_sha=32fa0e88a6c397b3922201adf5f3e534fbaed5a663c71d0c558c3ddce0af844a
 
 cd "$repo_root"
 mkdir -p "$sms_build" "$oracle_dir"
