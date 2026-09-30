@@ -278,7 +278,7 @@ encode_sms_reader_activity_dex = do
               , 0x1071, 10, 0x0005                -- Uri.parse(v5)
               , 0x000c                            -- move-result-object v0
               , 0x0212                            -- v2 = null
-              , 0x256e, 2, 0x2201                 -- resolver.query(v0,v2,v2,v2)
+              , 0x526e, 2, 0x2201                 -- resolver.query(v0,v2,v2,v2)
               , 0x030c                            -- move-result-object v3
               , 0x0338, 51                        -- if-eqz v3, done
               , 0x1072, 6, 0x0003                 -- cursor.getCount()
