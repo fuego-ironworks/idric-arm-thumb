@@ -129,7 +129,7 @@ layout_type_lists_from current [] accumulated offsets first =
 layout_type_lists_from current (types :: rest) accumulated offsets first =
   let start = align_up current 4
       pad = padding current 4
-      item = u32le (cast (length types)) ++ concat (map (u16le . cast) types)
+      item = u32le (cast (length types)) ++ concat (map (\\index => u16le (cast index)) types)
       next = start + cast (length item)
       next_first =
         case first of
