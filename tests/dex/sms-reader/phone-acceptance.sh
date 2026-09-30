@@ -50,7 +50,7 @@ bash tests/dex/sms-reader/build-apk.sh
 # READ_SMS is dangerous and hard-restricted on current Android. Do not turn a
 # failed sideload grant into a false compiler failure.
 if ! "$adb_command" shell pm grant "$package" android.permission.READ_SMS >/dev/null 2>&1; then
-  not_verified 'READ_SMS could not be granted to this sideloaded package; use an allowed installer/SMS role or privileged development device'
+  not_verified 'READ_SMS could not be granted to this sideloaded package; use an allowlisting installer or a privileged/rooted development device'
 fi
 
 granted=$("$adb_command" shell dumpsys package "$package" |
