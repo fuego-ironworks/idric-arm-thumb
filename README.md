@@ -33,7 +33,7 @@ NativeActivity/JNI adapter used to exercise an Android application boundary.
 That adapter is DEX/Android work, but it is not presented as generic Idriç
 lowering.
 
-See `src/Backend/DEX/README.md` and `tests/dex/README.md` for the current executable slice and evidence layers.
+See `src/Backend/DEX/README.md` and `tests/dex/README.md` for the current executable slice and evidence layers. The read-only Android SMS framework probe is documented in `docs/android-sms-reader.md`.
 
 ## Licensing and provenance
 

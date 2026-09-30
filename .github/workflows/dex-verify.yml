@@ -78,6 +78,11 @@ jobs:
             build/exec/wegert/host-receipt.txt
             build/exec/wegert/baksmali-candidate/org/isomorphisms/wegert/WegertActivity.smali
             build/exec/wegert/baksmali-oracle/org/isomorphisms/wegert/WegertActivity.smali
+            build/exec/sms-reader/classes.dex
+            build/exec/sms-reader/classes-first.dex
+            build/exec/sms-reader/host-receipt.txt
+            build/exec/sms-reader/baksmali-candidate/org/isomorphisms/smsreader/SmsReaderActivity.smali
+            build/exec/sms-reader/baksmali-oracle/org/isomorphisms/smsreader/SmsReaderActivity.smali
             build/exec/native-shell/host-receipt.txt
             build/exec/native-shell/wegert/classes.dex
             build/exec/native-shell/wegert/classes-first.dex

@@ -1,0 +1,11 @@
+package sms_reader_dex
+version = 0.1.0
+
+sourcedir = "src"
+
+depends = idris2
+
+modules =
+  Backend.DEX.Hash,
+  Backend.DEX.Encode,
+  Backend.DEX.EncodeSmsReader

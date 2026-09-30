@@ -35,7 +35,7 @@ DEX_VALIDATION_RECEIPT := build/exec/dex-validation-receipt.txt
 .PHONY: branch-separation check-compiler check driver dex-fixture dex-text-fixture \
 	dex-text-validation dex-encoder-selftest dex-determinism dex-reject \
 	dex-header-validation dex-parser-validation dex-oracle-validation \
-	dex-malformed-test dex-test dex-device test verify clean
+	dex-malformed-test dex-test dex-device sms-reader-host sms-reader-phone test verify clean
 
 branch-separation:
 	tests/dex/branch-separation-self-test.sh
@@ -238,9 +238,15 @@ dex-test: branch-separation check dex-fixture dex-text-validation dex-encoder-se
 dex-device: dex-test $(SMALI_JAR)
 	SMALI_JAR="$(CURDIR)/$(SMALI_JAR)" tests/dex/device-acceptance.sh $(DEX_FILE)
 
-test: dex-test
+sms-reader-host:
+	bash tests/dex/sms-reader-host-acceptance.sh
 
-verify: dex-test
+sms-reader-phone: sms-reader-host
+	bash tests/dex/sms-reader/phone-acceptance.sh
+
+test: dex-test sms-reader-host
+
+verify: dex-test sms-reader-host
 
 clean:
 	rm -rf build
