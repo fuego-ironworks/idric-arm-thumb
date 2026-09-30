@@ -1,4 +1,4 @@
-# Scalar numeric reference specifications
+# Reference specifications
 
 This directory keeps the six scalar and circular machine-format references
 currently used by the ARM Thumb work:
@@ -25,3 +25,12 @@ The formats are deliberately kept distinct. In particular:
 - Finite circle values use bounded modular storage to represent positions around
   one complete cycle; the modulus need not be a power of two, and local signed
   displacements are linear/tangent data rather than circle points.
+
+
+## SMS and Android messaging
+
+[`sms/`](sms/README.md) records the Android provider contract, the relevant
+IETF RFCs, and the 3GPP SMS references.  The included fetch script retrieves
+exact RFC Editor text for RFC 5724, RFC 3966, RFC 3986, and RFC 5234 so local
+development can keep the standards beside the implementation without relying
+on an informal transcription.
