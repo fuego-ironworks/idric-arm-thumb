@@ -45,6 +45,12 @@ That compiler deliberately remains implemented on the current Idris 2 internals,
 - 8-byte-aligned stack frame
 - no heap, GC, closures, or Idris runtime in the emitted numerical leaf
 
+## Device notes
+
+- [MIRO C67 target mapping](docs/miro-c67-target.md) keeps the Helio G36 /
+  Cortex-A53 tuning opportunity separate from the still-unverified physical
+  Android ABI.
+
 ## Build and verify
 
 Build the pinned Idriç compiler and install its compiler API/libraries, then run:
