@@ -1,0 +1,7 @@
+package real_haskell_decision_corpus
+
+sourcedir = "idric"
+modules = AesonJsonValueDispatch,
+          GhcLexControl,
+          GhcShowLitChar,
+          GhcUtf8Lead

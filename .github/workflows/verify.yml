@@ -12,12 +12,16 @@ concurrency:
 jobs:
   arm-thumb:
     runs-on: ubuntu-24.04
+    env:
+      ARM_CLANG: /usr/local/lib/android/sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
     steps:
-      - name: Check out backend
-        uses: actions/checkout@v4
+      - name: Check out exact native-ARM candidate
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Check out pinned Idriç compiler
-        uses: actions/checkout@v4
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
           repository: isomorphisms/Idric
           ref: 081b9cde0591154839fb5d80d76e5570e0436300
@@ -27,6 +31,15 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential curl ca-certificates clang lld file libgmp-dev qemu-user
+
+      - name: Select Android setup without retired tools package
+        uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407
+        with:
+          packages: platform-tools
+      - name: Install pinned NDK assembly and link toolchain
+        run: sdkmanager "ndk;29.0.14206865"
+      - name: Check exact NDK revision
+        run: grep -Fx 'Pkg.Revision = 29.0.14206865' /usr/local/lib/android/sdk/ndk/29.0.14206865/source.properties
 
       - name: Bootstrap pinned Idriç
         run: |
@@ -45,3 +58,19 @@ jobs:
 
       - name: Build screen-red references and execute RGB565 oracle
         run: sh tests/framebuffer/check.sh
+
+      - name: Typecheck all four provenance-preserving corpus fixtures
+        env:
+          IDRIS2_PATH: ${{ github.workspace }}/build/ttc
+        run: ${{ github.workspace }}/Idric/build/exec/idris2 --typecheck tests/real-haskell/fixtures.ipkg
+
+      - name: Install GHC comparison oracle
+        run: sudo apt-get install -y ghc
+      - name: Create reference benchmark directory
+        run: mkdir -p build/real-haskell
+      - name: Build the foreign Haskell decision-kernel oracle
+        run: ghc -O2 -rtsopts -outputdir build/real-haskell tests/real-haskell/bench/BranchCorpus.hs -o build/real-haskell/branch-corpus
+      - name: Run narrow Haskell baseline
+        env:
+          BENCH_ITERS: 100000
+        run: ./build/real-haskell/branch-corpus

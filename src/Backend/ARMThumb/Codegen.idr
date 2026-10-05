@@ -12,8 +12,15 @@ import Core.TT
 import Data.String
 import Idris.Syntax
 import Libraries.Utils.Path
+import System
 
 %default covering
+
+-- The frontend can catch UserError without recording an error exit status.
+-- A refused backend artifact must still fail the command.
+private
+reject_backend : String -> Core value
+reject_backend explanation = coreLift $ die ("Error: " ++ explanation)
 
 public export
 backend_name : String
@@ -80,36 +87,32 @@ resolve_export_abi (internal_name, external_symbol) = do
   source_type <-
     case !(lookupTyExact internal_name (gamma definitions)) of
       Nothing =>
-        throw
-          (UserError
-            ("Could not find source type of exported function `" ++
-             show internal_name ++ "`"))
+        reject_backend
+          ("Could not find source type of exported function `" ++
+           show internal_name ++ "`")
       Just found => pure found
   normalised_type <- normalise definitions Env.empty source_type
   full_type <- toFullNames normalised_type
   case parse_source_signature full_type of
     Left explanation =>
-      throw
-        (UserError
-          ("arm-thumb rejected source ABI for `" ++ show internal_name ++
-           "`: " ++ explanation ++
-           ". Supported arguments are RendererPrimitives.Float32, " ++
-           "RendererPrimitives.Float32Buffer, and Int32; the result must " ++
-           "be RendererPrimitives.Float32."))
+      reject_backend
+        ("arm-thumb rejected source ABI for `" ++ show internal_name ++
+         "`: " ++ explanation ++
+         ". Supported arguments are RendererPrimitives.Float32, " ++
+         "RendererPrimitives.Float32Buffer, and Int32; the result must " ++
+         "be RendererPrimitives.Float32.")
     Right (arguments, result) =>
       if result /= Float32
         then
-          throw
-            (UserError
-              ("arm-thumb rejected source ABI for `" ++ show internal_name ++
-               "`: result must be RendererPrimitives.Float32, not " ++
-               show result ++ "."))
+          reject_backend
+            ("arm-thumb rejected source ABI for `" ++ show internal_name ++
+             "`: result must be RendererPrimitives.Float32, not " ++
+             show result ++ ".")
         else if length arguments > 4
           then
-            throw
-              (UserError
-                ("arm-thumb rejected source ABI for `" ++ show internal_name ++
-                 "`: more than four one-word arguments."))
+            reject_backend
+              ("arm-thumb rejected source ABI for `" ++ show internal_name ++
+               "`: more than four one-word arguments.")
           else pure (MkExportABI internal_name external_symbol arguments result)
 
 private
@@ -232,7 +235,7 @@ compile_numerical_exports qualified_exports definitions = do
   export_abis <- traverse resolve_export_abi qualified_exports
   case render_backend_assembly export_abis definitions of
     Left explanation =>
-      throw (UserError ("arm-thumb rejected reachable program: " ++ explanation))
+      reject_backend ("arm-thumb rejected reachable program: " ++ explanation)
     Right source => pure source
 
 private
@@ -260,10 +263,9 @@ private
 execute_arm_thumb :
   Ref Ctxt Defs -> Ref Syn SyntaxInfo -> String -> ClosedTerm -> Core ()
 execute_arm_thumb definitions syntax temporary_directory term =
-  throw
-    (UserError
-      ("arm-thumb emits a .S translation unit; assemble it with an " ++
-       "Android-target Clang."))
+  reject_backend
+    ("arm-thumb emits a .S translation unit; assemble it with an " ++
+     "Android-target Clang.")
 
 public export
 arm_thumb_codegen : Codegen
