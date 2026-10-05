@@ -1,6 +1,6 @@
 package real_haskell_decision_corpus
 
-sourcedir = "tests/real-haskell/idric"
+sourcedir = "idric"
 modules = AesonJsonValueDispatch,
           GhcLexControl,
           GhcShowLitChar,
