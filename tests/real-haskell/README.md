@@ -19,11 +19,11 @@ The point is not to claim that an isolated microbenchmark represents the speed o
 
 `originals/` retains the relevant Haskell excerpts and their pinned source links.  They are provenance/reference material, not standalone modules.  Upstream license texts are retained under `upstream-licenses/`.
 
-The Idriç reductions intentionally return a `Float32` sentinel selected from `Float32Buffer`.  That keeps them inside the backend's current source ABI while preserving the branch decision as an observable result.  Once integer returns and full runtime support are available, the adapters can be removed.
+The Idriç reductions intentionally return a `Float32` sentinel selected from `Float32Buffer`. This preserves the source decision without turning the copied parsers into runtime dependencies. `fixtures.ipkg` typechecks all four against the existing `native-arm` compiler/RendererPrimitives profile after the backend build. This gate proves source checking only: it does not claim that all four have generated/assembled/executed ARM code.
 
 ## Benchmark
 
-`bench/BranchCorpus.hs` contains self-contained Haskell reductions of the same four decision kernels.  `bench/run.sh` compiles them with `ghc -O2`, records median CPU nanoseconds per operation over five repetitions, keeps GHC assembly, and writes a TSV result under `build/real-haskell/`.
+`bench/BranchCorpus.hs` contains self-contained Haskell reductions of the same four decision kernels. The native-ARM workflow compiles that foreign reference with `ghc -O2` and runs its five-repetition median/checksum report. GHC is a comparison oracle here, not an alternative Idriç backend or a production build toolchain.
 
 The benchmark is deliberately narrow:
 
@@ -31,9 +31,9 @@ The benchmark is deliberately narrow:
 - The classifier functions are `NOINLINE`, so the measured loop repeatedly enters the compiled decision kernel.
 - Results are accumulated into a checksum so calls cannot be discarded.
 - GitHub-hosted-runner timings are evidence about this microbenchmark on that runner, not a cross-machine performance claim.
-- There is no Haskell-vs-Idriç speed ratio yet: the current ARM/Thumb branch fixtures are expected to stop at the reachable-control-flow lowering boundary.  Add the Idriç timing column only after the corresponding fixtures really assemble and execute.
+- There is no Haskell-vs-Idriç speed ratio. Native lowering has evolved since this corpus was first proposed; this PR makes no blanket unsupported-control-flow claim. Add an Idriç timing column only after each corresponding fixture has generated, assembled, and executed on the same declared target.
 
-The retained GHC assembly is at least as important as the timing: a surprising result should be explained by the emitted branch tree, jump table, arithmetic collapse, or other native lowering rather than by guessing from source syntax.
+GHC assembly inspection is at least as important as the timing: a surprising result should be explained by the emitted branch tree, jump table, arithmetic collapse, or other native lowering rather than by guessing from source syntax.
 
 ## Next candidates
 

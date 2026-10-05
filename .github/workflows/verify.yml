@@ -2,7 +2,7 @@ name: verify
 
 on:
   push:
-    branches: [idric-ir-first-slice]
+    branches: [native-arm]
   pull_request:
 
 concurrency:
@@ -13,11 +13,13 @@ jobs:
   arm-thumb:
     runs-on: ubuntu-24.04
     steps:
-      - name: Check out backend
-        uses: actions/checkout@v4
+      - name: Check out exact native-ARM candidate
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Check out pinned Idriç compiler
-        uses: actions/checkout@v4
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
           repository: isomorphisms/Idric
           ref: 081b9cde0591154839fb5d80d76e5570e0436300
@@ -29,12 +31,35 @@ jobs:
           sudo apt-get install -y build-essential curl ca-certificates clang lld file libgmp-dev qemu-user
 
       - name: Bootstrap pinned Idriç
-        run: ./Idric/edric bootstrap
-
-      - name: Install pinned Idriç libraries and compiler API
         run: |
+          ./Idric/edric bootstrap
+          printf '%s\n' "$GITHUB_WORKSPACE/Idric/.tools/bin" >> "$GITHUB_PATH"
+
+      - name: Install pinned Idriç support, libraries and compiler API
+        run: |
+          make -C Idric install-support PREFIX="$HOME/.idris2"
           make -C Idric install-bootstrap-libs IDRIS2="$GITHUB_WORKSPACE/Idric/build/exec/idris2"
           make -C Idric install-api IDRIS2_BOOT="$GITHUB_WORKSPACE/Idric/build/exec/idris2"
+          make -C Idric install-support
 
-      - name: Compile, inspect, assemble, and execute Thumb verification
+      - name: Verify native ARM/Thumb numerical, PrintASCII, and branching paths
         run: make verify IDRIC="$GITHUB_WORKSPACE/Idric/build/exec/idris2"
+
+      - name: Build screen-red references and execute RGB565 oracle
+        run: sh tests/framebuffer/check.sh
+
+      - name: Typecheck all four provenance-preserving corpus fixtures
+        env:
+          IDRIS2_PATH: ${{ github.workspace }}/build/ttc
+        run: ${{ github.workspace }}/Idric/build/exec/idris2 --typecheck tests/real-haskell/fixtures.ipkg
+
+      - name: Install GHC comparison oracle
+        run: sudo apt-get install -y ghc
+      - name: Create reference benchmark directory
+        run: mkdir -p build/real-haskell
+      - name: Build the foreign Haskell decision-kernel oracle
+        run: ghc -O2 -rtsopts -outputdir build/real-haskell tests/real-haskell/bench/BranchCorpus.hs -o build/real-haskell/branch-corpus
+      - name: Run narrow Haskell baseline
+        env:
+          BENCH_ITERS: 100000
+        run: ./build/real-haskell/branch-corpus
