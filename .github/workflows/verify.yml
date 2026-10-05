@@ -12,6 +12,8 @@ concurrency:
 jobs:
   arm-thumb:
     runs-on: ubuntu-24.04
+    env:
+      ARM_CLANG: /usr/local/lib/android/sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
     steps:
       - name: Check out exact native-ARM candidate
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
@@ -29,6 +31,15 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential curl ca-certificates clang lld file libgmp-dev qemu-user
+
+      - name: Select Android setup without retired tools package
+        uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407
+        with:
+          packages: platform-tools
+      - name: Install pinned NDK assembly and link toolchain
+        run: sdkmanager "ndk;29.0.14206865"
+      - name: Check exact NDK revision
+        run: grep -Fx 'Pkg.Revision = 29.0.14206865' /usr/local/lib/android/sdk/ndk/29.0.14206865/source.properties
 
       - name: Bootstrap pinned Idriç
         run: |

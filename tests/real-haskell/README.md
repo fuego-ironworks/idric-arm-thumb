@@ -46,3 +46,19 @@ This is a seed, not an attempt to crawl all of GitHub in one commit.  Good follo
 - state-machine transitions where the source is still small enough to preserve faithfully.
 
 A Real World Haskell book example can be added separately if useful, but the book material has a different CC BY-NC licensing story.  This seed sticks to the permissively licensed GHC and Aeson sources so copied excerpts can remain in a public compiler test repository without mixing licensing assumptions.
+
+## Retained native profile
+
+This corpus is historical research scaffolding, checked against the current
+`native-arm` line's declared immutable Idriç profile
+`081b9cde0591154839fb5d80d76e5570e0436300`. Its Float32-buffer sentinels are
+not a selected Boolean, text, node or ordinary browser-value ABI; #31's ordered
+language/memory gates remain authoritative for new implementation.
+
+The candidate's native assembly/link stages use Android NDK
+`29.0.14206865`, with the exact revision checked. `ci/build-toolchain.tsv`
+records ICK `73af2ef14fd81a1a4f2cf977aea87aa9d537cad8` and the absent
+qualification for these exact Thumb/VFP/STRH and freestanding Linux-QEMU
+translations. The GHC executable is a foreign reference oracle, not an
+alternative production compiler. None of these hosted receipts is a phone or
+tablet acceptance claim.

@@ -1,0 +1,3 @@
+build_id	target	toolchain	ick_revision	ick_status	ick_evidence
+native-abi-object	armeabi-v7a	ndk	73af2ef14fd81a1a4f2cf977aea87aa9d537cad8	gap:exact generated Thumb VFP STRH assembly has no ICK qualification receipt	https://github.com/dilapidated-shed/ick/blob/73af2ef14fd81a1a4f2cf977aea87aa9d537cad8/docs/android-release-gate.md
+native-qemu-link	linux-armv7-thumb2	ndk	73af2ef14fd81a1a4f2cf977aea87aa9d537cad8	gap:exact freestanding Linux QEMU oracle assembly and link has no ICK qualification receipt	https://github.com/dilapidated-shed/ick/blob/73af2ef14fd81a1a4f2cf977aea87aa9d537cad8/docs/android-release-gate.md
