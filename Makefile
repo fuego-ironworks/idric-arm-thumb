@@ -118,6 +118,7 @@ reject-invalid-int: $(DRIVER) tests/source/InvalidInt.idric
 	fi
 	grep -q 'arm-thumb rejected source ABI' $(INVALID_INT_LOG)
 	grep -q 'unsupported source primitive type' $(INVALID_INT_LOG)
+	test ! -e build/exec/invalid_int.arm-thumb.S
 
 reject-too-many-args: $(DRIVER) tests/source/TooManyArgs.idric
 	@set -e; \
@@ -130,6 +131,7 @@ reject-too-many-args: $(DRIVER) tests/source/TooManyArgs.idric
 	fi
 	grep -q 'arm-thumb rejected source ABI' $(TOO_MANY_ARGS_LOG)
 	grep -q 'more than four one-word arguments' $(TOO_MANY_ARGS_LOG)
+	test ! -e build/exec/too_many_args.arm-thumb.S
 
 reject-invalid-result: $(DRIVER) tests/source/InvalidResult.idric
 	@set -e; \
@@ -142,6 +144,7 @@ reject-invalid-result: $(DRIVER) tests/source/InvalidResult.idric
 	fi
 	grep -q 'arm-thumb rejected source ABI' $(INVALID_RESULT_LOG)
 	grep -q 'result must be RendererPrimitives.Float32' $(INVALID_RESULT_LOG)
+	test ! -e build/exec/invalid_result.arm-thumb.S
 
 reject: reject-invalid-int reject-too-many-args reject-invalid-result
 
