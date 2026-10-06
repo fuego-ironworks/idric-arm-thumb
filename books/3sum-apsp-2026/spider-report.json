@@ -1,0 +1,2392 @@
+{
+  "metadata_source": "Crossref",
+  "seed_count": 173,
+  "resolved_direct_count": 141,
+  "unresolved_direct_count": 32,
+  "direct_with_deposited_references": 108,
+  "direct_without_deposited_references": [
+    "ABFK24",
+    "ACW20",
+    "ADV+25",
+    "AGV15",
+    "AL25",
+    "AWY15",
+    "AY25",
+    "BIS17",
+    "BN21",
+    "CH20",
+    "Cha15",
+    "Chv79",
+    "Coo71",
+    "CW21",
+    "CX24",
+    "DKPV20",
+    "FJX25",
+    "Flo62",
+    "GM93",
+    "Kar72",
+    "KPP16",
+    "LU18",
+    "LVW18",
+    "Mey84",
+    "MS25",
+    "PS14",
+    "RV12",
+    "Sei95",
+    "Str73",
+    "TT00",
+    "Vas18",
+    "VXXZ24",
+    "Zwi06"
+  ],
+  "unique_second_hop_reference_count": 2396,
+  "resolved": {
+    "ABF23": {
+      "doi": "10.1145/3564246.3585240",
+      "title": "Stronger 3-SUM Lower Bounds for Approximate Distance Oracles via Additive Combinatorics",
+      "publication_year": 2023,
+      "reference_count": 67,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Stronger 3-SUM Lower Bounds for Approximate Distance Oracles via Additive Combinatorics",
+        "candidate_year": 2023,
+        "candidate_doi": "10.1145/3564246.3585240"
+      }
+    },
+    "ABFK24": {
+      "doi": "10.1137/1.9781611977912.167",
+      "title": "The Time Complexity of Fully Sparse Matrix Multiplication",
+      "publication_year": 2024,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "The Time Complexity of Fully Sparse Matrix Multiplication",
+        "candidate_year": 2024,
+        "candidate_doi": "10.1137/1.9781611977912.167"
+      }
+    },
+    "ABKZ22": {
+      "doi": "10.1145/3519935.3520066",
+      "title": "Hardness of approximation in p via short cycle removal: cycle detection, distance oracles, and beyond",
+      "publication_year": 2022,
+      "reference_count": 93,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Hardness of approximation in p via short cycle removal: cycle detection, distance oracles, and beyond",
+        "candidate_year": 2022,
+        "candidate_doi": "10.1145/3519935.3520066"
+      }
+    },
+    "AC05": {
+      "doi": "10.1145/1059513.1059515",
+      "title": "Lower bounds for linear degeneracy testing",
+      "publication_year": 2005,
+      "reference_count": 25,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Lower bounds for linear degeneracy testing",
+        "candidate_year": 2005,
+        "candidate_doi": "10.1145/1059513.1059515"
+      }
+    },
+    "ACJ+22": {
+      "doi": "10.1007/s00453-023-01102-6",
+      "title": "Improved Merlin–Arthur Protocols for Central Problems in Fine-Grained Complexity",
+      "publication_year": 2023,
+      "reference_count": 59,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.05,
+        "candidate_title": "Improved Merlin–Arthur Protocols for Central Problems in Fine-Grained Complexity",
+        "candidate_year": 2023,
+        "candidate_doi": "10.1007/s00453-023-01102-6"
+      }
+    },
+    "ACLL14": {
+      "doi": "10.1007/978-3-662-43948-7_10",
+      "title": "On Hardness of Jumbled Indexing",
+      "publication_year": 2014,
+      "reference_count": 42,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "On Hardness of Jumbled Indexing",
+        "candidate_year": 2014,
+        "candidate_doi": "10.1007/978-3-662-43948-7_10"
+      }
+    },
+    "ACW16": {
+      "doi": "10.1109/focs.2016.57",
+      "title": "Polynomial Representations of Threshold Functions and Algorithmic Applications",
+      "publication_year": 2016,
+      "reference_count": 56,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Polynomial Representations of Threshold Functions and Algorithmic Applications",
+        "candidate_year": 2016,
+        "candidate_doi": "10.1109/focs.2016.57"
+      }
+    },
+    "ACW20": {
+      "doi": "10.1137/1.9781611975994.39",
+      "title": "Faster Deterministic and Las Vegas Algorithms for Offline Approximate Nearest Neighbors in High Dimensions",
+      "publication_year": 2020,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Faster Deterministic and Las Vegas Algorithms for Offline Approximate Nearest Neighbors in High Dimensions",
+        "candidate_year": 2020,
+        "candidate_doi": "10.1137/1.9781611975994.39"
+      }
+    },
+    "ADV+25": {
+      "doi": "10.1137/1.9781611978322.63",
+      "title": "More Asymmetry Yields Faster Matrix Multiplication",
+      "publication_year": 2025,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "More Asymmetry Yields Faster Matrix Multiplication",
+        "candidate_year": 2025,
+        "candidate_doi": "10.1137/1.9781611978322.63"
+      }
+    },
+    "AFK+24": {
+      "doi": "10.1145/3618260.3649696",
+      "title": "New Graph Decompositions and Combinatorial Boolean Matrix Multiplication Algorithms",
+      "publication_year": 2024,
+      "reference_count": 65,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "New Graph Decompositions and Combinatorial Boolean Matrix Multiplication Algorithms",
+        "candidate_year": 2024,
+        "candidate_doi": "10.1145/3618260.3649696"
+      }
+    },
+    "AGHP92": {
+      "doi": "10.1002/rsa.3240030308",
+      "title": "Simple Constructions of Almost k‐wise Independent Random Variables",
+      "publication_year": 1992,
+      "reference_count": 31,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Simple Constructions of Almost k‐wise Independent Random Variables",
+        "candidate_year": 1992,
+        "candidate_doi": "10.1002/rsa.3240030308"
+      }
+    },
+    "AGM97": {
+      "doi": "10.1006/jcss.1997.1388",
+      "title": "On the Exponent of the All Pairs Shortest Path Problem",
+      "publication_year": 1997,
+      "reference_count": 14,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "On the Exponent of the All Pairs Shortest Path Problem",
+        "candidate_year": 1997,
+        "candidate_doi": "10.1006/jcss.1997.1388"
+      }
+    },
+    "AGMN92": {
+      "doi": "10.1109/sfcs.1992.267748",
+      "title": "Witnesses for Boolean matrix multiplication and for shortest paths",
+      "publication_year": 1992,
+      "reference_count": 6,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Witnesses for Boolean matrix multiplication and for shortest paths",
+        "candidate_year": 1992,
+        "candidate_doi": "10.1109/sfcs.1992.267748"
+      }
+    },
+    "AGV15": {
+      "doi": "10.1137/1.9781611973730.112",
+      "title": "Subcubic Equivalences Between Graph Centrality Problems, APSP and Diameter",
+      "publication_year": 2015,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Subcubic Equivalences Between Graph Centrality Problems, APSP and Diameter",
+        "candidate_year": 2015,
+        "candidate_doi": "10.1137/1.9781611973730.112"
+      }
+    },
+    "AGV23": {
+      "doi": "10.1145/3563393",
+      "title": "Subcubic Equivalences between Graph Centrality Problems, APSP, and Diameter",
+      "publication_year": 2023,
+      "reference_count": 66,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Subcubic Equivalences between Graph Centrality Problems, APSP, and Diameter",
+        "candidate_year": 2023,
+        "candidate_doi": "10.1145/3563393"
+      }
+    },
+    "AHP08": {
+      "doi": "10.1137/060669474",
+      "title": "On Approximating the Depth and Related Problems",
+      "publication_year": 2008,
+      "reference_count": 38,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "On Approximating the Depth and Related Problems",
+        "candidate_year": 2008,
+        "candidate_doi": "10.1137/060669474"
+      }
+    },
+    "AHY25": {
+      "doi": "10.1007/978-3-031-91098-2_14",
+      "title": "Fine-Grained Complexity in a World Without Cryptography",
+      "publication_year": 2025,
+      "reference_count": 72,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Fine-Grained Complexity in a World Without Cryptography",
+        "candidate_year": 2025,
+        "candidate_doi": "10.1007/978-3-031-91098-2_14"
+      }
+    },
+    "AL13": {
+      "doi": "10.1007/978-3-642-39206-1_1",
+      "title": "Exact Weight Subgraphs and the k-Sum Conjecture",
+      "publication_year": 2013,
+      "reference_count": 20,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Exact Weight Subgraphs and the k-Sum Conjecture",
+        "candidate_year": 2013,
+        "candidate_doi": "10.1007/978-3-642-39206-1_1"
+      }
+    },
+    "AL25": {
+      "doi": "10.1109/focs63196.2025.00074",
+      "title": "Kronecker Powers, Orthogonal Vectors, and the Asymptotic Spectrum",
+      "publication_year": 2025,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Kronecker Powers, Orthogonal Vectors, and the Asymptotic Spectrum",
+        "candidate_year": 2025,
+        "candidate_doi": "10.1109/focs63196.2025.00074"
+      }
+    },
+    "ALW14": {
+      "doi": "10.1007/978-3-662-44777-2_1",
+      "title": "Losing Weight by Gaining Edges",
+      "publication_year": 2014,
+      "reference_count": 30,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Losing Weight by Gaining Edges",
+        "candidate_year": 2014,
+        "candidate_doi": "10.1007/978-3-662-44777-2_1"
+      }
+    },
+    "AN96": {
+      "doi": "10.1007/bf01940874",
+      "title": "Derandomization, witnesses for Boolean matrix multiplication and construction of perfect hash functions",
+      "publication_year": 1996,
+      "reference_count": 30,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Derandomization, witnesses for Boolean matrix multiplication and construction of perfect hash functions",
+        "candidate_year": 1996,
+        "candidate_doi": "10.1007/bf01940874"
+      }
+    },
+    "AP09": {
+      "doi": "10.1145/1514894.1514909",
+      "title": "Faster join-projects and sparse matrix multiplications",
+      "publication_year": 2009,
+      "reference_count": 9,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Faster join-projects and sparse matrix multiplications",
+        "candidate_year": 2009,
+        "candidate_doi": "10.1145/1514894.1514909"
+      }
+    },
+    "AV14": {
+      "doi": "10.1109/focs.2014.53",
+      "title": "Popular Conjectures Imply Strong Lower Bounds for Dynamic Problems",
+      "publication_year": 2014,
+      "reference_count": 42,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Popular Conjectures Imply Strong Lower Bounds for Dynamic Problems",
+        "candidate_year": 2014,
+        "candidate_doi": "10.1109/focs.2014.53"
+      }
+    },
+    "AVW14": {
+      "doi": "10.1007/978-3-662-43948-7_4",
+      "title": "Consequences of Faster Alignment of Sequences",
+      "publication_year": 2014,
+      "reference_count": 53,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Consequences of Faster Alignment of Sequences",
+        "candidate_year": 2014,
+        "candidate_doi": "10.1007/978-3-662-43948-7_4"
+      }
+    },
+    "AVY15": {
+      "doi": "10.1145/2746539.2746594",
+      "title": "Matching Triangles and Basing Hardness on an Extremely Popular Conjecture",
+      "publication_year": 2015,
+      "reference_count": 74,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Matching Triangles and Basing Hardness on an Extremely Popular Conjecture",
+        "candidate_year": 2015,
+        "candidate_doi": "10.1145/2746539.2746594"
+      }
+    },
+    "AW15": {
+      "doi": "10.1109/focs.2015.18",
+      "title": "Probabilistic Polynomials and Hamming Nearest Neighbors",
+      "publication_year": 2015,
+      "reference_count": 32,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Probabilistic Polynomials and Hamming Nearest Neighbors",
+        "candidate_year": 2015,
+        "candidate_doi": "10.1109/focs.2015.18"
+      }
+    },
+    "AWY15": {
+      "doi": "10.1137/1.9781611973730.17",
+      "title": "More Applications of the Polynomial Method to Algorithm Design",
+      "publication_year": 2015,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "More Applications of the Polynomial Method to Algorithm Design",
+        "candidate_year": 2015,
+        "candidate_doi": "10.1137/1.9781611973730.17"
+      }
+    },
+    "AY25": {
+      "doi": "10.1137/1.9781611978322.61",
+      "title": "Improving the Leading Constant of Matrix Multiplication",
+      "publication_year": 2025,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Improving the Leading Constant of Matrix Multiplication",
+        "candidate_year": 2025,
+        "candidate_doi": "10.1137/1.9781611978322.61"
+      }
+    },
+    "AYZ97": {
+      "doi": "10.1007/bf02523189",
+      "title": "Finding and counting given length cycles",
+      "publication_year": 1997,
+      "reference_count": 16,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Finding and counting given length cycles",
+        "candidate_year": 1997,
+        "candidate_doi": "10.1007/bf02523189"
+      }
+    },
+    "BB15": {
+      "doi": "10.1145/2688500.2688513",
+      "title": "A framework for practical parallel fast matrix multiplication",
+      "publication_year": 2015,
+      "reference_count": 37,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "A framework for practical parallel fast matrix multiplication",
+        "candidate_year": 2015,
+        "candidate_doi": "10.1145/2688500.2688513"
+      }
+    },
+    "BCD+14": {
+      "doi": "10.1007/s00453-012-9734-3",
+      "title": "Necklaces, Convolutions, and X+Y",
+      "publication_year": 2014,
+      "reference_count": 40,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Necklaces, Convolutions, and X+Y",
+        "candidate_year": 2014,
+        "candidate_doi": "10.1007/s00453-012-9734-3"
+      }
+    },
+    "BDP08": {
+      "doi": "10.1007/s00453-007-9036-3",
+      "title": "Subquadratic Algorithms for 3SUM",
+      "publication_year": 2008,
+      "reference_count": 11,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Subquadratic Algorithms for 3SUM",
+        "candidate_year": 2008,
+        "candidate_doi": "10.1007/s00453-007-9036-3"
+      }
+    },
+    "BGMW20": {
+      "doi": "10.1145/3381878",
+      "title": "Tree Edit Distance Cannot be Computed in Strongly Subcubic Time (Unless APSP Can)",
+      "publication_year": 2020,
+      "reference_count": 65,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Tree Edit Distance Cannot be Computed in Strongly Subcubic Time (Unless APSP Can)",
+        "candidate_year": 2020,
+        "candidate_doi": "10.1145/3381878"
+      }
+    },
+    "BHKK10": {
+      "doi": "10.1007/s00224-009-9185-7",
+      "title": "Trimmed Moebius Inversion and Graphs of Bounded Degree",
+      "publication_year": 2010,
+      "reference_count": 18,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Trimmed Moebius Inversion and Graphs of Bounded Degree",
+        "candidate_year": 2010,
+        "candidate_doi": "10.1007/s00224-009-9185-7"
+      }
+    },
+    "BHP01": {
+      "doi": "10.1142/s0218195901000596",
+      "title": "POLYGON CONTAINMENT AND TRANSLATIONAL IN-HAUSDORFF-DISTANCE BETWEEN SEGMENT SETS ARE 3SUM-HARD",
+      "publication_year": 2001,
+      "reference_count": 7,
+      "diagnostic": {
+        "title_similarity": 0.9947089947089947,
+        "score": 1.0747089947089947,
+        "candidate_title": "POLYGON CONTAINMENT AND TRANSLATIONAL IN-HAUSDORFF-DISTANCE BETWEEN SEGMENT SETS ARE 3SUM-HARD",
+        "candidate_year": 2001,
+        "candidate_doi": "10.1142/s0218195901000596"
+      }
+    },
+    "Bin80": {
+      "doi": "10.1007/bf02575865",
+      "title": "Relations between exact and approximate bilinear algorithms. Applications",
+      "publication_year": 1980,
+      "reference_count": 12,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Relations between exact and approximate bilinear algorithms. Applications",
+        "candidate_year": 1980,
+        "candidate_doi": "10.1007/bf02575865"
+      }
+    },
+    "BIS17": {
+      "doi": "10.1137/1.9781611974782.145",
+      "title": "Better Approximations for Tree Sparsity in Nearly-Linear Time",
+      "publication_year": 2017,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Better Approximations for Tree Sparsity in Nearly-Linear Time",
+        "candidate_year": 2017,
+        "candidate_doi": "10.1137/1.9781611974782.145"
+      }
+    },
+    "BN21": {
+      "doi": "10.1137/1.9781611976465.108",
+      "title": "A Fine-Grained Perspective on Approximating Subset Sum and Partition",
+      "publication_year": 2021,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "A Fine-Grained Perspective on Approximating Subset Sum and Partition",
+        "candidate_year": 2021,
+        "candidate_doi": "10.1137/1.9781611976465.108"
+      }
+    },
+    "Bri24": {
+      "doi": "10.1145/3618260.3649719",
+      "title": "Knapsack with Small Items in Near-Quadratic Time",
+      "publication_year": 2024,
+      "reference_count": 42,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Knapsack with Small Items in Near-Quadratic Time",
+        "candidate_year": 2024,
+        "candidate_doi": "10.1145/3618260.3649719"
+      }
+    },
+    "BS19": {
+      "doi": "10.1145/3323165.3323188",
+      "title": "Faster Matrix Multiplication via Sparse Decomposition",
+      "publication_year": 2019,
+      "reference_count": 37,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Faster Matrix Multiplication via Sparse Decomposition",
+        "candidate_year": 2019,
+        "candidate_doi": "10.1145/3323165.3323188"
+      }
+    },
+    "BW09": {
+      "doi": "10.1109/focs.2009.76",
+      "title": "Regularity Lemmas and Combinatorial Algorithms",
+      "publication_year": 2009,
+      "reference_count": 49,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Regularity Lemmas and Combinatorial Algorithms",
+        "candidate_year": 2009,
+        "candidate_doi": "10.1109/focs.2009.76"
+      }
+    },
+    "CDL+16": {
+      "doi": "10.1145/2925416",
+      "title": "On Problems as Hard as CNF-SAT",
+      "publication_year": 2016,
+      "reference_count": 31,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "On Problems as Hard as CNF-SAT",
+        "candidate_year": 2016,
+        "candidate_doi": "10.1145/2925416"
+      }
+    },
+    "CGI+16": {
+      "doi": "10.1145/2840728.2840746",
+      "title": "Nondeterministic Extensions of the Strong Exponential Time Hypothesis and Consequences for Non-reducibility",
+      "publication_year": 2016,
+      "reference_count": 33,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Nondeterministic Extensions of the Strong Exponential Time Hypothesis and Consequences for Non-reducibility",
+        "candidate_year": 2016,
+        "candidate_doi": "10.1145/2840728.2840746"
+      }
+    },
+    "CH20": {
+      "doi": "10.1137/1.9781611976014.1",
+      "title": "Reducing 3SUM to Convolution-3SUM",
+      "publication_year": 2020,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Reducing 3SUM to Convolution-3SUM",
+        "candidate_year": 2020,
+        "candidate_doi": "10.1137/1.9781611976014.1"
+      }
+    },
+    "Cha08": {
+      "doi": "10.1007/s00453-007-9062-1",
+      "title": "All-Pairs Shortest Paths with Real Weights in O(n 3/log n) Time",
+      "publication_year": 2008,
+      "reference_count": 26,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "All-Pairs Shortest Paths with Real Weights in O(n 3/log n) Time",
+        "candidate_year": 2008,
+        "candidate_doi": "10.1007/s00453-007-9062-1"
+      }
+    },
+    "Cha10": {
+      "doi": "10.1137/08071990x",
+      "title": "More Algorithms for All-Pairs Shortest Paths in Weighted Graphs",
+      "publication_year": 2010,
+      "reference_count": 42,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "More Algorithms for All-Pairs Shortest Paths in Weighted Graphs",
+        "candidate_year": 2010,
+        "candidate_doi": "10.1137/08071990x"
+      }
+    },
+    "Cha15": {
+      "doi": "10.1137/1.9781611973730.16",
+      "title": "Speeding up the Four Russians Algorithm by About One More Logarithmic Factor",
+      "publication_year": 2015,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Speeding up the Four Russians Algorithm by About One More Logarithmic Factor",
+        "candidate_year": 2015,
+        "candidate_doi": "10.1137/1.9781611973730.16"
+      }
+    },
+    "Cha20": {
+      "doi": "10.1145/3363541",
+      "title": "More Logarithmic-factor Speedups for 3SUM, (median,+)-convolution, and Some Geometric 3SUM-hard Problems",
+      "publication_year": 2020,
+      "reference_count": 31,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "More Logarithmic-factor Speedups for 3SUM, (median,+)-convolution, and Some Geometric 3SUM-hard Problems",
+        "candidate_year": 2020,
+        "candidate_doi": "10.1145/3363541"
+      }
+    },
+    "Chv79": {
+      "doi": "10.1287/moor.4.3.233",
+      "title": "A Greedy Heuristic for the Set-Covering Problem",
+      "publication_year": 1979,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "A Greedy Heuristic for the Set-Covering Problem",
+        "candidate_year": 1979,
+        "candidate_doi": "10.1287/moor.4.3.233"
+      }
+    },
+    "CIP10": {
+      "doi": "10.1007/978-3-642-17493-3_7",
+      "title": "On the Exact Complexity of Evaluating Quantified k-CNF",
+      "publication_year": 2010,
+      "reference_count": 20,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "On the Exact Complexity of Evaluating Quantified k-CNF",
+        "candidate_year": 2010,
+        "candidate_doi": "10.1007/978-3-642-17493-3_7"
+      }
+    },
+    "CMWW19": {
+      "doi": "10.1145/3293465",
+      "title": "On Problems Equivalent to (min,+)-Convolution",
+      "publication_year": 2019,
+      "reference_count": 51,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "On Problems Equivalent to (min,+)-Convolution",
+        "candidate_year": 2019,
+        "candidate_doi": "10.1145/3293465"
+      }
+    },
+    "CN85": {
+      "doi": "10.1137/0214017",
+      "title": "Arboricity and Subgraph Listing Algorithms",
+      "publication_year": 1985,
+      "reference_count": 11,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Arboricity and Subgraph Listing Algorithms",
+        "candidate_year": 1985,
+        "candidate_doi": "10.1137/0214017"
+      }
+    },
+    "Coo71": {
+      "doi": "10.1145/800157.805047",
+      "title": "The complexity of theorem-proving procedures",
+      "publication_year": 1971,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "The complexity of theorem-proving procedures",
+        "candidate_year": 1971,
+        "candidate_doi": "10.1145/800157.805047"
+      }
+    },
+    "Cop82": {
+      "doi": "10.1137/0211037",
+      "title": "Rapid Multiplication of Rectangular Matrices",
+      "publication_year": 1982,
+      "reference_count": 4,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Rapid Multiplication of Rectangular Matrices",
+        "candidate_year": 1982,
+        "candidate_doi": "10.1137/0211037"
+      }
+    },
+    "Cop97": {
+      "doi": "10.1006/jcom.1997.0438",
+      "title": "Rectangular Matrix Multiplication Revisited",
+      "publication_year": 1997,
+      "reference_count": 7,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Rectangular Matrix Multiplication Revisited",
+        "candidate_year": 1997,
+        "candidate_doi": "10.1006/jcom.1997.0438"
+      }
+    },
+    "CP10": {
+      "doi": "10.1016/j.tcs.2010.06.002",
+      "title": "Fast set intersection and two-patterns matching",
+      "publication_year": 2010,
+      "reference_count": 8,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Fast set intersection and two-patterns matching",
+        "candidate_year": 2010,
+        "candidate_doi": "10.1016/j.tcs.2010.06.002"
+      }
+    },
+    "CT65": {
+      "doi": "10.1090/s0025-5718-1965-0178586-1",
+      "title": "An algorithm for the machine calculation of complex Fourier series",
+      "publication_year": 1965,
+      "reference_count": 2,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "An algorithm for the machine calculation of complex Fourier series",
+        "candidate_year": 1965,
+        "candidate_doi": "10.1090/s0025-5718-1965-0178586-1"
+      }
+    },
+    "CVX22": {
+      "doi": "10.1145/3519935.3520032",
+      "title": "Hardness for triangle problems under even more believable hypotheses: reductions from real APSP, real 3SUM, and OV",
+      "publication_year": 2022,
+      "reference_count": 60,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Hardness for triangle problems under even more believable hypotheses: reductions from real APSP, real 3SUM, and OV",
+        "candidate_year": 2022,
+        "candidate_doi": "10.1145/3519935.3520032"
+      }
+    },
+    "CVX23": {
+      "doi": "10.1145/3564246.3585237",
+      "title": "Fredman’s Trick Meets Dominance Product: Fine-Grained Complexity of Unweighted APSP, 3SUM Counting, and More",
+      "publication_year": 2023,
+      "reference_count": 74,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Fredman’s Trick Meets Dominance Product: Fine-Grained Complexity of Unweighted APSP, 3SUM Counting, and More",
+        "candidate_year": 2023,
+        "candidate_doi": "10.1145/3564246.3585237"
+      }
+    },
+    "CW90": {
+      "doi": "10.1016/s0747-7171(08)80013-2",
+      "title": "Matrix multiplication via arithmetic progressions",
+      "publication_year": 1990,
+      "reference_count": 9,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Matrix multiplication via arithmetic progressions",
+        "candidate_year": 1990,
+        "candidate_doi": "10.1016/s0747-7171(08)80013-2"
+      }
+    },
+    "CW21": {
+      "doi": "10.1137/1.9781611974331.ch87",
+      "title": "Deterministic APSP, Orthogonal Vectors, and More: Quickly Derandomizing Razborov-Smolensky",
+      "publication_year": 2016,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.04,
+        "candidate_title": "Deterministic APSP, Orthogonal Vectors, and More: Quickly Derandomizing Razborov-Smolensky",
+        "candidate_year": 2016,
+        "candidate_doi": "10.1137/1.9781611974331.ch87"
+      }
+    },
+    "CX24": {
+      "doi": "10.1137/1.9781611977936.4",
+      "title": "Simpler Reductions from Exact Triangle",
+      "publication_year": 2024,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Simpler Reductions from Exact Triangle",
+        "candidate_year": 2024,
+        "candidate_doi": "10.1137/1.9781611977936.4"
+      }
+    },
+    "DGS20": {
+      "doi": "10.1145/3357713.3384275",
+      "title": "All non-trivial variants of 3-LDT are equivalent",
+      "publication_year": 2020,
+      "reference_count": 56,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "All non-trivial variants of 3-LDT are equivalent",
+        "candidate_year": 2020,
+        "candidate_doi": "10.1145/3357713.3384275"
+      }
+    },
+    "DKPV20": {
+      "doi": "10.1137/1.9781611975994.3",
+      "title": "Equivalences between triangle and range query problems",
+      "publication_year": 2020,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Equivalences between triangle and range query problems",
+        "candidate_year": 2020,
+        "candidate_doi": "10.1137/1.9781611975994.3"
+      }
+    },
+    "DMRW09": {
+      "doi": "10.1145/1644015.1644017",
+      "title": "An optimal decomposition algorithm for tree edit distance",
+      "publication_year": 2009,
+      "reference_count": 20,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "An optimal decomposition algorithm for tree edit distance",
+        "candidate_year": 2009,
+        "candidate_doi": "10.1145/1644015.1644017"
+      }
+    },
+    "Dob90": {
+      "doi": "10.1080/00207169008803814",
+      "title": "A more efficient algorithm for the min-plus multiplication",
+      "publication_year": 1990,
+      "reference_count": 9,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "A more efficient algorithm for the min-plus multiplication",
+        "candidate_year": 1990,
+        "candidate_doi": "10.1080/00207169008803814"
+      }
+    },
+    "Dür23": {
+      "doi": "10.1016/j.ipl.2023.106358",
+      "title": "Improved bounds for rectangular monotone Min-Plus Product and applications",
+      "publication_year": 2023,
+      "reference_count": 23,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Improved bounds for rectangular monotone Min-Plus Product and applications",
+        "candidate_year": 2023,
+        "candidate_doi": "10.1016/j.ipl.2023.106358"
+      }
+    },
+    "FBH+22": {
+      "doi": "10.1038/s41586-022-05172-4",
+      "title": "Discovering faster matrix multiplication algorithms with reinforcement learning",
+      "publication_year": 2022,
+      "reference_count": 64,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Discovering faster matrix multiplication algorithms with reinforcement learning",
+        "candidate_year": 2022,
+        "candidate_doi": "10.1038/s41586-022-05172-4"
+      }
+    },
+    "Fis26": {
+      "doi": "10.1145/3798129.3800806",
+      "title": "Universe Reduction for APSP: Equivalence of Three Fine-Grained Hypotheses",
+      "publication_year": 2026,
+      "reference_count": 91,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Universe Reduction for APSP: Equivalence of Three Fine-Grained Hypotheses",
+        "candidate_year": 2026,
+        "candidate_doi": "10.1145/3798129.3800806"
+      }
+    },
+    "FJX25": {
+      "doi": "10.1137/1.9781611978322.156",
+      "title": "New Applications of 3SUM-Counting in Fine-Grained Complexity and Pattern Matching",
+      "publication_year": 2025,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "New Applications of 3SUM-Counting in Fine-Grained Complexity and Pattern Matching",
+        "candidate_year": 2025,
+        "candidate_doi": "10.1137/1.9781611978322.156"
+      }
+    },
+    "Flo62": {
+      "doi": "10.1145/367766.368168",
+      "title": "Algorithm 97: Shortest path",
+      "publication_year": 1962,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Algorithm 97: Shortest path",
+        "candidate_year": 1962,
+        "candidate_doi": "10.1145/367766.368168"
+      }
+    },
+    "FM71": {
+      "doi": "10.1109/swat.1971.4",
+      "title": "Boolean matrix multiplication and transitive closure",
+      "publication_year": 1971,
+      "reference_count": 10,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Boolean matrix multiplication and transitive closure",
+        "candidate_year": 1971,
+        "candidate_doi": "10.1109/swat.1971.4"
+      }
+    },
+    "Fre76": {
+      "doi": "10.1137/0205006",
+      "title": "New Bounds on the Complexity of the Shortest Path Problem",
+      "publication_year": 1976,
+      "reference_count": 12,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "New Bounds on the Complexity of the Shortest Path Problem",
+        "candidate_year": 1976,
+        "candidate_doi": "10.1137/0205006"
+      }
+    },
+    "GGH+20": {
+      "doi": "10.1145/3357713.3384342",
+      "title": "Data structures meet cryptography: 3SUM with preprocessing",
+      "publication_year": 2020,
+      "reference_count": 82,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Data structures meet cryptography: 3SUM with preprocessing",
+        "candidate_year": 2020,
+        "candidate_doi": "10.1145/3357713.3384342"
+      }
+    },
+    "GKLP17": {
+      "doi": "10.1007/978-3-319-62127-2_36",
+      "title": "Conditional Lower Bounds for Space/Time Tradeoffs",
+      "publication_year": 2017,
+      "reference_count": 30,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Conditional Lower Bounds for Space/Time Tradeoffs",
+        "candidate_year": 2017,
+        "candidate_doi": "10.1007/978-3-319-62127-2_36"
+      }
+    },
+    "GM93": {
+      "doi": "10.1006/jcom.1993.1014",
+      "title": "Witnesses for Boolean Matrix Multiplication and for Transitive Closure",
+      "publication_year": 1993,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Witnesses for Boolean Matrix Multiplication and for Transitive Closure",
+        "candidate_year": 1993,
+        "candidate_doi": "10.1006/jcom.1993.1014"
+      }
+    },
+    "GO95": {
+      "doi": "10.1016/0925-7721(95)00022-2",
+      "title": "On a class of O(n2) problems in computational geometry",
+      "publication_year": 1995,
+      "reference_count": 23,
+      "diagnostic": {
+        "title_similarity": 0.9906542056074766,
+        "score": 1.0706542056074766,
+        "candidate_title": "On a class of O(n2) problems in computational geometry",
+        "candidate_year": 1995,
+        "candidate_doi": "10.1016/0925-7721(95)00022-2"
+      }
+    },
+    "Goo58": {
+      "doi": "10.1111/j.2517-6161.1958.tb00300.x",
+      "title": "The Interaction Algorithm and Practical Fourier Analysis",
+      "publication_year": 1958,
+      "reference_count": 9,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "The Interaction Algorithm and Practical Fourier Analysis",
+        "candidate_year": 1958,
+        "candidate_doi": "10.1111/j.2517-6161.1958.tb00300.x"
+      }
+    },
+    "GP18": {
+      "doi": "10.1145/3185378",
+      "title": "Threesomes, Degenerates, and Love Triangles",
+      "publication_year": 2018,
+      "reference_count": 71,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.04,
+        "candidate_title": "Threesomes, Degenerates, and Love Triangles",
+        "candidate_year": 2018,
+        "candidate_doi": "10.1145/3185378"
+      }
+    },
+    "Han04": {
+      "doi": "10.1016/j.ipl.2004.05.006",
+      "title": "Improved algorithm for all pairs shortest paths",
+      "publication_year": 2004,
+      "reference_count": 11,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Improved algorithm for all pairs shortest paths",
+        "candidate_year": 2004,
+        "candidate_doi": "10.1016/j.ipl.2004.05.006"
+      }
+    },
+    "Han08": {
+      "doi": "10.1007/s00453-007-9063-0",
+      "title": "An O(n 3(log log n/log n)5/4) Time Algorithm for All Pairs Shortest Path",
+      "publication_year": 2008,
+      "reference_count": 21,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "An O(n 3(log log n/log n)5/4) Time Algorithm for All Pairs Shortest Path",
+        "candidate_year": 2008,
+        "candidate_doi": "10.1007/s00453-007-9063-0"
+      }
+    },
+    "Her14": {
+      "doi": "10.1137/120868177",
+      "title": "3-SAT Faster and Simpler---Unique-SAT Bounds for PPSZ Hold in General",
+      "publication_year": 2014,
+      "reference_count": 12,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "3-SAT Faster and Simpler---Unique-SAT Bounds for PPSZ Hold in General",
+        "candidate_year": 2014,
+        "candidate_doi": "10.1137/120868177"
+      }
+    },
+    "HKNS15": {
+      "doi": "10.1145/2746539.2746609",
+      "title": "Unifying and Strengthening Hardness for Dynamic Problems via the Online Matrix-Vector Multiplication Conjecture",
+      "publication_year": 2015,
+      "reference_count": 48,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Unifying and Strengthening Hardness for Dynamic Problems via the Online Matrix-Vector Multiplication Conjecture",
+        "candidate_year": 2015,
+        "candidate_doi": "10.1145/2746539.2746609"
+      }
+    },
+    "HLS24": {
+      "doi": "10.1109/focs61266.2024.00121",
+      "title": "Dynamic Deterministic Constant-Approximate Distance Oracles with $n^{\\epsilon}$ Worst-Case Update Time",
+      "publication_year": 2024,
+      "reference_count": 77,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Dynamic Deterministic Constant-Approximate Distance Oracles with $n^{\\epsilon}$ Worst-Case Update Time",
+        "candidate_year": 2024,
+        "candidate_doi": "10.1109/focs61266.2024.00121"
+      }
+    },
+    "HT16": {
+      "doi": "10.1007/s00453-007-9063-0",
+      "title": "An O(n 3(log log n/log n)5/4) Time Algorithm for All Pairs Shortest Path",
+      "publication_year": 2008,
+      "reference_count": 21,
+      "diagnostic": {
+        "title_similarity": 0.950354609929078,
+        "score": 0.9903546099290781,
+        "candidate_title": "An O(n 3(log log n/log n)5/4) Time Algorithm for All Pairs Shortest Path",
+        "candidate_year": 2008,
+        "candidate_doi": "10.1007/s00453-007-9063-0"
+      }
+    },
+    "IP01": {
+      "doi": "10.1109/ccc.1999.766282",
+      "title": "Complexity of k-SAT",
+      "publication_year": null,
+      "reference_count": 19,
+      "diagnostic": {
+        "title_similarity": 0.8444444444444444,
+        "score": 0.8844444444444445,
+        "candidate_title": "Complexity of k-SAT",
+        "candidate_year": null,
+        "candidate_doi": "10.1109/ccc.1999.766282"
+      }
+    },
+    "IPZ01": {
+      "doi": "10.1006/jcss.2001.1774",
+      "title": "Which Problems Have Strongly Exponential Complexity?",
+      "publication_year": 2001,
+      "reference_count": 38,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Which Problems Have Strongly Exponential Complexity?",
+        "candidate_year": 2001,
+        "candidate_doi": "10.1006/jcss.2001.1774"
+      }
+    },
+    "IR78": {
+      "doi": "10.1137/0207033",
+      "title": "Finding a Minimum Circuit in a Graph",
+      "publication_year": 1978,
+      "reference_count": 10,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Finding a Minimum Circuit in a Graph",
+        "candidate_year": 1978,
+        "candidate_doi": "10.1137/0207033"
+      }
+    },
+    "Jin24": {
+      "doi": "10.1145/3618260.3649618",
+      "title": "0-1 Knapsack in Nearly Quadratic Time",
+      "publication_year": 2024,
+      "reference_count": 59,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "0-1 Knapsack in Nearly Quadratic Time",
+        "candidate_year": 2024,
+        "candidate_doi": "10.1145/3618260.3649618"
+      }
+    },
+    "Joh77": {
+      "doi": "10.1145/321992.321993",
+      "title": "Efficient Algorithms for Shortest Paths in Sparse Networks",
+      "publication_year": 1977,
+      "reference_count": 32,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Efficient Algorithms for Shortest Paths in Sparse Networks",
+        "candidate_year": 1977,
+        "candidate_doi": "10.1145/321992.321993"
+      }
+    },
+    "JX23": {
+      "doi": "10.1145/3564246.3585157",
+      "title": "Removing Additive Structure in 3SUM-Based Reductions",
+      "publication_year": 2023,
+      "reference_count": 69,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Removing Additive Structure in 3SUM-Based Reductions",
+        "candidate_year": 2023,
+        "candidate_doi": "10.1145/3564246.3585157"
+      }
+    },
+    "Kar72": {
+      "doi": "10.1007/978-1-4684-2001-2_9",
+      "title": "Reducibility among Combinatorial Problems",
+      "publication_year": 1972,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Reducibility among Combinatorial Problems",
+        "candidate_year": 1972,
+        "candidate_doi": "10.1007/978-1-4684-2001-2_9"
+      }
+    },
+    "KKP93": {
+      "doi": "10.1137/0222071",
+      "title": "Finding the Hidden Path: Time Bounds for All-Pairs Shortest Paths",
+      "publication_year": 1993,
+      "reference_count": 34,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Finding the Hidden Path: Time Bounds for All-Pairs Shortest Paths",
+        "candidate_year": 1993,
+        "candidate_doi": "10.1137/0222071"
+      }
+    },
+    "KLM19": {
+      "doi": "10.1145/3285953",
+      "title": "Near-optimal Linear Decision Trees for k-SUM and Related Problems",
+      "publication_year": 2019,
+      "reference_count": 26,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Near-optimal Linear Decision Trees for k-SUM and Related Problems",
+        "candidate_year": 2019,
+        "candidate_doi": "10.1145/3285953"
+      }
+    },
+    "KM23": {
+      "doi": "10.1145/3597066.3597120",
+      "title": "Flip Graphs for Matrix Multiplication",
+      "publication_year": 2023,
+      "reference_count": 20,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Flip Graphs for Matrix Multiplication",
+        "candidate_year": 2023,
+        "candidate_doi": "10.1145/3597066.3597120"
+      }
+    },
+    "KPP16": {
+      "doi": "10.1137/1.9781611974331.ch89",
+      "title": "Higher Lower Bounds from the 3SUM Conjecture",
+      "publication_year": 2016,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Higher Lower Bounds from the 3SUM Conjecture",
+        "candidate_year": 2016,
+        "candidate_doi": "10.1137/1.9781611974331.ch89"
+      }
+    },
+    "KS20": {
+      "doi": "10.1145/3364504",
+      "title": "Matrix Multiplication, a Little Faster",
+      "publication_year": 2020,
+      "reference_count": 59,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Matrix Multiplication, a Little Faster",
+        "candidate_year": 2020,
+        "candidate_doi": "10.1145/3364504"
+      }
+    },
+    "LG12": {
+      "doi": "10.1109/focs.2012.80",
+      "title": "Faster Algorithms for Rectangular Matrix Multiplication",
+      "publication_year": 2012,
+      "reference_count": 29,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.04,
+        "candidate_title": "Faster Algorithms for Rectangular Matrix Multiplication",
+        "candidate_year": 2012,
+        "candidate_doi": "10.1109/focs.2012.80"
+      }
+    },
+    "LLV19": {
+      "doi": "10.1007/978-3-030-26954-8_20",
+      "title": "Public-Key Cryptography in the Fine-Grained Setting",
+      "publication_year": 2019,
+      "reference_count": 57,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Public-Key Cryptography in the Fine-Grained Setting",
+        "candidate_year": 2019,
+        "candidate_doi": "10.1007/978-3-030-26954-8_20"
+      }
+    },
+    "Lov75": {
+      "doi": "10.1016/0012-365x(75)90058-8",
+      "title": "On the ratio of optimal integral and fractional covers",
+      "publication_year": 1975,
+      "reference_count": 14,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "On the ratio of optimal integral and fractional covers",
+        "candidate_year": 1975,
+        "candidate_doi": "10.1016/0012-365x(75)90058-8"
+      }
+    },
+    "LU18": {
+      "doi": "10.1137/1.9781611975031.67",
+      "title": "Improved Rectangular Matrix Multiplication using Powers of the Coppersmith-Winograd Tensor",
+      "publication_year": 2018,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Improved Rectangular Matrix Multiplication using Powers of the Coppersmith-Winograd Tensor",
+        "candidate_year": 2018,
+        "candidate_doi": "10.1137/1.9781611975031.67"
+      }
+    },
+    "LVW18": {
+      "doi": "10.1137/1.9781611975031.80",
+      "title": "Tight Hardness for Shortest Cycles and Paths in Sparse Graphs",
+      "publication_year": 2018,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Tight Hardness for Shortest Cycles and Paths in Sparse Graphs",
+        "candidate_year": 2018,
+        "candidate_doi": "10.1137/1.9781611975031.80"
+      }
+    },
+    "Mao21": {
+      "doi": "10.1109/focs52979.2021.00082",
+      "title": "Breaking the Cubic Barrier for (Unweighted) Tree Edit Distance",
+      "publication_year": 2022,
+      "reference_count": 32,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.05,
+        "candidate_title": "Breaking the Cubic Barrier for (Unweighted) Tree Edit Distance",
+        "candidate_year": 2022,
+        "candidate_doi": "10.1109/focs52979.2021.00082"
+      }
+    },
+    "Mar71": {
+      "doi": "10.1109/tau.1971.1162205",
+      "title": "FFT pruning",
+      "publication_year": 1971,
+      "reference_count": 9,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "FFT pruning",
+        "candidate_year": 1971,
+        "candidate_doi": "10.1109/tau.1971.1162205"
+      }
+    },
+    "Mat91": {
+      "doi": "10.1016/0020-0190(91)90071-o",
+      "title": "Computing dominances in En",
+      "publication_year": 1991,
+      "reference_count": 3,
+      "diagnostic": {
+        "title_similarity": 0.9811320754716981,
+        "score": 1.0611320754716982,
+        "candidate_title": "Computing dominances in En",
+        "candidate_year": 1991,
+        "candidate_doi": "10.1016/0020-0190(91)90071-o"
+      }
+    },
+    "Mey84": {
+      "doi": "10.1145/800061.808734",
+      "title": "A polynomial linear search algorithm for the n-dimensional knapsack problem",
+      "publication_year": 1983,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.05,
+        "candidate_title": "A polynomial linear search algorithm for the n-dimensional knapsack problem",
+        "candidate_year": 1983,
+        "candidate_doi": "10.1145/800061.808734"
+      }
+    },
+    "MS25": {
+      "doi": "10.1137/1.9781611979084.4",
+      "title": "The Number of the Beast: Reducing Additions in Fast Matrix Multiplication Algorithms for Dimensions up to 666",
+      "publication_year": 2025,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "The Number of the Beast: Reducing Additions in Fast Matrix Multiplication Algorithms for Dimensions up to 666",
+        "candidate_year": 2025,
+        "candidate_doi": "10.1137/1.9781611979084.4"
+      }
+    },
+    "NPS+25": {
+      "doi": "10.1145/3717823.3718116",
+      "title": "Faster Weighted and Unweighted Tree Edit Distance and APSP Equivalence",
+      "publication_year": 2025,
+      "reference_count": 70,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Faster Weighted and Unweighted Tree Edit Distance and APSP Equivalence",
+        "candidate_year": 2025,
+        "candidate_doi": "10.1145/3717823.3718116"
+      }
+    },
+    "Păt10": {
+      "doi": "10.1145/1806689.1806772",
+      "title": "Towards polynomial lower bounds for dynamic problems",
+      "publication_year": 2010,
+      "reference_count": 23,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Towards polynomial lower bounds for dynamic problems",
+        "candidate_year": 2010,
+        "candidate_doi": "10.1145/1806689.1806772"
+      }
+    },
+    "PPSZ05": {
+      "doi": "10.1109/sfcs.1998.743513",
+      "title": "An improved exponential-time algorithm for k-SAT",
+      "publication_year": null,
+      "reference_count": 13,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.04,
+        "candidate_title": "An improved exponential-time algorithm for k-SAT",
+        "candidate_year": null,
+        "candidate_doi": "10.1109/sfcs.1998.743513"
+      }
+    },
+    "PS14": {
+      "doi": "10.1007/978-3-662-44777-2_62",
+      "title": "The Input/Output Complexity of Sparse Matrix Multiplication",
+      "publication_year": 2014,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "The Input/Output Complexity of Sparse Matrix Multiplication",
+        "candidate_year": 2014,
+        "candidate_doi": "10.1007/978-3-662-44777-2_62"
+      }
+    },
+    "RV11": {
+      "doi": "10.1109/focs.2011.27",
+      "title": "Minimum Weight Cycles and Triangles: Equivalences and Algorithms",
+      "publication_year": 2011,
+      "reference_count": 22,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Minimum Weight Cycles and Triangles: Equivalences and Algorithms",
+        "candidate_year": 2011,
+        "candidate_doi": "10.1109/focs.2011.27"
+      }
+    },
+    "RV12": {
+      "doi": "10.1137/1.9781611973099.67",
+      "title": "Subquadratic time approximation algorithms for the girth",
+      "publication_year": 2012,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Subquadratic time approximation algorithms for the girth",
+        "candidate_year": 2012,
+        "candidate_doi": "10.1137/1.9781611973099.67"
+      }
+    },
+    "RZ04": {
+      "doi": "10.1007/978-3-540-30140-0_52",
+      "title": "On Dynamic Shortest Paths Problems",
+      "publication_year": 2004,
+      "reference_count": 30,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "On Dynamic Shortest Paths Problems",
+        "candidate_year": 2004,
+        "candidate_doi": "10.1007/978-3-540-30140-0_52"
+      }
+    },
+    "San04": {
+      "doi": "10.1109/focs.2004.25",
+      "title": "Dynamic Transitive Closure via Dynamic Matrix Inverse (Extended Abstract)",
+      "publication_year": null,
+      "reference_count": 24,
+      "diagnostic": {
+        "title_similarity": 0.8548387096774194,
+        "score": 0.8948387096774194,
+        "candidate_title": "Dynamic Transitive Closure via Dynamic Matrix Inverse (Extended Abstract)",
+        "candidate_year": null,
+        "candidate_doi": "10.1109/focs.2004.25"
+      }
+    },
+    "SB93": {
+      "doi": "10.1109/78.205723",
+      "title": "Efficient computation of the DFT with only a subset of input or output points",
+      "publication_year": 1993,
+      "reference_count": 20,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Efficient computation of the DFT with only a subset of input or output points",
+        "candidate_year": 1993,
+        "candidate_doi": "10.1109/78.205723"
+      }
+    },
+    "Sch81": {
+      "doi": "10.1137/0210032",
+      "title": "Partial and Total Matrix Multiplication",
+      "publication_year": 1981,
+      "reference_count": 11,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Partial and Total Matrix Multiplication",
+        "candidate_year": 1981,
+        "candidate_doi": "10.1137/0210032"
+      }
+    },
+    "Sch99": {
+      "doi": "10.1109/sffcs.1999.814612",
+      "title": "A probabilistic algorithm for k-SAT and constraint satisfaction problems",
+      "publication_year": null,
+      "reference_count": 20,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.04,
+        "candidate_title": "A probabilistic algorithm for k-SAT and constraint satisfaction problems",
+        "candidate_year": null,
+        "candidate_doi": "10.1109/sffcs.1999.814612"
+      }
+    },
+    "Sei95": {
+      "doi": "10.1006/jcss.1995.1078",
+      "title": "On the All-Pairs-Shortest-Path Problem in Unweighted Undirected Graphs",
+      "publication_year": 1995,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "On the All-Pairs-Shortest-Path Problem in Unweighted Undirected Graphs",
+        "candidate_year": 1995,
+        "candidate_doi": "10.1006/jcss.1995.1078"
+      }
+    },
+    "SEO03": {
+      "doi": "10.1016/s0925-7721(02)00156-6",
+      "title": "Preprocessing chains for fast dihedral rotations is hard or even impossible",
+      "publication_year": 2003,
+      "reference_count": 26,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Preprocessing chains for fast dihedral rotations is hard or even impossible",
+        "candidate_year": 2003,
+        "candidate_doi": "10.1016/s0925-7721(02)00156-6"
+      }
+    },
+    "Str69": {
+      "doi": "10.1007/bf02165411",
+      "title": "Gaussian elimination is not optimal",
+      "publication_year": 1969,
+      "reference_count": 2,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Gaussian elimination is not optimal",
+        "candidate_year": 1969,
+        "candidate_doi": "10.1007/bf02165411"
+      }
+    },
+    "Str73": {
+      "doi": "10.1515/crll.1973.264.184",
+      "title": "Vermeidung von Divisionen.",
+      "publication_year": 1973,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.04,
+        "candidate_title": "Vermeidung von Divisionen.",
+        "candidate_year": 1973,
+        "candidate_doi": "10.1515/crll.1973.264.184"
+      }
+    },
+    "Tak92": {
+      "doi": "10.1016/0020-0190(92)90200-f",
+      "title": "A new upper bound on the complexity of the all pairs shortest path problem",
+      "publication_year": 1992,
+      "reference_count": 11,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "A new upper bound on the complexity of the all pairs shortest path problem",
+        "candidate_year": 1992,
+        "candidate_doi": "10.1016/0020-0190(92)90200-f"
+      }
+    },
+    "Tak04": {
+      "doi": "10.1007/978-3-540-27798-9_31",
+      "title": "A Faster Algorithm for the All-Pairs Shortest Path Problem and Its Application",
+      "publication_year": 2004,
+      "reference_count": 12,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "A Faster Algorithm for the All-Pairs Shortest Path Problem and Its Application",
+        "candidate_year": 2004,
+        "candidate_doi": "10.1007/978-3-540-27798-9_31"
+      }
+    },
+    "TT00": {
+      "doi": "10.4036/iis.2000.99",
+      "title": "Algorithms for the Maximum Subarray Problem Based on Matrix Multiplication.",
+      "publication_year": 2000,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Algorithms for the Maximum Subarray Problem Based on Matrix Multiplication.",
+        "candidate_year": 2000,
+        "candidate_doi": "10.4036/iis.2000.99"
+      }
+    },
+    "Vas18": {
+      "doi": "10.1142/9789813272880_0188",
+      "title": "ON SOME FINE-GRAINED QUESTIONS IN ALGORITHMS AND COMPLEXITY",
+      "publication_year": 2019,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.05,
+        "candidate_title": "ON SOME FINE-GRAINED QUESTIONS IN ALGORITHMS AND COMPLEXITY",
+        "candidate_year": 2019,
+        "candidate_doi": "10.1142/9789813272880_0188"
+      }
+    },
+    "vdBNS19": {
+      "doi": "10.1109/focs.2019.00036",
+      "title": "Dynamic Matrix Inverse: Improved Algorithms and Matching Conditional Lower Bounds",
+      "publication_year": 2019,
+      "reference_count": 42,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.04,
+        "candidate_title": "Dynamic Matrix Inverse: Improved Algorithms and Matching Conditional Lower Bounds",
+        "candidate_year": 2019,
+        "candidate_doi": "10.1109/focs.2019.00036"
+      }
+    },
+    "VW10": {
+      "doi": "10.1109/focs.2010.67",
+      "title": "Subcubic Equivalences between Path, Matrix and Triangle Problems",
+      "publication_year": 2010,
+      "reference_count": 41,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Subcubic Equivalences between Path, Matrix and Triangle Problems",
+        "candidate_year": 2010,
+        "candidate_doi": "10.1109/focs.2010.67"
+      }
+    },
+    "VW13": {
+      "doi": "10.1137/09076619x",
+      "title": "Finding, Minimizing, and Counting Weighted Subgraphs",
+      "publication_year": 2013,
+      "reference_count": 50,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Finding, Minimizing, and Counting Weighted Subgraphs",
+        "candidate_year": 2013,
+        "candidate_doi": "10.1137/09076619x"
+      }
+    },
+    "VW18": {
+      "doi": "10.1145/3186893",
+      "title": "Subcubic Equivalences Between Path, Matrix, and Triangle Problems",
+      "publication_year": 2018,
+      "reference_count": 76,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Subcubic Equivalences Between Path, Matrix, and Triangle Problems",
+        "candidate_year": 2018,
+        "candidate_doi": "10.1145/3186893"
+      }
+    },
+    "VX20": {
+      "doi": "10.1109/focs46700.2020.00078",
+      "title": "Monochromatic Triangles, Triangle Listing and APSP",
+      "publication_year": 2020,
+      "reference_count": 31,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Monochromatic Triangles, Triangle Listing and APSP",
+        "candidate_year": 2020,
+        "candidate_doi": "10.1109/focs46700.2020.00078"
+      }
+    },
+    "VXXZ24": {
+      "doi": "10.1137/1.9781611977912.134",
+      "title": "New Bounds for Matrix Multiplication: from Alpha to Omega",
+      "publication_year": 2024,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "New Bounds for Matrix Multiplication: from Alpha to Omega",
+        "candidate_year": 2024,
+        "candidate_doi": "10.1137/1.9781611977912.134"
+      }
+    },
+    "War62": {
+      "doi": "10.1145/321105.321107",
+      "title": "A Theorem on Boolean Matrices",
+      "publication_year": 1962,
+      "reference_count": 2,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "A Theorem on Boolean Matrices",
+        "candidate_year": 1962,
+        "candidate_doi": "10.1145/321105.321107"
+      }
+    },
+    "Wil05": {
+      "doi": "10.1016/j.tcs.2005.09.023",
+      "title": "A new algorithm for optimal 2-constraint satisfaction and its implications",
+      "publication_year": 2005,
+      "reference_count": 30,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "A new algorithm for optimal 2-constraint satisfaction and its implications",
+        "candidate_year": 2005,
+        "candidate_doi": "10.1016/j.tcs.2005.09.023"
+      }
+    },
+    "Wil18": {
+      "doi": "10.1137/15m1024524",
+      "title": "Faster All-Pairs Shortest Paths via Circuit Complexity",
+      "publication_year": 2018,
+      "reference_count": 70,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Faster All-Pairs Shortest Paths via Circuit Complexity",
+        "candidate_year": 2018,
+        "candidate_doi": "10.1137/15m1024524"
+      }
+    },
+    "Wil24": {
+      "doi": "10.1109/focs61266.2024.00088",
+      "title": "The Orthogonal Vectors Conjecture and Non-Uniform Circuit Lower Bounds",
+      "publication_year": 2024,
+      "reference_count": 81,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "The Orthogonal Vectors Conjecture and Non-Uniform Circuit Lower Bounds",
+        "candidate_year": 2024,
+        "candidate_doi": "10.1109/focs61266.2024.00088"
+      }
+    },
+    "Yu18": {
+      "doi": "10.1016/j.ic.2018.02.006",
+      "title": "An improved combinatorial algorithm for Boolean matrix multiplication",
+      "publication_year": 2018,
+      "reference_count": 13,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "An improved combinatorial algorithm for Boolean matrix multiplication",
+        "candidate_year": 2018,
+        "candidate_doi": "10.1016/j.ic.2018.02.006"
+      }
+    },
+    "YZ05a": {
+      "doi": "10.1109/sfcs.2005.20",
+      "title": "Answering distance queries in directed graphs using fast matrix multiplication",
+      "publication_year": null,
+      "reference_count": 15,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.04,
+        "candidate_title": "Answering distance queries in directed graphs using fast matrix multiplication",
+        "candidate_year": null,
+        "candidate_doi": "10.1109/sfcs.2005.20"
+      }
+    },
+    "YZ05b": {
+      "doi": "10.1145/1077464.1077466",
+      "title": "Fast sparse matrix multiplication",
+      "publication_year": 2005,
+      "reference_count": 32,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "Fast sparse matrix multiplication",
+        "candidate_year": 2005,
+        "candidate_doi": "10.1145/1077464.1077466"
+      }
+    },
+    "Zwi02": {
+      "doi": "10.1145/567112.567114",
+      "title": "All pairs shortest paths using bridging sets and rectangular matrix multiplication",
+      "publication_year": 2002,
+      "reference_count": 35,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "All pairs shortest paths using bridging sets and rectangular matrix multiplication",
+        "candidate_year": 2002,
+        "candidate_doi": "10.1145/567112.567114"
+      }
+    },
+    "Zwi06": {
+      "doi": "10.1007/s00453-005-1199-1",
+      "title": "A Slightly Improved Sub-Cubic Algorithm for the All Pairs Shortest Paths Problem with Real Edge Lengths",
+      "publication_year": 2006,
+      "reference_count": 0,
+      "diagnostic": {
+        "title_similarity": 1.0,
+        "score": 1.08,
+        "candidate_title": "A Slightly Improved Sub-Cubic Algorithm for the All Pairs Shortest Paths Problem with Real Edge Lengths",
+        "candidate_year": 2006,
+        "candidate_doi": "10.1007/s00453-005-1199-1"
+      }
+    }
+  },
+  "unresolved": {
+    "ADKF70": {
+      "seed": {
+        "key": "ADKF70",
+        "year": 1970,
+        "authors": "Vladimir L. Arlazarov; Efim A. Dinic; Mikhail A. Kronrod; Igor A. Faradžev",
+        "title": "On economical construction of the transitive closure of an oriented graph"
+      },
+      "diagnostic": {
+        "title_similarity": 0.8082191780821918,
+        "score": 0.8082191780821918,
+        "candidate_title": "AN ALTERNATIVE CONSTRUCTION TO THE TRANSITIVE CLOSURE OF A DIRECTED GRAPH",
+        "candidate_year": 2015,
+        "candidate_doi": "10.24330/ieja.266222",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "AFW20": {
+      "seed": {
+        "key": "AFW20",
+        "year": 2020,
+        "authors": "Amir Abboud; Shon Feller; Oren Weimann",
+        "title": "On the fine-grained complexity of parity problems"
+      },
+      "diagnostic": {
+        "title_similarity": 0.7610619469026548,
+        "score": 0.7610619469026548,
+        "candidate_title": "An invitation to “Fine-grained complexity of NP-complete problems”",
+        "candidate_year": 2026,
+        "candidate_doi": "10.1016/j.cosrev.2026.100919",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "AHU74": {
+      "seed": {
+        "key": "AHU74",
+        "year": 1974,
+        "authors": "Alfred V. Aho; John E. Hopcroft; Jeffrey D. Ullman",
+        "title": "The Design and Analysis of Computer Algorithms"
+      },
+      "diagnostic": {
+        "title_similarity": 0.74,
+        "score": 0.74,
+        "candidate_title": "Basic Techniques for Design and Analysis of Algorithms",
+        "candidate_year": 2004,
+        "candidate_doi": "10.1201/9780203494455-5",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "BDT16": {
+      "seed": {
+        "key": "BDT16",
+        "year": 2016,
+        "authors": "Arturs Backurs; Nishanth Dikkala; Christos Tzamos",
+        "title": "Tight hardness results for maximum weight rectangles"
+      },
+      "diagnostic": {
+        "title_similarity": 0.7128712871287128,
+        "score": 0.7128712871287128,
+        "candidate_title": "Tight Hardness Results for Minimizing Discrepancy",
+        "candidate_year": 2011,
+        "candidate_doi": "10.1137/1.9781611973082.124",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "BFN26": {
+      "seed": {
+        "key": "BFN26",
+        "year": 2026,
+        "authors": "Karl Bringmann; Nick Fischer; Vasileios Nakos",
+        "title": "Robustifying sparse matrix multiplication"
+      },
+      "diagnostic": {
+        "title_similarity": 0.7368421052631579,
+        "score": 0.7368421052631579,
+        "candidate_title": "SPARSE MATRIX–VECTOR MULTIPLICATION",
+        "candidate_year": 2004,
+        "candidate_doi": "10.1093/acprof:oso/9780198529392.003.0004",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "BGGW26": {
+      "seed": {
+        "key": "BGGW26",
+        "year": 2026,
+        "authors": "Huck Bennett; Karthik Gajulapalli; Alexander Golovnev; Evelyn Warton",
+        "title": "Output-sparse matrix multiplication using compressed sensing"
+      },
+      "diagnostic": {
+        "title_similarity": 0.765625,
+        "score": 0.765625,
+        "candidate_title": "Efficient sparse matrix vector multiplication using compressed graph",
+        "candidate_year": 2010,
+        "candidate_doi": "10.1109/secon.2010.5453858",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "Bri19": {
+      "seed": {
+        "key": "Bri19",
+        "year": 2019,
+        "authors": "Karl Bringmann",
+        "title": "Fine-grained complexity theory (tutorial)"
+      },
+      "diagnostic": {
+        "title_similarity": 0.725,
+        "score": 0.735,
+        "candidate_title": "Fine-grained complexity for sparse graphs",
+        "candidate_year": 2018,
+        "candidate_doi": "10.1145/3188745.3188888",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "CIO16": {
+      "seed": {
+        "key": "CIO16",
+        "year": 2016,
+        "authors": "Jean Cardinal; John Iacono; Aurélien Ooms",
+        "title": "Solving k-SUM using few linear queries"
+      },
+      "diagnostic": {
+        "title_similarity": 0.449438202247191,
+        "score": 0.449438202247191,
+        "candidate_title": "Solving Linear Difference Equations Using Operators",
+        "candidate_year": 2018,
+        "candidate_doi": "10.4324/9781351140720-6",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "CVX21": {
+      "seed": {
+        "key": "CVX21",
+        "year": 2021,
+        "authors": "Timothy M. Chan; Virginia Vassilevska Williams; Yinzhan Xu",
+        "title": "Algorithms, reductions and equivalences for small weight variants of all-pairs shortest paths"
+      },
+      "diagnostic": {
+        "title_similarity": 0.5,
+        "score": 0.5,
+        "candidate_title": "New Approximation Algorithms and Reductions for\n                    <i>n</i>\n                    -Pairs Shortest Paths and All-Nodes Shortest Cycles",
+        "candidate_year": 2025,
+        "candidate_doi": "10.1137/1.9781611978322.177",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "DEK+26": {
+      "seed": {
+        "key": "DEK+26",
+        "year": 2026,
+        "authors": "Emilien Dupont; Marvin Eisenberger; Borislav Kozlovskii; Abbas Mehrabian; Francisco J. R. Ruiz; Abigail See; Renfei Zhou; Josh Alman; Virginia Vassilevska Williams; Matej Balog",
+        "title": "Improving the matrix multiplication exponent with modern optimization and AlphaEvolve"
+      },
+      "diagnostic": {
+        "title_similarity": 0.4883720930232558,
+        "score": 0.4883720930232558,
+        "candidate_title": "Figure 2: Algorithm optimization based on matrix multiplication and multi-core operation.",
+        "candidate_year": null,
+        "candidate_doi": "10.7717/peerj.12570/fig-2",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "DSW18": {
+      "seed": {
+        "key": "DSW18",
+        "year": 2018,
+        "authors": "Martin Dietzfelbinger; Philipp Schlag; Stefan Walzer",
+        "title": "A subquadratic algorithm for 3XOR"
+      },
+      "diagnostic": {
+        "title_similarity": 0.6744186046511628,
+        "score": 0.6744186046511628,
+        "candidate_title": "Subquadratic Algorithm for Dynamic Shortest Distances",
+        "candidate_year": 2005,
+        "candidate_doi": "10.1007/11533719_47",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "Eri99": {
+      "seed": {
+        "key": "Eri99",
+        "year": 1999,
+        "authors": "Jeff Erickson",
+        "title": "Lower bounds for linear satisfiability problems"
+      },
+      "diagnostic": {
+        "title_similarity": 0.7207207207207207,
+        "score": 0.7207207207207207,
+        "candidate_title": "A Survey of Lower Bounds for Satisfiability and Related Problems",
+        "candidate_year": 2006,
+        "candidate_doi": "10.1561/9781601980854",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "ES17": {
+      "seed": {
+        "key": "ES17",
+        "year": 2017,
+        "authors": "Esther Ezra; Micha Sharir",
+        "title": "A nearly quadratic bound for the decision tree complexity of k-SUM"
+      },
+      "diagnostic": {
+        "title_similarity": 0.632258064516129,
+        "score": 0.632258064516129,
+        "candidate_title": "An Improved Lower Bound for the Randomized Decision Tree Complexity of Recursive Majority,",
+        "candidate_year": 2013,
+        "candidate_doi": "10.1007/978-3-642-39206-1_59",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "FKP24": {
+      "seed": {
+        "key": "FKP24",
+        "year": 2024,
+        "authors": "Nick Fischer; Piotr Kaliciak; Adam Polak",
+        "title": "Deterministic 3SUM-hardness"
+      },
+      "diagnostic": {
+        "title_similarity": 0.36666666666666664,
+        "score": 0.36666666666666664,
+        "candidate_title": "Reducing 3SUM to Convolution-3SUM",
+        "candidate_year": 2020,
+        "candidate_doi": "10.1137/1.9781611976014.1",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "GLP19": {
+      "seed": {
+        "key": "GLP19",
+        "year": 2019,
+        "authors": "Isaac Goldstein; Moshe Lewenstein; Ely Porat",
+        "title": "On the hardness of set disjointness and set intersection with bounded universe"
+      },
+      "diagnostic": {
+        "title_similarity": 0.7346938775510204,
+        "score": 0.7346938775510204,
+        "candidate_title": "Multi-Party Set Disjointness and Intersection with Bounded Dependence",
+        "candidate_year": 2024,
+        "candidate_doi": "10.1145/3662158.3662795",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "Gra26": {
+      "seed": {
+        "key": "Gra26",
+        "year": 2026,
+        "authors": "Omar Graia",
+        "title": "Optimal deterministic fully sparse matrix multiplication"
+      },
+      "diagnostic": {
+        "title_similarity": 0.6507936507936508,
+        "score": 0.6507936507936508,
+        "candidate_title": "I/O-Optimal Cache-Oblivious Sparse Matrix-Sparse Matrix Multiplication",
+        "candidate_year": 2022,
+        "candidate_doi": "10.1109/ipdps53621.2022.00013",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "GS17": {
+      "seed": {
+        "key": "GS17",
+        "year": 2017,
+        "authors": "Omer Gold; Micha Sharir",
+        "title": "Improved bounds for 3SUM, k-SUM, and linear degeneracy"
+      },
+      "diagnostic": {
+        "title_similarity": 0.6382978723404256,
+        "score": 0.6382978723404256,
+        "candidate_title": "Lower bounds for linear degeneracy testing",
+        "candidate_year": 2005,
+        "candidate_doi": "10.1145/1059513.1059515",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "JV16": {
+      "seed": {
+        "key": "JV16",
+        "year": 2016,
+        "authors": "Zahra Jafargholi; Emanuele Viola",
+        "title": "3SUM, 3XOR, triangles"
+      },
+      "diagnostic": {
+        "title_similarity": 0.59375,
+        "score": 0.6737500000000001,
+        "candidate_title": "$$\\mathrm {3SUM}$$ 3 SUM , $$\\mathrm {3XOR}$$ 3 XOR , Triangles",
+        "candidate_year": 2016,
+        "candidate_doi": "10.1007/s00453-014-9946-9",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "Ker70": {
+      "seed": {
+        "key": "Ker70",
+        "year": 1970,
+        "authors": "Leslie Robert Kerr",
+        "title": "The Effect of Algebraic Structure on the Computational Complexity of Matrix Multiplication"
+      },
+      "diagnostic": {
+        "title_similarity": 0.6211180124223602,
+        "score": 0.6211180124223602,
+        "candidate_title": "Lower bounds for the multiplicative complexity of matrix multiplication",
+        "candidate_year": 1999,
+        "candidate_doi": "10.1007/s000370050028",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "KP19": {
+      "seed": {
+        "key": "KP19",
+        "year": 2019,
+        "authors": "Tsvi Kopelowitz; Ely Porat",
+        "title": "The strong 3SUM-INDEXING conjecture is false"
+      },
+      "diagnostic": {
+        "title_similarity": 0.8536585365853658,
+        "score": 0.8536585365853658,
+        "candidate_title": "The strong simplex conjecture is false",
+        "candidate_year": 1994,
+        "candidate_doi": "10.1109/18.335884",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "KPS17": {
+      "seed": {
+        "key": "KPS17",
+        "year": 2017,
+        "authors": "Marvin Künnemann; Ramamohan Paturi; Stefan Schneider",
+        "title": "On the fine-grained complexity of one-dimensional dynamic programming"
+      },
+      "diagnostic": {
+        "title_similarity": 0.6074074074074074,
+        "score": 0.6474074074074074,
+        "candidate_title": "Towards a Fine-grained Analysis of Complexity of Programming Tasks",
+        "candidate_year": 2017,
+        "candidate_doi": "10.1145/3105726.3105731",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "KV20": {
+      "seed": {
+        "key": "KV20",
+        "year": 2020,
+        "authors": "Tsvi Kopelowitz; Virginia Vassilevska Williams",
+        "title": "Towards optimal set-disjointness and set-intersection data structures"
+      },
+      "diagnostic": {
+        "title_similarity": 0.6231884057971014,
+        "score": 0.6231884057971014,
+        "candidate_title": "Multi-Party Set Disjointness and Intersection with Bounded Dependence",
+        "candidate_year": 2024,
+        "candidate_doi": "10.1145/3662158.3662795",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "LPV20": {
+      "seed": {
+        "key": "LPV20",
+        "year": 2020,
+        "authors": "Andrea Lincoln; Virginia Vassilevska Williams; R. Ryan Williams",
+        "title": "Monochromatic triangles, intermediate matrix products, and convolutions"
+      },
+      "diagnostic": {
+        "title_similarity": 0.5932203389830508,
+        "score": 0.6332203389830509,
+        "candidate_title": "Monochromatic Triangles, Triangle Listing and APSP",
+        "candidate_year": 2020,
+        "candidate_doi": "10.1109/focs46700.2020.00078",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "LVWW16": {
+      "seed": {
+        "key": "LVWW16",
+        "year": 2016,
+        "authors": "Andrea Lincoln; Virginia Vassilevska Williams; Joshua R. Wang; R. Ryan Williams",
+        "title": "Deterministic time-space trade-offs for k-SUM"
+      },
+      "diagnostic": {
+        "title_similarity": 0.6976744186046512,
+        "score": 0.6976744186046512,
+        "candidate_title": "Optimal Time-Space Trade-Offs for Sorting",
+        "candidate_year": 1998,
+        "candidate_doi": "10.7146/brics.v5i10.19282",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "NP85": {
+      "seed": {
+        "key": "NP85",
+        "year": 1985,
+        "authors": "Jaroslav Nešetřil; Svatopluk Poljak",
+        "title": "On the complexity of the subgraph problem"
+      },
+      "diagnostic": {
+        "title_similarity": 0.8631578947368421,
+        "score": 0.8631578947368421,
+        "candidate_title": "On the complexity of the identifiable subgraph problem",
+        "candidate_year": 2015,
+        "candidate_doi": "10.1016/j.dam.2014.10.021",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "NVE+25": {
+      "seed": {
+        "key": "NVE+25",
+        "year": 2025,
+        "authors": "Alexander Novikov; Ngân Vũ; Marvin Eisenberger; Emilien Dupont; Po-Sen Huang; Adam Zsolt Wagner; Sergey Shirobokov; Borislav Kozlovskii; Francisco J. R. Ruiz; Abbas Mehrabian; M. Pawan Kumar; Abigail See; Swarat Chaudhuri; George Holland; Alex Davies; Sebastian Nowozin; Pushmeet Kohli; Matej Balog",
+        "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery"
+      },
+      "diagnostic": {
+        "title_similarity": 0.5291005291005291,
+        "score": 0.5691005291005291,
+        "candidate_title": "Generative Metascience: A Review of AI as the Next Scientific Instrument and the Emerging Paradigm of Algorithmic Discovery",
+        "candidate_year": 2025,
+        "candidate_doi": "10.20944/preprints202507.0417.v1",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "SVX27": {
+      "seed": {
+        "key": "SVX27",
+        "year": 2027,
+        "authors": "Nathan Sheffield; Virginia Vassilevska Williams; Zoe Xi",
+        "title": "The limits of black-box reductions for all-pairs triangle detection"
+      },
+      "diagnostic": {
+        "title_similarity": 0.6935483870967742,
+        "score": 0.6935483870967742,
+        "candidate_title": "On the limits of black-box reductions in mechanism design",
+        "candidate_year": 2012,
+        "candidate_doi": "10.1145/2213977.2214019",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "Tak05": {
+      "seed": {
+        "key": "Tak05",
+        "year": 2005,
+        "authors": "Tadao Takaoka",
+        "title": "An O(n^3 log log n/log n) time algorithm for the all-pairs shortest path problem"
+      },
+      "diagnostic": {
+        "title_similarity": 0.8382352941176471,
+        "score": 0.9182352941176471,
+        "candidate_title": "An time algorithm for the all-pairs shortest path problem",
+        "candidate_year": 2005,
+        "candidate_doi": "10.1016/j.ipl.2005.08.008",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "vdBSZ24": {
+      "seed": {
+        "key": "vdBSZ24",
+        "year": 2024,
+        "authors": "Jan van den Brand; Zhao Song; Tianyi Zhou",
+        "title": "Algorithm and hardness for dynamic attention maintenance in large language models"
+      },
+      "diagnostic": {
+        "title_similarity": 0.6,
+        "score": 0.6,
+        "candidate_title": "Focus Mirror: Interactive Attention Steering for Large Language Models",
+        "candidate_year": 2026,
+        "candidate_doi": "10.36227/techrxiv.176799535.54475138/v1",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "Wil14": {
+      "seed": {
+        "key": "Wil14",
+        "year": 2014,
+        "authors": "R. Ryan Williams",
+        "title": "The polynomial method in circuit complexity applied to algorithm design"
+      },
+      "diagnostic": {
+        "title_similarity": 0.7543859649122807,
+        "score": 0.7543859649122807,
+        "candidate_title": "The polynomial method in circuit complexity",
+        "candidate_year": null,
+        "candidate_doi": "10.1109/sct.1993.336538",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "Wil16": {
+      "seed": {
+        "key": "Wil16",
+        "year": 2016,
+        "authors": "R. Ryan Williams",
+        "title": "Strong ETH breaks with Merlin and Arthur: Short non-interactive proofs of batch evaluation"
+      },
+      "diagnostic": {
+        "title_similarity": 0.5029239766081871,
+        "score": 0.5029239766081871,
+        "candidate_title": "Experimenting With Non-Interactive Range Proofs Based on the Strong RSA Assumption",
+        "candidate_year": 2019,
+        "candidate_doi": "10.1109/access.2019.2936210",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "Yat37": {
+      "seed": {
+        "key": "Yat37",
+        "year": 1937,
+        "authors": "Frank Yates",
+        "title": "The design and analysis of factorial experiments"
+      },
+      "diagnostic": {
+        "title_similarity": 0.7652173913043478,
+        "score": 0.7652173913043478,
+        "candidate_title": "Design and statistical analysis of confounded factorial experiments",
+        "candidate_year": null,
+        "candidate_doi": "10.31274/rtd-180813-14147",
+        "reason": "best candidate below acceptance threshold"
+      }
+    }
+  }
+}
