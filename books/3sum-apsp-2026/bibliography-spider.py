@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Build a one-level recursive bibliography from the direct citation seed list.
 
+Metadata source: OpenAlex.
+
 Depth:
     primary paper -> direct references -> references of each direct reference
 
