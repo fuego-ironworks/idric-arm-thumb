@@ -75,7 +75,7 @@ def read_seeds(path: Path) -> list[Seed]:
 
 
 class OpenAlexClient:
-    def __init__(self, pause: float = 0.13, retries: int = 5) -> None:
+    def __init__(self, pause: float = 0.90, retries: int = 12) -> None:
         self.pause = pause
         self.retries = retries
         self.mailto = os.environ.get("OPENALEX_MAILTO", "").strip()
@@ -98,9 +98,20 @@ class OpenAlexClient:
                     payload = json.load(response)
                 time.sleep(self.pause)
                 return payload
-            except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as exc:
+            except urllib.error.HTTPError as exc:
                 last_error = exc
-                time.sleep(min(8.0, 0.5 * (2 ** attempt)))
+                if exc.code == 429:
+                    retry_after = exc.headers.get("Retry-After")
+                    try:
+                        retry_seconds = float(retry_after) if retry_after else 0.0
+                    except ValueError:
+                        retry_seconds = 0.0
+                    time.sleep(max(retry_seconds, min(90.0, 15.0 * (attempt + 1))))
+                else:
+                    time.sleep(min(30.0, 0.75 * (2 ** attempt)))
+            except (urllib.error.URLError, TimeoutError) as exc:
+                last_error = exc
+                time.sleep(min(30.0, 0.75 * (2 ** attempt)))
 
         raise RuntimeError(f"OpenAlex request failed after retries: {url}: {last_error}")
 
@@ -344,7 +355,7 @@ def main() -> int:
     parser.add_argument("--seeds", type=Path, default=DEFAULT_SEEDS)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
-    parser.add_argument("--pause", type=float, default=0.13)
+    parser.add_argument("--pause", type=float, default=0.90)
     args = parser.parse_args()
 
     seeds = read_seeds(args.seeds)
