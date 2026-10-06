@@ -1,0 +1,174 @@
+key	year	authors	title
+ABF23	2023	Amir Abboud; Karl Bringmann; Nick Fischer	Stronger 3-SUM lower bounds for approximate distance oracles via additive combinatorics
+ABFK24	2024	Amir Abboud; Karl Bringmann; Nick Fischer; Marvin Künnemann	The time complexity of fully sparse matrix multiplication
+ABKZ22	2022	Amir Abboud; Karl Bringmann; Seri Khoury; Or Zamir	Hardness of approximation in P via short cycle removal: Cycle detection, distance oracles, and beyond
+AC05	2005	Nir Ailon; Bernard Chazelle	Lower bounds for linear degeneracy testing
+ACJ+22	2022	Shyan Akmal; Lijie Chen; Ce Jin; Malvika Raj; Ryan Williams	Improved Merlin–Arthur protocols for central problems in fine-grained complexity
+ACLL14	2014	Amihood Amir; Timothy M. Chan; Moshe Lewenstein; Noa Lewenstein	On hardness of jumbled indexing
+ACW16	2016	Josh Alman; Timothy M. Chan; Ryan Williams	Polynomial representations of threshold functions and algorithmic applications
+ACW20	2020	Josh Alman; Timothy M. Chan; R. Ryan Williams	Faster deterministic and Las Vegas algorithms for offline approximate nearest neighbors in high dimensions
+ADKF70	1970	Vladimir L. Arlazarov; Efim A. Dinic; Mikhail A. Kronrod; Igor A. Faradžev	On economical construction of the transitive closure of an oriented graph
+ADV+25	2025	Josh Alman; Ran Duan; Virginia Vassilevska Williams; Yinzhan Xu; Zixuan Xu; Renfei Zhou	More asymmetry yields faster matrix multiplication
+AFK+24	2024	Amir Abboud; Nick Fischer; Zander Kelley; Shachar Lovett; Raghu Meka	New graph decompositions and combinatorial Boolean matrix multiplication algorithms
+AFW20	2020	Amir Abboud; Shon Feller; Oren Weimann	On the fine-grained complexity of parity problems
+AGHP92	1992	Noga Alon; Oded Goldreich; Johan Håstad; René Peralta	Simple constructions of almost k-wise independent random variables
+AGM97	1997	Noga Alon; Zvi Galil; Oded Margalit	On the exponent of the all pairs shortest path problem
+AGMN92	1992	Noga Alon; Zvi Galil; Oded Margalit; Moni Naor	Witnesses for Boolean matrix multiplication and for shortest paths
+AGV15	2015	Amir Abboud; Fabrizio Grandoni; Virginia Vassilevska Williams	Subcubic equivalences between graph centrality problems, APSP and diameter
+AGV23	2023	Amir Abboud; Fabrizio Grandoni; Virginia Vassilevska Williams	Subcubic equivalences between graph centrality problems, APSP, and diameter
+AHP08	2008	Boris Aronov; Sariel Har-Peled	On approximating the depth and related problems
+AHU74	1974	Alfred V. Aho; John E. Hopcroft; Jeffrey D. Ullman	The Design and Analysis of Computer Algorithms
+AHY25	2025	Josh Alman; Yizhi Huang; Kevin Yeo	Fine-grained complexity in a world without cryptography
+AL13	2013	Amir Abboud; Kevin Lewi	Exact weight subgraphs and the k-sum conjecture
+AL25	2025	Josh Alman; Baitian Li	Kronecker powers, orthogonal vectors, and the asymptotic spectrum
+ALW14	2014	Amir Abboud; Kevin Lewi; Ryan Williams	Losing weight by gaining edges
+AN96	1996	Noga Alon; Moni Naor	Derandomization, witnesses for Boolean matrix multiplication and construction of perfect hash functions
+AP09	2009	Rasmus Resen Amossen; Rasmus Pagh	Faster join-projects and sparse matrix multiplications
+AV14	2014	Amir Abboud; Virginia Vassilevska Williams	Popular conjectures imply strong lower bounds for dynamic problems
+AVW14	2014	Amir Abboud; Virginia Vassilevska Williams; Oren Weimann	Consequences of faster alignment of sequences
+AVY15	2015	Amir Abboud; Virginia Vassilevska Williams; Huacheng Yu	Matching triangles and basing hardness on an extremely popular conjecture
+AW15	2015	Josh Alman; Ryan Williams	Probabilistic polynomials and Hamming nearest neighbors
+AWY15	2015	Amir Abboud; Ryan Williams; Huacheng Yu	More applications of the polynomial method to algorithm design
+AY25	2025	Josh Alman; Hantao Yu	Improving the leading constant of matrix multiplication
+AYZ97	1997	Noga Alon; Raphael Yuster; Uri Zwick	Finding and counting given length cycles
+BB15	2015	Austin R. Benson; Grey Ballard	A framework for practical parallel fast matrix multiplication
+BCD+14	2014	David Bremner; Timothy M. Chan; Erik D. Demaine; Jeff Erickson; Ferran Hurtado; John Iacono; Stefan Langerman; Mihai Pătraşcu; Perouz Taslakian	Necklaces, convolutions, and X+Y
+BDP08	2008	Ilya Baran; Erik D. Demaine; Mihai Pătraşcu	Subquadratic algorithms for 3SUM
+BDT16	2016	Arturs Backurs; Nishanth Dikkala; Christos Tzamos	Tight hardness results for maximum weight rectangles
+BFN26	2026	Karl Bringmann; Nick Fischer; Vasileios Nakos	Robustifying sparse matrix multiplication
+BGGW26	2026	Huck Bennett; Karthik Gajulapalli; Alexander Golovnev; Evelyn Warton	Output-sparse matrix multiplication using compressed sensing
+BGMW20	2020	Karl Bringmann; Paweł Gawrychowski; Shay Mozes; Oren Weimann	Tree edit distance cannot be computed in strongly subcubic time (unless APSP can)
+BHKK10	2010	Andreas Björklund; Thore Husfeldt; Petteri Kaski; Mikko Koivisto	Trimmed Moebius inversion and graphs of bounded degree
+BHP01	2001	Gill Barequet; Sariel Har-Peled	Polygon containment and translational min-Hausdorff-distance between segment sets are 3SUM-hard
+Bin80	1980	Dario Bini	Relations between exact and approximate bilinear algorithms. Applications
+BIS17	2017	Arturs Backurs; Piotr Indyk; Ludwig Schmidt	Better approximations for tree sparsity in nearly-linear time
+BN21	2021	Karl Bringmann; Vasileios Nakos	A fine-grained perspective on approximating subset sum and partition
+Bri19	2019	Karl Bringmann	Fine-grained complexity theory (tutorial)
+Bri24	2024	Karl Bringmann	Knapsack with small items in near-quadratic time
+BS19	2019	Gal Beniamini; Oded Schwartz	Faster matrix multiplication via sparse decomposition
+BW09	2009	Nikhil Bansal; Ryan Williams	Regularity lemmas and combinatorial algorithms
+CDL+16	2016	Marek Cygan; Holger Dell; Daniel Lokshtanov; Dániel Marx; Jesper Nederlof; Yoshio Okamoto; Ramamohan Paturi; Saket Saurabh; Magnus Wahlström	On problems as hard as CNF-SAT
+CGI+16	2016	Marco L. Carmosino; Jiawei Gao; Russell Impagliazzo; Ivan Mihajlin; Ramamohan Paturi; Stefan Schneider	Nondeterministic extensions of the strong exponential time hypothesis and consequences for non-reducibility
+CH20	2020	Timothy M. Chan; Qizheng He	Reducing 3SUM to convolution-3SUM
+Cha08	2008	Timothy M. Chan	All-pairs shortest paths with real weights in O(n^3/log n) time
+Cha10	2010	Timothy M. Chan	More algorithms for all-pairs shortest paths in weighted graphs
+Cha15	2015	Timothy M. Chan	Speeding up the four Russians algorithm by about one more logarithmic factor
+Cha20	2020	Timothy M. Chan	More logarithmic-factor speedups for 3SUM, (median,+)-convolution, and some geometric 3SUM-hard problems
+Chv79	1979	Vašek Chvátal	A greedy heuristic for the set-covering problem
+CIO16	2016	Jean Cardinal; John Iacono; Aurélien Ooms	Solving k-SUM using few linear queries
+CIP10	2010	Chris Calabro; Russell Impagliazzo; Ramamohan Paturi	On the exact complexity of evaluating quantified k-CNF
+CMWW19	2019	Marek Cygan; Marcin Mucha; Karol Węgrzycki; Michał Włodarczyk	On problems equivalent to (min,+)-convolution
+CN85	1985	Norishige Chiba; Takao Nishizeki	Arboricity and subgraph listing algorithms
+Coo71	1971	Stephen A. Cook	The complexity of theorem-proving procedures
+Cop82	1982	Don Coppersmith	Rapid multiplication of rectangular matrices
+Cop97	1997	Don Coppersmith	Rectangular matrix multiplication revisited
+CP10	2010	Hagai Cohen; Ely Porat	Fast set intersection and two-patterns matching
+CT65	1965	James W. Cooley; John W. Tukey	An algorithm for the machine calculation of complex Fourier series
+CVX21	2021	Timothy M. Chan; Virginia Vassilevska Williams; Yinzhan Xu	Algorithms, reductions and equivalences for small weight variants of all-pairs shortest paths
+CVX22	2022	Timothy M. Chan; Virginia Vassilevska Williams; Yinzhan Xu	Hardness for triangle problems under even more believable hypotheses: Reductions from real APSP, real 3SUM, and OV
+CVX23	2023	Timothy M. Chan; Virginia Vassilevska Williams; Yinzhan Xu	Fredman’s trick meets dominance product: Fine-grained complexity of unweighted APSP, 3SUM counting, and more
+CW90	1990	Don Coppersmith; Shmuel Winograd	Matrix multiplication via arithmetic progressions
+CW21	2021	Timothy M. Chan; R. Ryan Williams	Deterministic APSP, orthogonal vectors, and more: Quickly derandomizing Razborov–Smolensky
+CX24	2024	Timothy M. Chan; Yinzhan Xu	Simpler reductions from exact triangle
+DEK+26	2026	Emilien Dupont; Marvin Eisenberger; Borislav Kozlovskii; Abbas Mehrabian; Francisco J. R. Ruiz; Abigail See; Renfei Zhou; Josh Alman; Virginia Vassilevska Williams; Matej Balog	Improving the matrix multiplication exponent with modern optimization and AlphaEvolve
+DGS20	2020	Bartłomiej Dudek; Paweł Gawrychowski; Tatiana Starikovskaya	All non-trivial variants of 3-LDT are equivalent
+DKPV20	2020	Lech Duraj; Krzysztof Kleiner; Adam Polak; Virginia Vassilevska Williams	Equivalences between triangle and range query problems
+DMRW09	2009	Erik D. Demaine; Shay Mozes; Benjamin Rossman; Oren Weimann	An optimal decomposition algorithm for tree edit distance
+Dob90	1990	Włodzimierz Dobosiewicz	A more efficient algorithm for the min-plus multiplication
+DSW18	2018	Martin Dietzfelbinger; Philipp Schlag; Stefan Walzer	A subquadratic algorithm for 3XOR
+Dür23	2023	Anita Dürr	Improved bounds for rectangular monotone Min-Plus product and applications
+Eri99	1999	Jeff Erickson	Lower bounds for linear satisfiability problems
+ES17	2017	Esther Ezra; Micha Sharir	A nearly quadratic bound for the decision tree complexity of k-SUM
+FBH+22	2022	Alhussein Fawzi; Matej Balog; Aja Huang; Thomas Hubert; Bernardino Romera-Paredes; Mohammadamin Barekatain; Alexander Novikov; Francisco J. R. Ruiz; Julian Schrittwieser; Grzegorz Swirszcz; David Silver; Demis Hassabis; Pushmeet Kohli	Discovering faster matrix multiplication algorithms with reinforcement learning
+Fis26	2026	Nick Fischer	Universe reduction for APSP: Equivalence of three fine-grained hypotheses
+FJX25	2025	Nick Fischer; Ce Jin; Yinzhan Xu	New applications of 3SUM-counting in fine-grained complexity and pattern matching
+FKP24	2024	Nick Fischer; Piotr Kaliciak; Adam Polak	Deterministic 3SUM-hardness
+Flo62	1962	Robert W. Floyd	Algorithm 97: Shortest path
+FM71	1971	Michael J. Fischer; Albert R. Meyer	Boolean matrix multiplication and transitive closure
+Fre76	1976	Michael L. Fredman	New bounds on the complexity of the shortest path problem
+GGH+20	2020	Alexander Golovnev; Siyao Guo; Thibaut Horel; Sunoo Park; Vinod Vaikuntanathan	Data structures meet cryptography: 3SUM with preprocessing
+GKLP17	2017	Isaac Goldstein; Tsvi Kopelowitz; Moshe Lewenstein; Ely Porat	Conditional lower bounds for space/time tradeoffs
+GLP19	2019	Isaac Goldstein; Moshe Lewenstein; Ely Porat	On the hardness of set disjointness and set intersection with bounded universe
+GM93	1993	Zvi Galil; Oded Margalit	Witnesses for Boolean matrix multiplication and for transitive closure
+GO95	1995	Anka Gajentaan; Mark H. Overmars	On a class of O(n^2) problems in computational geometry
+Goo58	1958	Irving J. Good	The interaction algorithm and practical Fourier analysis
+GP18	2018	Allan Grønlund; Seth Pettie	Threesomes, degenerates, and love triangles
+Gra26	2026	Omar Graia	Optimal deterministic fully sparse matrix multiplication
+GS17	2017	Omer Gold; Micha Sharir	Improved bounds for 3SUM, k-SUM, and linear degeneracy
+Han04	2004	Yijie Han	Improved algorithm for all pairs shortest paths
+Han08	2008	Yijie Han	An O(n^3(log log n/log n)^(5/4)) time algorithm for all pairs shortest path
+Her14	2014	Timon Hertli	3-SAT faster and simpler—unique-SAT bounds for PPSZ hold in general
+HKNS15	2015	Monika Henzinger; Sebastian Krinninger; Danupon Nanongkai; Thatchaphol Saranurak	Unifying and strengthening hardness for dynamic problems via the online matrix-vector multiplication conjecture
+HLS24	2024	Bernhard Haeupler; Yaowei Long; Thatchaphol Saranurak	Dynamic deterministic constant-approximate distance oracles with n^epsilon worst-case update time
+HT16	2016	Yijie Han; Tadao Takaoka	An O(n^3 log log n/log^2 n) time algorithm for all pairs shortest paths
+IP01	2001	Russell Impagliazzo; Ramamohan Paturi	On the complexity of k-SAT
+IPZ01	2001	Russell Impagliazzo; Ramamohan Paturi; Francis Zane	Which problems have strongly exponential complexity?
+IR78	1978	Alon Itai; Michael Rodeh	Finding a minimum circuit in a graph
+Jin24	2024	Ce Jin	0-1 knapsack in nearly quadratic time
+Joh77	1977	Donald B. Johnson	Efficient algorithms for shortest paths in sparse networks
+JV16	2016	Zahra Jafargholi; Emanuele Viola	3SUM, 3XOR, triangles
+JX23	2023	Ce Jin; Yinzhan Xu	Removing additive structure in 3SUM-based reductions
+Kar72	1972	Richard M. Karp	Reducibility among combinatorial problems
+Ker70	1970	Leslie Robert Kerr	The Effect of Algebraic Structure on the Computational Complexity of Matrix Multiplication
+KKP93	1993	David R. Karger; Daphne Koller; Steven J. Phillips	Finding the hidden path: Time bounds for all-pairs shortest paths
+KLM19	2019	Daniel M. Kane; Shachar Lovett; Shay Moran	Near-optimal linear decision trees for k-SUM and related problems
+KM23	2023	Manuel Kauers; Jakob Moosbauer	Flip graphs for matrix multiplication
+KP19	2019	Tsvi Kopelowitz; Ely Porat	The strong 3SUM-INDEXING conjecture is false
+KPP16	2016	Tsvi Kopelowitz; Seth Pettie; Ely Porat	Higher lower bounds from the 3SUM conjecture
+KPS17	2017	Marvin Künnemann; Ramamohan Paturi; Stefan Schneider	On the fine-grained complexity of one-dimensional dynamic programming
+KS20	2020	Elaye Karstadt; Oded Schwartz	Matrix multiplication, a little faster
+KV20	2020	Tsvi Kopelowitz; Virginia Vassilevska Williams	Towards optimal set-disjointness and set-intersection data structures
+LG12	2012	François Le Gall	Faster algorithms for rectangular matrix multiplication
+LLV19	2019	Rio LaVigne; Andrea Lincoln; Virginia Vassilevska Williams	Public-key cryptography in the fine-grained setting
+Lov75	1975	László Lovász	On the ratio of optimal integral and fractional covers
+LPV20	2020	Andrea Lincoln; Virginia Vassilevska Williams; R. Ryan Williams	Monochromatic triangles, intermediate matrix products, and convolutions
+LU18	2018	François Le Gall; Florent Urrutia	Improved rectangular matrix multiplication using powers of the Coppersmith–Winograd tensor
+LVW18	2018	Andrea Lincoln; Virginia Vassilevska Williams; R. Ryan Williams	Tight hardness for shortest cycles and paths in sparse graphs
+LVWW16	2016	Andrea Lincoln; Virginia Vassilevska Williams; Joshua R. Wang; R. Ryan Williams	Deterministic time-space trade-offs for k-SUM
+Mao21	2021	Xiao Mao	Breaking the cubic barrier for (unweighted) tree edit distance
+Mar71	1971	John D. Markel	FFT pruning
+Mat91	1991	Jiří Matoušek	Computing dominances in E^n
+Mey84	1984	Friedhelm Meyer auf der Heide	A polynomial linear search algorithm for the n-dimensional knapsack problem
+MS25	2025	Erik Mårtensson; Paul Stankovski Wagner	The number of the beast: Reducing additions in fast matrix multiplication algorithms for dimensions up to 666
+NP85	1985	Jaroslav Nešetřil; Svatopluk Poljak	On the complexity of the subgraph problem
+NPS+25	2025	Jakob Nogler; Adam Polak; Barna Saha; Virginia Vassilevska Williams; Yinzhan Xu; Christopher Ye	Faster weighted and unweighted tree edit distance and APSP equivalence
+NVE+25	2025	Alexander Novikov; Ngân Vũ; Marvin Eisenberger; Emilien Dupont; Po-Sen Huang; Adam Zsolt Wagner; Sergey Shirobokov; Borislav Kozlovskii; Francisco J. R. Ruiz; Abbas Mehrabian; M. Pawan Kumar; Abigail See; Swarat Chaudhuri; George Holland; Alex Davies; Sebastian Nowozin; Pushmeet Kohli; Matej Balog	AlphaEvolve: A coding agent for scientific and algorithmic discovery
+Păt10	2010	Mihai Pătraşcu	Towards polynomial lower bounds for dynamic problems
+PPSZ05	2005	Ramamohan Paturi; Pavel Pudlák; Michael E. Saks; Francis Zane	An improved exponential-time algorithm for k-SAT
+PS14	2014	Rasmus Pagh; Morten Stöckel	The input/output complexity of sparse matrix multiplication
+RV11	2011	Liam Roditty; Virginia Vassilevska Williams	Minimum weight cycles and triangles: Equivalences and algorithms
+RV12	2012	Liam Roditty; Virginia Vassilevska Williams	Subquadratic time approximation algorithms for the girth
+RZ04	2004	Liam Roditty; Uri Zwick	On dynamic shortest paths problems
+San04	2004	Piotr Sankowski	Dynamic transitive closure via dynamic matrix inverse
+SB93	1993	Henrik V. Sorensen; C. Sidney Burrus	Efficient computation of the DFT with only a subset of input or output points
+Sch81	1981	Arnold Schönhage	Partial and total matrix multiplication
+Sch99	1999	Uwe Schöning	A probabilistic algorithm for k-SAT and constraint satisfaction problems
+Sei95	1995	Raimund Seidel	On the all-pairs-shortest-path problem in unweighted undirected graphs
+SEO03	2003	Michael Soss; Jeff Erickson; Mark H. Overmars	Preprocessing chains for fast dihedral rotations is hard or even impossible
+Str69	1969	Volker Strassen	Gaussian elimination is not optimal
+Str73	1973	Volker Strassen	Vermeidung von Divisionen
+SVX27	2027	Nathan Sheffield; Virginia Vassilevska Williams; Zoe Xi	The limits of black-box reductions for all-pairs triangle detection
+Tak92	1992	Tadao Takaoka	A new upper bound on the complexity of the all pairs shortest path problem
+Tak04	2004	Tadao Takaoka	A faster algorithm for the all-pairs shortest path problem and its application
+Tak05	2005	Tadao Takaoka	An O(n^3 log log n/log n) time algorithm for the all-pairs shortest path problem
+TT00	2000	Hisao Tamaki; Takeshi Tokuyama	Algorithms for the maximum subarray problem based on matrix multiplication
+Vas18	2018	Virginia Vassilevska Williams	On some fine-grained questions in algorithms and complexity
+vdBNS19	2019	Jan van den Brand; Danupon Nanongkai; Thatchaphol Saranurak	Dynamic matrix inverse: Improved algorithms and matching conditional lower bounds
+vdBSZ24	2024	Jan van den Brand; Zhao Song; Tianyi Zhou	Algorithm and hardness for dynamic attention maintenance in large language models
+VW10	2010	Virginia Vassilevska Williams; Ryan Williams	Subcubic equivalences between path, matrix and triangle problems
+VW13	2013	Virginia Vassilevska Williams; Ryan Williams	Finding, minimizing, and counting weighted subgraphs
+VW18	2018	Virginia Vassilevska Williams; R. Ryan Williams	Subcubic equivalences between path, matrix, and triangle problems
+VX20	2020	Virginia Vassilevska Williams; Yinzhan Xu	Monochromatic triangles, triangle listing and APSP
+VXXZ24	2024	Virginia Vassilevska Williams; Yinzhan Xu; Zixuan Xu; Renfei Zhou	New bounds for matrix multiplication: From alpha to omega
+War62	1962	Stephen Warshall	A theorem on Boolean matrices
+Wil05	2005	Ryan Williams	A new algorithm for optimal 2-constraint satisfaction and its implications
+Wil14	2014	R. Ryan Williams	The polynomial method in circuit complexity applied to algorithm design
+Wil16	2016	R. Ryan Williams	Strong ETH breaks with Merlin and Arthur: Short non-interactive proofs of batch evaluation
+Wil18	2018	R. Ryan Williams	Faster all-pairs shortest paths via circuit complexity
+Wil24	2024	R. Ryan Williams	The orthogonal vectors conjecture and non-uniform circuit lower bounds
+Yat37	1937	Frank Yates	The design and analysis of factorial experiments
+Yu18	2018	Huacheng Yu	An improved combinatorial algorithm for Boolean matrix multiplication
+YZ05a	2005	Raphael Yuster; Uri Zwick	Answering distance queries in directed graphs using fast matrix multiplication
+YZ05b	2005	Raphael Yuster; Uri Zwick	Fast sparse matrix multiplication
+Zwi02	2002	Uri Zwick	All pairs shortest paths using bridging sets and rectangular matrix multiplication
+Zwi06	2006	Uri Zwick	A slightly improved sub-cubic algorithm for the all pairs shortest paths problem with real edge lengths
