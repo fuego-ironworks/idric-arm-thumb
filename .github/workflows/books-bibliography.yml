@@ -7,6 +7,12 @@ on:
     paths:
       - "books/3sum-apsp-2026/**"
       - ".github/workflows/books-bibliography.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "books/3sum-apsp-2026/**"
+      - ".github/workflows/books-bibliography.yml"
   workflow_dispatch:
 
 permissions:
