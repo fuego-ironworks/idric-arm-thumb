@@ -134,8 +134,8 @@ Only after the preceding pieces agree should the full reduction stack be treated
 Together those files annotate every item in the primary paper’s reference list. A short note tells what the cited work contributes or why it matters to this literature. Where only the citation context/title was checked, the note says so rather than pretending a full-paper review.
 
 - [direct-citations.tsv](direct-citations.tsv) is the machine-readable seed list.
-- [bibliography-spider.py](bibliography-spider.py) resolves those seeds through OpenAlex and follows their reference lists one level.
-- [one-hop-bibliography.md](one-hop-bibliography.md) records the checked-in recursive bibliography snapshot and its coverage status.
+- [bibliography-spider.py](bibliography-spider.py) resolves those seeds through Crossref and follows each resolved work's deposited reference list one level.
+- [one-hop-bibliography.md](one-hop-bibliography.md) records the checked-in recursive bibliography snapshot and its coverage status; missing publisher/Crossref reference deposits are called out rather than silently treated as empty.
 
 ## Scope rule for the spider
 
@@ -151,4 +151,4 @@ Depth is deliberately one:
 
 The second arrow is bibliographic only. The third-level papers are not summarized merely because they occur in a reference list.
 
-The spider is fail-closed on ambiguous title matches. It records unresolved seeds rather than silently attaching the wrong paper.
+The spider is fail-closed on ambiguous title matches. It records unresolved seeds rather than silently attaching the wrong paper. Crossref deposits are not guaranteed to contain every publisher reference, so missing deposited bibliographies remain explicit coverage gaps.
