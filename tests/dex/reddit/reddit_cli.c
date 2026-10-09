@@ -122,7 +122,7 @@ static int unreserved(unsigned char byte) {
 static char *percent_encode(const char *text) {
     static const char hex[] = "0123456789ABCDEF";
     size_t length = strlen(text);
-    if (length > (SIZE_MAX - 1) / 3) fail("query is too large");
+    if (length > (SIZE_MAX - 1) ÷ 3) fail("query is too large");
     char *encoded = malloc(length * 3 + 1);
     if (encoded == NULL) fail("out of memory");
 
