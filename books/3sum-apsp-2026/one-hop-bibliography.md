@@ -5,10 +5,10 @@ Generated from direct-citations.tsv using Crossref metadata and deposited refere
 Crossref deposits are not guaranteed to contain a publisher's complete reference list. A direct work with no deposited references is marked explicitly instead of being treated as if its bibliography were empty.
 
 - direct seeds: 173
-- resolved direct works: 141
-- unresolved direct works: 32
-- resolved direct works with deposited references: 108
-- unique deposited second-hop references: 2396
+- resolved direct works: 140
+- unresolved direct works: 33
+- resolved direct works with deposited references: 107
+- unique deposited second-hop references: 2378
 
 ## Bibliography by direct cited work
 
@@ -4466,40 +4466,7 @@ Resolved as: R. Yuster, U. Zwick (2005), *Answering distance queries in directed
 
 ### YZ05b — Fast sparse matrix multiplication
 
-Resolved as: Raphael Yuster, Uri Zwick (2005), *Fast sparse matrix multiplication* — https://doi.org/10.1145/1077464.1077466
-
-- DOI 10.1145/210332.210337
-- DOI 10.1007/BF02523189
-- Bürgisser P. Clausen M. and Shokrollahi M. 1997. Algebraic complexity theory. Springer-Verlag New York. Bürgisser P. Clausen M. and Shokrollahi M. 1997. Algebraic complexity theory. Springer-Verlag New York.. DOI 10.1007/978-3-662-03338-8
-- DOI 10.1145/509907.509911
-- DOI 10.1137/S0097539793256223
-- DOI 10.1145/359545.359556
-- DOI 10.1006/jcss.1997.1534
-- Cohn H.. Proceedings of 44th Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 438--449. Deposited citation: Cohn , H. , and Umans , C . 2003. A group-theoretic approach to fast matrix multiplication . In Proceedings of 44th Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 438--449 . Cohn, H., and Umans, C. 2003. A group-theoretic approach to fast matrix multiplication. In Proceedings of 44th Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 438--449.
-- DOI 10.1006/jcom.1997.0438
-- DOI 10.1016/S0747-7171(08)80013-2
-- Cormen T. Leiserson C. Rivest R. and Stein C. 2001. Introduction to Algorithms Second ed. The MIT Press Cambridge Mass. Cormen T. Leiserson C. Rivest R. and Stein C. 2001. Introduction to Algorithms Second ed. The MIT Press Cambridge Mass.
-- Demetrescu C.. Proceedings of 41st Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 381--389. Deposited citation: Demetrescu , C. , and Italiano , G . 2000. Fully dynamic transitive closure: Breaking through the O(n2) barrier . In Proceedings of 41st Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 381--389 . Demetrescu, C., and Italiano, G. 2000. Fully dynamic transitive closure: Breaking through the O(n2) barrier. In Proceedings of 41st Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 381--389.
-- DOI 10.1016/S0020-0190(03)00252-7
-- DOI 10.1145/355791.355796
-- DOI 10.1137/0211028
-- DOI 10.1137/0213017
-- DOI 10.1006/jcom.1998.0476
-- Kratsch D.. Proceedings of 14th Symposium on Discrete Algorithms. ACM. Deposited citation: Kratsch , D. , and Spinrad , J . 2003. Between O(nm) and O(n&alpha;) . In Proceedings of 14th Symposium on Discrete Algorithms. ACM , New York, 709--716. Kratsch, D., and Spinrad, J. 2003. Between O(nm) and O(n&alpha;). In Proceedings of 14th Symposium on Discrete Algorithms. ACM, New York, 709--716.
-- Mucha M.. Proceedings of 12th ESA, 532--543. Deposited citation: Mucha , M. , and Sankowski , P . 2004a. Maximum matchings in planar graphs via gaussian elimination . In Proceedings of 12th ESA, 532--543 . Mucha, M., and Sankowski, P. 2004a. Maximum matchings in planar graphs via gaussian elimination. In Proceedings of 12th ESA, 532--543.
-- DOI 10.1109/FOCS.2004.40
-- DOI 10.1007/BF02579206
-- Nešetřil J.. (1985). On the complexity of the subgraph problem. Comment. Math. Univ. Carol.. vol. 26. p. 415. Deposited citation: Nešetřil , J. , and Poljak , S. 1985 . On the complexity of the subgraph problem . Comment. Math. Univ. Carol. 26 , 2, 415 -- 419 . Nešetřil, J., and Poljak, S. 1985. On the complexity of the subgraph problem. Comment. Math. Univ. Carol. 26, 2, 415--419.
-- Pan V.. How to multiply matrices faster. Deposited citation: Pan , V. 1985. How to multiply matrices faster . In Lecture Notes in Computer Science , vol. 179 . Springer-Verlag , New York . Pan, V. 1985. How to multiply matrices faster. In Lecture Notes in Computer Science, vol. 179. Springer-Verlag, New York.
-- DOI 10.1016/0196-6774(89)90005-9
-- DOI 10.1137/S0097539702402147
-- Roditty L.. Proceedings of 43rd Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 679--688. Deposited citation: Roditty , L. , and Zwick , U . 2002. Improved dynamic reachability algorithms for directed graphs . In Proceedings of 43rd Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 679--688 . Roditty, L., and Zwick, U. 2002. Improved dynamic reachability algorithms for directed graphs. In Proceedings of 43rd Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 679--688.
-- DOI 10.1006/jcss.1995.1078
-- Shoshan A.. Proceedings of 40th Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 605--614. Deposited citation: Shoshan , A. , and Zwick , U . 1999. All pairs shortest paths in undirected graphs with integer weights . In Proceedings of 40th Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 605--614 . Shoshan, A., and Zwick, U. 1999. All pairs shortest paths in undirected graphs with integer weights. In Proceedings of 40th Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 605--614.
-- DOI 10.1137/S0097539702405954
-- DOI 10.1007/BF02165411
-- Yuster R.. Proceedings of 15th Symposium on Discrete Algorithms. ACM. Deposited citation: Yuster , R. , and Zwick , U . 2004. Detecting short directed cycles using rectangular matrix multiplication and dynamic programming . In Proceedings of 15th Symposium on Discrete Algorithms. ACM , New York, 247--253. Yuster, R., and Zwick, U. 2004. Detecting short directed cycles using rectangular matrix multiplication and dynamic programming. In Proceedings of 15th Symposium on Discrete Algorithms. ACM, New York, 247--253.
-- DOI 10.1145/567112.567114
+**UNRESOLVED.** No Crossref candidate cleared the title-match threshold, or the request failed.
 
 ### Zwi02 — All pairs shortest paths using bridging sets and rectangular matrix multiplication
 
@@ -4805,7 +4772,7 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - Bringmann Karl. Knapsack with Small Items in Near-Quadratic Time. arXiv preprint arXiv:2308.03075, arXiv:2308.03075. To appear in STOC 2024. Deposited citation: Karl Bringmann. 2023. Knapsack with Small Items in Near-Quadratic Time. arXiv preprint arXiv:2308.03075, arXiv:2308.03075. To appear in STOC 2024 — cited by direct seed(s): Jin24
 - Bringmann Karl. On Near-Linear-Time Algorithms for Dense Subset Sum. Deposited citation: Karl Bringmann and Philip Wellnitz. 2021. On Near-Linear-Time Algorithms for Dense Subset Sum. In SODA. SIAM, 1777–1796. — cited by direct seed(s): Bri24
 - broder. (1997). On the resemblance and containment of documents. Proceedings of Compression and Complexity of Sequences. p. 21 — cited by direct seed(s): AW15
-- bu?rgisser. (1997). Algebraic Complexity Theory. DOI 10.1007/978-3-662-03338-8 — cited by direct seed(s): LG12, YZ05b, Zwi02, vdBNS19
+- bu?rgisser. (1997). Algebraic Complexity Theory. DOI 10.1007/978-3-662-03338-8 — cited by direct seed(s): LG12, Zwi02, vdBNS19
 - Buchin. Fine-grained analysis of problems on curves.. EuroCG, Lugano, Switzerland, 2016 — cited by direct seed(s): Wil24
 - Buchsbaum, A.L., Kaplan, H., Rogers, A., Westbrook, J.R.: Linear-time pointer-machine algorithms for least common ancestors, MST verification, and dominators. In Proc. 30th ACM Sympos. Theory Comput., pp. 279–288 (1998). DOI 10.1145/276698.276764 — cited by direct seed(s): Cha08
 - Buhrman. (2021). A framework of quantum strong exponential-time hypotheses.. vol. 187. p. 19:1 — cited by direct seed(s): Wil24
@@ -4878,17 +4845,15 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - Cochran. (1950). Experimental Designs. — cited by direct seed(s): Goo58
 - cohen. (2018). Solving linear programs in the current matrix multiplication time. CoRR. vol. abs 1810 7896 — cited by direct seed(s): vdBNS19
 - Cohen, H., Porat, E.: On the hardness of distance oracle for sparse graph. CoRR, abs/1006.1117 (2010) — cited by direct seed(s): GKLP17
-- Cohn H.. Proceedings of 44th Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 438--449. Deposited citation: Cohn , H. , and Umans , C . 2003. A group-theoretic approach to fast matrix multiplication . In Proceedings of 44th Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 438--449 . Cohn, H., and Umans, C. 2003. A group-theoretic approach to fast matrix multiplication. In Proceedings of 44th Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 438--449. — cited by direct seed(s): YZ05b
 - Cole, R., Gottlieb, L.-A., Lewenstein, M.: Dictionary matching and indexing with errors and don’t cares. In: STOC, pp. 91–100 (2004). DOI 10.1145/1007352.1007374 — cited by direct seed(s): ACLL14, AVW14
 - Coppersmith. (1986). Matrix Multiplication via Behrend's Theorem — cited by direct seed(s): CW90
 - Coppersmith. (1987). Matrix Multiplication via Arithmetic Progressions. p. 1 — cited by direct seed(s): CW90
-- Coppersmith. (1990). Matrix multiplication via arithmetic progressions. J. Symbolic Comput.. vol. 9. p. 251. DOI 10.1016/S0747-7171(08)80013-2 — cited by direct seed(s): AGM97, AGMN92, AGV23, AN96, AV14, BS19, BW09, Cha08, Cop97, DGS20, KKP93, KS20, LG12, Mat91, RV11, RZ04, VW10, VW13, VW18, YZ05a, YZ05b, Zwi02
+- Coppersmith. (1990). Matrix multiplication via arithmetic progressions. J. Symbolic Comput.. vol. 9. p. 251. DOI 10.1016/S0747-7171(08)80013-2 — cited by direct seed(s): AGM97, AGMN92, AGV23, AN96, AV14, BS19, BW09, Cha08, Cop97, DGS20, KKP93, KS20, LG12, Mat91, RV11, RZ04, VW10, VW13, VW18, YZ05a, Zwi02
 - Coppersmith. (1990). Matrix multiplication via arithmetic progressions. JSC. vol. 9(3). p. 251 — cited by direct seed(s): Wil05
 - Coretti Sandro. (2018). Random Oracles and Non-uniformity. In EUROCRYPT. p. 227. Deposited citation: Sandro Coretti , Yevgeniy Dodis , Siyao Guo , and John P. Steinberger . 2018 . Random Oracles and Non-uniformity. In EUROCRYPT 2018 . Springer , 227 - 258 . Sandro Coretti, Yevgeniy Dodis, Siyao Guo, and John P. Steinberger. 2018. Random Oracles and Non-uniformity. In EUROCRYPT 2018. Springer, 227-258. — cited by direct seed(s): GGH+20
 - Cormen. (1990) — cited by direct seed(s): IPZ01
 - Cormen T. H. Leiserson C. E. Rivest R. L. and Stein C. 2001. Introduction to Algorithms 2nd ed. The MIT Press Cambridge Mass. Cormen T. H. Leiserson C. E. Rivest R. L. and Stein C. 2001. Introduction to Algorithms 2nd ed. The MIT Press Cambridge Mass. — cited by direct seed(s): Zwi02
 - Cormen, T.H., Leiserson, C.E., Rivest, R.L., Stein, C.: Introduction to Algorithms, 2nd edn. MIT Press and McGraw-Hill (2001) — cited by direct seed(s): BDP08
-- Cormen T. Leiserson C. Rivest R. and Stein C. 2001. Introduction to Algorithms Second ed. The MIT Press Cambridge Mass. Cormen T. Leiserson C. Rivest R. and Stein C. 2001. Introduction to Algorithms Second ed. The MIT Press Cambridge Mass. — cited by direct seed(s): YZ05b
 - Coron, J.-S., Joux,A.: Cryptanalysis of a provably secure cryptographic hash function. Cryptology ePrint Archive (2004) — cited by direct seed(s): AHY25
 - Courtois N.. (2000). Belgium. p. 392 — cited by direct seed(s): VW13
 - CP Schnorr. (1990). Advances in Cryptology — CRYPTO’ 89 Proceedings. p. 239. Deposited citation: Schnorr, C.P.: Efficient identification and signatures for smart cards. In: Brassard, G. (ed.) CRYPTO 1989. LNCS, vol. 435, pp. 239–252. Springer, New York (1990). https://doi.org/10.1007/0-387-34805-0_22 — cited by direct seed(s): AHY25
@@ -4952,7 +4917,6 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - demetrescu. (0). Fully dynamic transitive closure: Breaking through the o(n2) barrier. Proc of the 2000 Annual Symp on Foundations of Computer Science. p. 381 — cited by direct seed(s): LG12
 - demetrescu. (2000). Fully dynamic transitive closure: Breaking through the o(n2) barrier. Proc FOCS. vol. 41. p. 381 — cited by direct seed(s): AV14
 - Demetrescu, C., Italiano, G.: A new approach to dynamic all pairs shortest paths. In: Proc. of 35th STOC, pp. 159–166 (2003). DOI 10.1145/780542.780567 — cited by direct seed(s): RZ04
-- Demetrescu C.. Proceedings of 41st Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 381--389. Deposited citation: Demetrescu , C. , and Italiano , G . 2000. Fully dynamic transitive closure: Breaking through the O(n2) barrier . In Proceedings of 41st Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 381--389 . Demetrescu, C., and Italiano, G. 2000. Fully dynamic transitive closure: Breaking through the O(n2) barrier. In Proceedings of 41st Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 381--389. — cited by direct seed(s): YZ05b
 - Deng. (2022). New additive approximations for shortest paths and cycles. p. 50:1 — cited by direct seed(s): Dür23
 - Deng Mingyang. Approximating Knapsack and Partition via Dense Subset Sums. Deposited citation: Mingyang Deng, Ce Jin, and Xiao Mao. 2023. Approximating Knapsack and Partition via Dense Subset Sums. In SODA. SIAM, 2961–2979. — cited by direct seed(s): Bri24
 - Dietzfelbinger M.. (1996). France. p. 569 — cited by direct seed(s): VW13
@@ -4986,15 +4950,15 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - DOI 10.1006/jagm.2000.1117 — cited by direct seed(s): ABF23, ABKZ22, Zwi02
 - DOI 10.1006/jagm.2001.1170 — cited by direct seed(s): DMRW09, Mao21, NPS+25
 - DOI 10.1006/jagm.2001.1189 — cited by direct seed(s): Cha10
-- DOI 10.1006/jcom.1997.0438 — cited by direct seed(s): AP09, LG12, San04, YZ05a, YZ05b, Zwi02
-- DOI 10.1006/jcom.1998.0476 — cited by direct seed(s): AGV23, AP09, Cha10, LG12, San04, YZ05a, YZ05b, Zwi02
+- DOI 10.1006/jcom.1997.0438 — cited by direct seed(s): AP09, LG12, San04, YZ05a, Zwi02
+- DOI 10.1006/jcom.1998.0476 — cited by direct seed(s): AGV23, AP09, Cha10, LG12, San04, YZ05a, Zwi02
 - DOI 10.1006/jcph.1994.1001 — cited by direct seed(s): BB15
 - DOI 10.1006/JCSS — cited by direct seed(s): Fis26
 - DOI 10.1006/jcss.1995.1065 — cited by direct seed(s): BW09, Cha08, Cha10
 - DOI 10.1006/jcss.1997.1388 — cited by direct seed(s): AGMN92, BGMW20, CVX23, Cha08, Cha10, Fis26, RV11, Tak04, VW10, VW18, Wil18, YZ05a, Zwi02
 - DOI 10.1006/jcss.1997.1472 — cited by direct seed(s): AHP08
 - DOI 10.1006/jcss.1997.1495 — cited by direct seed(s): AC05
-- DOI 10.1006/jcss.1997.1534 — cited by direct seed(s): AHP08, YZ05b
+- DOI 10.1006/jcss.1997.1534 — cited by direct seed(s): AHP08
 - DOI 10.1006/jcss.1998.1577 — cited by direct seed(s): Păt10
 - DOI 10.1006/jcss.2001.1774 — cited by direct seed(s): AGV23, AVY15, CDL+16, CGI+16, CIP10, CMWW19, Fis26, GP18
 - DOI 10.1006/jcss.2002.1831 — cited by direct seed(s): ACW16
@@ -5100,14 +5064,14 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - DOI 10.1007/BF01894680 — cited by direct seed(s): IR78
 - DOI 10.1007/BF01940874 — cited by direct seed(s): VW13, Wil05, Zwi02
 - DOI 10.1007/BF02128670 — cited by direct seed(s): ACW16
-- DOI 10.1007/BF02165411 — cited by direct seed(s): AFK+24, AGM97, BB15, BS19, BW09, Bin80, Cha08, Cop97, FBH+22, FM71, HKNS15, IR78, KM23, KS20, Sch81, VW10, VW18, Wil18, Wil24, YZ05b, vdBNS19
+- DOI 10.1007/BF02165411 — cited by direct seed(s): AFK+24, AGM97, BB15, BS19, BW09, Bin80, Cha08, Cop97, FBH+22, FM71, HKNS15, IR78, KM23, KS20, Sch81, VW10, VW18, Wil18, Wil24, vdBNS19
 - DOI 10.1007/BF02187683 — cited by direct seed(s): AHP08
 - DOI 10.1007/BF02187740 — cited by direct seed(s): AHP08
 - DOI 10.1007/BF02189323 — cited by direct seed(s): BHP01
 - DOI 10.1007/BF02240211 — cited by direct seed(s): HKNS15
 - DOI 10.1007/BF02289527 — cited by direct seed(s): AGV23
 - DOI 10.1007/BF02293051 — cited by direct seed(s): Cha10, Cha20
-- DOI 10.1007/BF02523189 — cited by direct seed(s): ABF23, ABKZ22, ALW14, AV14, CVX22, JX23, VW13, VX20, Wil18, YZ05b
+- DOI 10.1007/BF02523189 — cited by direct seed(s): ABF23, ABKZ22, ALW14, AV14, CVX22, JX23, VW13, VX20, Wil18
 - DOI 10.1007/BF02570713 — cited by direct seed(s): AC05, AHP08
 - DOI 10.1007/BF02573971 — cited by direct seed(s): AHP08
 - DOI 10.1007/BF02573972 — cited by direct seed(s): AHP08
@@ -5116,7 +5080,7 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - DOI 10.1007/BF02574692 — cited by direct seed(s): AHP08
 - DOI 10.1007/BF02574706 — cited by direct seed(s): AHP08
 - DOI 10.1007/BF02579196 — cited by direct seed(s): GP18
-- DOI 10.1007/BF02579206 — cited by direct seed(s): AGV23, YZ05b, vdBNS19
+- DOI 10.1007/BF02579206 — cited by direct seed(s): AGV23, vdBNS19
 - DOI 10.1007/BF02579338 — cited by direct seed(s): Cha20
 - DOI 10.1007/BF02579381 — cited by direct seed(s): Wil24
 - DOI 10.1007/BF02579443 — cited by direct seed(s): KKP93
@@ -5201,7 +5165,7 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - DOI 10.1016/0196-6774(85)90007-0 — cited by direct seed(s): AHP08
 - DOI 10.1016/0196-6774(86)90019-2 — cited by direct seed(s): AGHP92, AN96
 - DOI 10.1016/0196-6774(86)90032-5 — cited by direct seed(s): CDL+16, IP01, IPZ01, Wil05
-- DOI 10.1016/0196-6774(89)90005-9 — cited by direct seed(s): San04, YZ05b
+- DOI 10.1016/0196-6774(89)90005-9 — cited by direct seed(s): San04
 - DOI 10.1016/0196-6774(90)90011-3 — cited by direct seed(s): BGMW20, DMRW09
 - DOI 10.1016/0196-6774(91)90036-X — cited by direct seed(s): HLS24
 - DOI 10.1016/0304-3975(76)90078-5 — cited by direct seed(s): AC05, BCD+14, CMWW19, Fre76, GP18, KLM19
@@ -5270,7 +5234,6 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - DOI 10.1016/S0016-0032(42)90767-1 — cited by direct seed(s): SB93
 - DOI 10.1016/S0019-9958(73)90228-3 — cited by direct seed(s): BW09
 - DOI 10.1016/S0019-9958(85)80024-3 — cited by direct seed(s): BW09
-- DOI 10.1016/S0020-0190(03)00252-7 — cited by direct seed(s): YZ05b
 - DOI 10.1016/S0022-0000(75)80046-8 — cited by direct seed(s): AFK+24, VW18, Yu18
 - DOI 10.1016/S0167-8655(02)00382-3 — cited by direct seed(s): BGMW20
 - DOI 10.1016/S0304-3975(03)00402-X — cited by direct seed(s): AGV23, Cha08, Cha10, RV11, RZ04, Wil18
@@ -5325,7 +5288,7 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - DOI 10.1109/FOCS.2004.14 — cited by direct seed(s): AW15
 - DOI 10.1109/FOCS.2004.22 — cited by direct seed(s): HKNS15, RZ04
 - DOI 10.1109/FOCS.2004.25 — cited by direct seed(s): AVY15, HKNS15, Păt10, vdBNS19
-- DOI 10.1109/FOCS.2004.40 — cited by direct seed(s): San04, YZ05b, vdBNS19
+- DOI 10.1109/FOCS.2004.40 — cited by direct seed(s): San04, vdBNS19
 - DOI 10.1109/FOCS.2006.45 — cited by direct seed(s): ABKZ22
 - DOI 10.1109/FOCS.2006.49 — cited by direct seed(s): ACW16, AW15
 - DOI 10.1109/FOCS.2006.56 — cited by direct seed(s): AW15
@@ -5470,11 +5433,9 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - DOI 10.1137/0210032 — cited by direct seed(s): BB15, BS19, CW90, Cop82, FBH+22, KS20, LG12
 - DOI 10.1137/0210033 — cited by direct seed(s): Jin24, Wil05
 - DOI 10.1137/0211020 — cited by direct seed(s): BS19, KS20
-- DOI 10.1137/0211028 — cited by direct seed(s): YZ05b
 - DOI 10.1137/0211037 — cited by direct seed(s): ACW16, Cop97, LG12, Wil18
 - DOI 10.1137/0211038 — cited by direct seed(s): BS19, CW90, Cop82, KS20
 - DOI 10.1137/0213002 — cited by direct seed(s): Cha20
-- DOI 10.1137/0213017 — cited by direct seed(s): YZ05b
 - DOI 10.1137/0213024 — cited by direct seed(s): DMRW09, Mao21
 - DOI 10.1137/0213027 — cited by direct seed(s): Wil18
 - DOI 10.1137/0213028 — cited by direct seed(s): ACW16, Wil18
@@ -5609,8 +5570,6 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - DOI 10.1137/S003614450037906X — cited by direct seed(s): BS19
 - DOI 10.1137/S0097539701386216 — cited by direct seed(s): GGH+20
 - DOI 10.1137/S0097539701393384 — cited by direct seed(s): ABF23
-- DOI 10.1137/S0097539702402147 — cited by direct seed(s): YZ05b
-- DOI 10.1137/S0097539702405954 — cited by direct seed(s): YZ05b
 - DOI 10.1137/S0097539702407515 — cited by direct seed(s): AHP08
 - DOI 10.1137/S0097539702408223 — cited by direct seed(s): BW09
 - DOI 10.1137/S0097539702419650 — cited by direct seed(s): AGV23, Cha08, Cha10, HT16, Han08, Wil18
@@ -5624,7 +5583,6 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - DOI 10.1137/S0097539792231179 — cited by direct seed(s): RV11, YZ05a
 - DOI 10.1137/S0097539792233907 — cited by direct seed(s): Wil18
 - DOI 10.1137/S0097539793247634 — cited by direct seed(s): BW09
-- DOI 10.1137/S0097539793256223 — cited by direct seed(s): YZ05b
 - DOI 10.1137/S0097539794261295 — cited by direct seed(s): ABF23, ABKZ22
 - DOI 10.1137/S0097539794271898 — cited by direct seed(s): ABF23, ABKZ22, HLS24
 - DOI 10.1137/S0097539795288489 — cited by direct seed(s): Mao21
@@ -5828,7 +5786,6 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - DOI 10.1145/3519935.3520057 — cited by direct seed(s): CVX23, Fis26, Jin24, NPS+25
 - DOI 10.1145/3519935.3520064 — cited by direct seed(s): HLS24
 - DOI 10.1145/3519935.3520066 — cited by direct seed(s): ABF23, AFK+24, Fis26, HLS24, JX23
-- DOI 10.1145/355791.355796 — cited by direct seed(s): YZ05b
 - DOI 10.1145/3563393 — cited by direct seed(s): Fis26
 - DOI 10.1145/3564246.3585157 — cited by direct seed(s): AFK+24, Fis26, HLS24
 - DOI 10.1145/3564246.3585178 — cited by direct seed(s): NPS+25
@@ -5840,7 +5797,6 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - DOI 10.1145/3564246.3585237 — cited by direct seed(s): Fis26
 - DOI 10.1145/3564246.3585240 — cited by direct seed(s): AFK+24, Fis26, HLS24
 - DOI 10.1145/358234.381162 — cited by direct seed(s): VW18
-- DOI 10.1145/359545.359556 — cited by direct seed(s): YZ05b
 - DOI 10.1145/3618260.3649604 — cited by direct seed(s): NPS+25
 - DOI 10.1145/3618260.3649618 — cited by direct seed(s): Fis26
 - DOI 10.1145/3618260.3649689 — cited by direct seed(s): HLS24
@@ -5858,9 +5814,9 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - DOI 10.1145/48529.48535 — cited by direct seed(s): AP09, BDP08
 - DOI 10.1145/502090.502095 — cited by direct seed(s): AV14
 - DOI 10.1145/505241.505242 — cited by direct seed(s): AFK+24, BW09, VW18
-- DOI 10.1145/509907.509911 — cited by direct seed(s): Păt10, RZ04, YZ05b
+- DOI 10.1145/509907.509911 — cited by direct seed(s): Păt10, RZ04
 - DOI 10.1145/509907.509992 — cited by direct seed(s): ABF23, JX23
-- DOI 10.1145/567112.567114 — cited by direct seed(s): AGV23, CVX23, Cha10, Fis26, HT16, Han08, LG12, RV11, VW18, VX20, Wil05, Wil18, YZ05a, YZ05b, vdBNS19
+- DOI 10.1145/567112.567114 — cited by direct seed(s): AGV23, CVX23, Cha10, Fis26, HT16, Han08, LG12, RV11, VW18, VX20, Wil05, Wil18, YZ05a, vdBNS19
 - DOI 10.1145/602259.602281 — cited by direct seed(s): AP09
 - DOI 10.1145/62.2160 — cited by direct seed(s): Wil24
 - DOI 10.1145/62212.62228 — cited by direct seed(s): BW09
@@ -6389,7 +6345,6 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - Kopelowitz Tsvi. (2014). 3sum hardness in (dynamic) data structures. CoRR, abs/1407.6756 — cited by direct seed(s): AVY15
 - Koutis I.. (2009). Greece. p. 653 — cited by direct seed(s): VW13
 - Kowaluk, M., Lingas, A., Lundell, E.-M.: Counting and detecting small subgraphs via equations and matrix multiplication. In: SODA 2011, pp. 1468–1476. SIAM (2011). DOI 10.1137/1.9781611973082.114 — cited by direct seed(s): AL13
-- Kratsch D.. Proceedings of 14th Symposium on Discrete Algorithms. ACM. Deposited citation: Kratsch , D. , and Spinrad , J . 2003. Between O(nm) and O(n&alpha;) . In Proceedings of 14th Symposium on Discrete Algorithms. ACM , New York, 709--716. Kratsch, D., and Spinrad, J. 2003. Between O(nm) and O(n&alpha;). In Proceedings of 14th Symposium on Discrete Algorithms. ACM, New York, 709--716. — cited by direct seed(s): YZ05b
 - Krebs V.. (2002). Mapping networks of terrorist cells. Connections. vol. 24(3). p. 43. Deposited citation: V. Krebs. 2002. Mapping networks of terrorist cells. Connections 24, 3 (2002), 43–52. — cited by direct seed(s): AGV23
 - KS Kedlaya. (2011). SIAM J. Comput.. vol. 40(6). p. 1767. Deposited citation: Kedlaya, K.S., Umans, C.: Fast polynomial factorization and modular composition. SIAM J. Comput. 40(6), 1767–1802 (2011). DOI 10.1137/08073408X — cited by direct seed(s): ACJ+22, AW15
 - Kuhn. (1934). Über die Gestalt fadenförmiger Moleküle in Lösungen. Kolloid Zeitschrift. vol. 68(1). p. 2. DOI 10.1007/BF01451681 — cited by direct seed(s): SEO03
@@ -6521,12 +6476,11 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - MOR~ VEK. (1970). J Math Anal Appl. vol. 30. p. 702. DOI 10.1016/0022-247X(70)90154-X — cited by direct seed(s): Joh77
 - Moser R. A.. (2011). New York. p. 245 — cited by direct seed(s): Her14
 - Motzkin T.. (1955). Evaluation of polynomials and evaluation of rational functions. Bull. Amer. Math. Soc. vol. 61(163). p. 10. Deposited citation: T. Motzkin . Evaluation of polynomials and evaluation of rational functions . Bull. Amer. Math. Soc , 61 ( 163 ): 10 , 1955 . T. Motzkin. Evaluation of polynomials and evaluation of rational functions. Bull. Amer. Math. Soc, 61(163):10, 1955. — cited by direct seed(s): HKNS15
-- Mucha M.. Proceedings of 12th ESA, 532--543. Deposited citation: Mucha , M. , and Sankowski , P . 2004a. Maximum matchings in planar graphs via gaussian elimination . In Proceedings of 12th ESA, 532--543 . Mucha, M., and Sankowski, P. 2004a. Maximum matchings in planar graphs via gaussian elimination. In Proceedings of 12th ESA, 532--543. — cited by direct seed(s): YZ05b
 - Mucha Marcin. A Subquadratic Approximation Scheme for Partition. Deposited citation: Marcin Mucha, Karol Wegrzycki, and Michal Wlodarczyk. 2019. A Subquadratic Approximation Scheme for Partition. In SODA. SIAM, 70–88. — cited by direct seed(s): Bri24
 - Muthukrishnan. (2002). Efficient algorithms for document retrieval problems. p. 657 — cited by direct seed(s): CP10
 - N. Ailon. (2005). J. ACM. vol. 52(2). p. 157. Deposited citation: Ailon, N., Chazelle, B.: Lower bounds for linear degeneracy testing. J. ACM 52(2), 157–171 (2005). DOI 10.1145/1059513.1059515 — cited by direct seed(s): AL13, ALW14, DGS20, GP18, KLM19
 - N. Alon. (1991). The Probabilistic Method. Deposited citation: N. Alon and J. Spencer,The Probabilistic Method, Wiley, New York, 1991. — cited by direct seed(s): AN96
-- N. Alon. (1995). J. ACM. vol. 42(4). p. 844. Deposited citation: Alon, N., Yuster, R., Zwick, U.: Color-coding. J. ACM 42(4), 844–856 (1995). DOI 10.1145/210332.210337 — cited by direct seed(s): AL13, AYZ97, CMWW19, Cha10, DGS20, JX23, RV11, VW13, Wil05, YZ05b
+- N. Alon. (1995). J. ACM. vol. 42(4). p. 844. Deposited citation: Alon, N., Yuster, R., Zwick, U.: Color-coding. J. ACM 42(4), 844–856 (1995). DOI 10.1145/210332.210337 — cited by direct seed(s): AL13, AYZ97, CMWW19, Cha10, DGS20, JX23, RV11, VW13, Wil05
 - N. Alon. 2009. Personal communication. N. Alon. 2009. Personal communication. — cited by direct seed(s): VW18
 - N Alon. (2016). Encyclopedia of Algorithms. p. 335. Deposited citation: Alon, N., Yuster, R., Zwick, U.: Color coding. Encyclopedia of Algorithms, pp. 335–338. Springer, New York (2016). https://doi.org/10.1007/978-1-4939-2864-4_76 — cited by direct seed(s): LLV19
 - N. Alon, O. Goldreich, J. Hastad, and R. Peralta, Simple constructions of almostk-wise independent random variables,Proc. 31st IEEE Symposium on Foundations of Computer Science, 1990, pp. 544–553. AlsoRandom Structures and Algorithms,3 (1992), 289–304.. DOI 10.1002/rsa.3240030308 — cited by direct seed(s): AN96
@@ -6546,7 +6500,6 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - NEMI-IAVSER. (1972). J Math Anal Appl. vol. 38. p. 2 — cited by direct seed(s): Joh77
 - Nesetril. (1985). On the complexity of the subgraph problem. Comment. Math. Univ. Carolin.. vol. 26(2). p. 415 — cited by direct seed(s): Wil05
 - Nešetřil J.. (1985). Comment. Math. Univ. Carolin.. vol. 26. p. 415 — cited by direct seed(s): VW13
-- Nešetřil J.. (1985). On the complexity of the subgraph problem. Comment. Math. Univ. Carol.. vol. 26. p. 415. Deposited citation: Nešetřil , J. , and Poljak , S. 1985 . On the complexity of the subgraph problem . Comment. Math. Univ. Carol. 26 , 2, 415 -- 419 . Nešetřil, J., and Poljak, S. 1985. On the complexity of the subgraph problem. Comment. Math. Univ. Carol. 26, 2, 415--419. — cited by direct seed(s): YZ05b
 - Nešetřil Jaroslav. (1985). On the complexity of the subgraph problem. Commentationes Math. Universitatis Carolinae. vol. 026. p. 415 — cited by direct seed(s): BGMW20
 - Nešetřil Jaroslav. (1985). On the complexity of the subgraph problem. Commentationes Mathematicae Universitatis Carolinae. vol. 26. p. 415. Deposited citation: Jaroslav Nešetřil and Svatopluk Poljak. 1985. On the complexity of the subgraph problem. Commentationes Mathematicae Universitatis Carolinae 26, 2 (1985), 415–419. — cited by direct seed(s): AFK+24
 - Nicholas J. Higham. 2002. Accuracy and Stability of Numerical Algorithms. Vol. 80. SIAM. Nicholas J. Higham. 2002. Accuracy and Stability of Numerical Algorithms. Vol. 80. SIAM.. DOI 10.1137/1.9780898718027 — cited by direct seed(s): KS20
@@ -6587,7 +6540,6 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - Pan. (1978). Strassen Algorithm Is Not Optimal. Trilinear Technique of Aggregating Uniting and Canceling for Constructing Fast Algorithms for Matrix Multiplication. p. 166 — cited by direct seed(s): CW90
 - pan. (1984). How to multiply matrices faster. DOI 10.1007/3-540-13866-8 — cited by direct seed(s): BW09, CW90
 - Pan. (1984). vol. 179 — cited by direct seed(s): Cop97
-- Pan V.. How to multiply matrices faster. Deposited citation: Pan , V. 1985. How to multiply matrices faster . In Lecture Notes in Computer Science , vol. 179 . Springer-Verlag , New York . Pan, V. 1985. How to multiply matrices faster. In Lecture Notes in Computer Science, vol. 179. Springer-Verlag, New York. — cited by direct seed(s): YZ05b
 - Pan V.. How to Multiply Matrices Faster. Deposited citation: Pan , V. 1985. How to Multiply Matrices Faster . Lecture Notes in Computer Science , Vol. 179 . Springer-Verlag , New York . Pan, V. 1985. How to Multiply Matrices Faster. Lecture Notes in Computer Science, Vol. 179. Springer-Verlag, New York. — cited by direct seed(s): Zwi02
 - Pan, V. Y. Fast feasible and unfeasible matrix multiplication. Preprint at https://arxiv.org/abs/1804.04102 (2018). — cited by direct seed(s): FBH+22
 - Pan V., Ya., Winograd S.,Personal Communication. — cited by direct seed(s): Bin80
@@ -6648,7 +6600,7 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - R. Parikh. (1966). J. ACM. vol. 13(4). p. 570. Deposited citation: Parikh, R.: On context-free languages. J. ACM 13(4), 570–581 (1966). DOI 10.1145/321356.321364 — cited by direct seed(s): ACLL14
 - R.S. Boyer. (1977). Commun. ACM. vol. 20(10). p. 762. Deposited citation: Boyer, R.S., Moore, J.S.: A fast string searching algorithm. Commun. ACM 20(10), 762–772 (1977). DOI 10.1145/359842.359859 — cited by direct seed(s): ACLL14
 - R. Salem, D. C. Spencer, On sets of integers which contain no three terms in arithmetical progression, Proc. Natl. Acad. Sci. USA, 28, 561, 563. DOI 10.1073/pnas.28.12.561 — cited by direct seed(s): CW90, Cop97, DGS20, VW13
-- R. Seidel. (1995). J. Comput. Syst. Sci.. vol. 51. p. 400. Deposited citation: Seidel, R.: On the all-pairs-shortest-path problem in unweighted undirected graphs. J. Comput. Syst. Sci. 51, 400–403 (1995). DOI 10.1006/jcss.1995.1078 — cited by direct seed(s): CVX22, CVX23, Cha08, Cha10, HT16, Han04, Han08, RV11, RZ04, Wil18, YZ05b, Zwi02
+- R. Seidel. (1995). J. Comput. Syst. Sci.. vol. 51. p. 400. Deposited citation: Seidel, R.: On the all-pairs-shortest-path problem in unweighted undirected graphs. J. Comput. Syst. Sci. 51, 400–403 (1995). DOI 10.1006/jcss.1995.1078 — cited by direct seed(s): CVX22, CVX23, Cha08, Cha10, HT16, Han04, Han08, RV11, RZ04, Wil18, Zwi02
 - R. Seidel, On the all-pairs-shortest-path problem, Proceedings, 24th ACM Annual Symp. on Theory of Computing, 1992. DOI 10.1145/129712.129784 — cited by direct seed(s): AGM97, AGMN92, AN96, KKP93
 - R.T. Rockafellar. (1970). Convex Analysis. Deposited citation: Rockafellar, R.T.: Convex Analysis. Princeton Mathematical Series. Princeton University Press, Princeton (1970). DOI 10.1515/9781400873173 — cited by direct seed(s): BCD+14
 - R. Williams. (2009). Inf. Process. Lett.. vol. 109(6). p. 315. Deposited citation: Williams, R.: Finding paths of length k in o*(2k) time. Inf. Process. Lett. 109(6), 315–318 (2009). DOI 10.1016/j.ipl.2008.11.004 — cited by direct seed(s): AL13
@@ -6678,7 +6630,6 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - roditty. (2005). Replacement paths and k simple shortest paths in unweighted directed graphs. Proc ICALP. p. 249 — cited by direct seed(s): VW10
 - roditty. (2007). On the K-simple shortest paths problem in weighted directed graphs. Proc SODA. p. 920 — cited by direct seed(s): VW10
 - Roditty L.. (2007). Proceedings of the Symposium on Discrete Algorithms (SODA’07). Deposited citation: L. Roditty . 2007 . On the -simple shortest paths problem in weighted directed graphs . In Proceedings of the Symposium on Discrete Algorithms (SODA’07) . 920--928. L. Roditty. 2007. On the -simple shortest paths problem in weighted directed graphs. In Proceedings of the Symposium on Discrete Algorithms (SODA’07). 920--928. — cited by direct seed(s): VW18
-- Roditty L.. Proceedings of 43rd Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 679--688. Deposited citation: Roditty , L. , and Zwick , U . 2002. Improved dynamic reachability algorithms for directed graphs . In Proceedings of 43rd Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 679--688 . Roditty, L., and Zwick, U. 2002. Improved dynamic reachability algorithms for directed graphs. In Proceedings of 43rd Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 679--688. — cited by direct seed(s): YZ05b
 - Roditty L.. Proceedings of the European Symposium on Algorithms (ESA’04). Deposited citation: L. Roditty and U. Zwick . 2004. On dynamic shortest paths problems . In Proceedings of the European Symposium on Algorithms (ESA’04) . 580--591. L. Roditty and U. Zwick. 2004. On dynamic shortest paths problems. In Proceedings of the European Symposium on Algorithms (ESA’04). 580--591. — cited by direct seed(s): VW18
 - Roditty, L., Zwick, U.: Improved dynamic reachability algorithms for directed graphs. In: Proc. of 43rd FOCS, pp. 679–688 (2002). DOI 10.1109/SFCS.2002.1181993 — cited by direct seed(s): RZ04, San04
 - Rolf D.. (2005). Sci.. vol. 3569. p. 216 — cited by direct seed(s): Her14
@@ -6735,7 +6686,6 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - Shapiro Bruce A.. (1990). Comparing multiple RNA secondary structures using tree comparisons. Comput. Appl. Biosci.. vol. 6. p. 309 — cited by direct seed(s): BGMW20
 - Shor, P.W.: Algorithms for quantum computation: discrete logarithms and factoring. In: Proceedings of the 35th Annual Symposium on Foundations of Computer Science, SFCS 1994, pp. 124–134. IEEE Computer Society, Washington, DC (1994) — cited by direct seed(s): LLV19
 - Shoshan A.. (1999). IEEE. p. 605 — cited by direct seed(s): Wil18
-- Shoshan A.. Proceedings of 40th Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 605--614. Deposited citation: Shoshan , A. , and Zwick , U . 1999. All pairs shortest paths in undirected graphs with integer weights . In Proceedings of 40th Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 605--614 . Shoshan, A., and Zwick, U. 1999. All pairs shortest paths in undirected graphs with integer weights. In Proceedings of 40th Symposium on Foundations of Computer Science. IEEE Computer Society Press, Los Alamitos, Calif., 605--614. — cited by direct seed(s): YZ05b
 - Shoshan A.. Proceedings of the 40th Annual IEEE Symposium on Foundations of Computer Science. p. 605. Deposited citation: Shoshan , A. , and Zwick , U . 1999. All pairs shortest paths in undirected graphs with integer weights . In Proceedings of the 40th Annual IEEE Symposium on Foundations of Computer Science ( New York, New York). IEEE Computer Society Press, Los Alamitos, Calif. , pp. 605 -- 614 . Shoshan, A., and Zwick, U. 1999. All pairs shortest paths in undirected graphs with integer weights. In Proceedings of the 40th Annual IEEE Symposium on Foundations of Computer Science (New York, New York). IEEE Computer Society Press, Los Alamitos, Calif., pp. 605--614. — cited by direct seed(s): Zwi02
 - Shoshan A.. Proceedings of the Symposium on Foundations of Computer Science (FOCS’99). Deposited citation: A. Shoshan and U. Zwick . 1999. All-pairs shortest paths in undirected graphs with integer weights . In Proceedings of the Symposium on Foundations of Computer Science (FOCS’99) . 605--614. A. Shoshan and U. Zwick. 1999. All-pairs shortest paths in undirected graphs with integer weights. In Proceedings of the Symposium on Foundations of Computer Science (FOCS’99). 605--614. — cited by direct seed(s): VW18
 - Smolensky. (1987). Algebraic methods in the theory of lower bounds for Boolean circuit complexity — cited by direct seed(s): IPZ01
@@ -6928,7 +6878,6 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - YEN J Y A shortest path algorithm Ph.D Th U of California Berkeley Cahf 1970. YEN J Y A shortest path algorithm Ph.D Th U of California Berkeley Cahf 1970. — cited by direct seed(s): Joh77
 - Yu H.. (2015). Heidelberg. p. 1094 — cited by direct seed(s): Wil18
 - yuster. (0). Detecting short directed cycles using rectangular matrix multiplication and dynamic programming. Proceedings of the 15th Annual ACM-SIAM Symposium on Discrete Algorithms 2004. p. 254 — cited by direct seed(s): LG12
-- Yuster R.. Proceedings of 15th Symposium on Discrete Algorithms. ACM. Deposited citation: Yuster , R. , and Zwick , U . 2004. Detecting short directed cycles using rectangular matrix multiplication and dynamic programming . In Proceedings of 15th Symposium on Discrete Algorithms. ACM , New York, 247--253. Yuster, R., and Zwick, U. 2004. Detecting short directed cycles using rectangular matrix multiplication and dynamic programming. In Proceedings of 15th Symposium on Discrete Algorithms. ACM, New York, 247--253. — cited by direct seed(s): YZ05b
 - Yuster, R., Zwick, U.: Answering distance queries in directed graphs using fast matrix multiplication. In: 46th Annual IEEE Symposium on Foundations of Computer Science. Los Alamitos, CA, USA, pp. 389–396. IEEE Comput. Soc. (2005). DOI 10.1109/SFCS.2005.20 — cited by direct seed(s): HT16, Han08, RV11
 - Yuval. (1976). An algorithm for finding all shortest paths usingN2.81. Inform. Process. Lett.. vol. 4. p. 155. DOI 10.1016/0020-0190(76)90085-5 — cited by direct seed(s): AGM97, RV11, VW10, VW13, VW18, YZ05a, Zwi02
 - Z. Galil. (1993). Journal of Complexity. vol. 9. p. 201. Deposited citation: Z. Galil and O. Margalit, Witnesses for Boolean matrix multiplication and for transitive closure,Journal of Complexity,9 (1993), 201–221.. DOI 10.1006/jcom.1993.1014 — cited by direct seed(s): AN96, Zwi02
@@ -6961,7 +6910,7 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - **DSW18** — Martin Dietzfelbinger; Philipp Schlag; Stefan Walzer (2018), *A subquadratic algorithm for 3XOR*. Diagnostic: {"title_similarity": 0.6744186046511628, "score": 0.6744186046511628, "candidate_title": "Subquadratic Algorithm for Dynamic Shortest Distances", "candidate_year": 2005, "candidate_doi": "10.1007/11533719_47", "reason": "best candidate below acceptance threshold"}
 - **Eri99** — Jeff Erickson (1999), *Lower bounds for linear satisfiability problems*. Diagnostic: {"title_similarity": 0.7207207207207207, "score": 0.7207207207207207, "candidate_title": "A Survey of Lower Bounds for Satisfiability and Related Problems", "candidate_year": 2006, "candidate_doi": "10.1561/9781601980854", "reason": "best candidate below acceptance threshold"}
 - **ES17** — Esther Ezra; Micha Sharir (2017), *A nearly quadratic bound for the decision tree complexity of k-SUM*. Diagnostic: {"title_similarity": 0.632258064516129, "score": 0.632258064516129, "candidate_title": "An Improved Lower Bound for the Randomized Decision Tree Complexity of Recursive Majority,", "candidate_year": 2013, "candidate_doi": "10.1007/978-3-642-39206-1_59", "reason": "best candidate below acceptance threshold"}
-- **FKP24** — Nick Fischer; Piotr Kaliciak; Adam Polak (2024), *Deterministic 3SUM-hardness*. Diagnostic: {"title_similarity": 0.36666666666666664, "score": 0.36666666666666664, "candidate_title": "Reducing 3SUM to Convolution-3SUM", "candidate_year": 2020, "candidate_doi": "10.1137/1.9781611976014.1", "reason": "best candidate below acceptance threshold"}
+- **FKP24** — Nick Fischer; Piotr Kaliciak; Adam Polak (2024), *Deterministic 3SUM-hardness*. Diagnostic: {"title_similarity": 0.39436619718309857, "score": 0.39436619718309857, "candidate_title": "Efficient Algorithm for solving 3SUM problem", "candidate_year": 2014, "candidate_doi": "10.33107/ubt-ic.2014.61", "reason": "best candidate below acceptance threshold"}
 - **GLP19** — Isaac Goldstein; Moshe Lewenstein; Ely Porat (2019), *On the hardness of set disjointness and set intersection with bounded universe*. Diagnostic: {"title_similarity": 0.7346938775510204, "score": 0.7346938775510204, "candidate_title": "Multi-Party Set Disjointness and Intersection with Bounded Dependence", "candidate_year": 2024, "candidate_doi": "10.1145/3662158.3662795", "reason": "best candidate below acceptance threshold"}
 - **Gra26** — Omar Graia (2026), *Optimal deterministic fully sparse matrix multiplication*. Diagnostic: {"title_similarity": 0.6507936507936508, "score": 0.6507936507936508, "candidate_title": "I/O-Optimal Cache-Oblivious Sparse Matrix-Sparse Matrix Multiplication", "candidate_year": 2022, "candidate_doi": "10.1109/ipdps53621.2022.00013", "reason": "best candidate below acceptance threshold"}
 - **GS17** — Omer Gold; Micha Sharir (2017), *Improved bounds for 3SUM, k-SUM, and linear degeneracy*. Diagnostic: {"title_similarity": 0.6382978723404256, "score": 0.6382978723404256, "candidate_title": "Lower bounds for linear degeneracy testing", "candidate_year": 2005, "candidate_doi": "10.1145/1059513.1059515", "reason": "best candidate below acceptance threshold"}
@@ -6980,4 +6929,5 @@ _No reference list is present in this work's Crossref deposit. This is recorded 
 - **Wil14** — R. Ryan Williams (2014), *The polynomial method in circuit complexity applied to algorithm design*. Diagnostic: {"title_similarity": 0.7543859649122807, "score": 0.7543859649122807, "candidate_title": "The polynomial method in circuit complexity", "candidate_year": null, "candidate_doi": "10.1109/sct.1993.336538", "reason": "best candidate below acceptance threshold"}
 - **Wil16** — R. Ryan Williams (2016), *Strong ETH breaks with Merlin and Arthur: Short non-interactive proofs of batch evaluation*. Diagnostic: {"title_similarity": 0.5029239766081871, "score": 0.5029239766081871, "candidate_title": "Experimenting With Non-Interactive Range Proofs Based on the Strong RSA Assumption", "candidate_year": 2019, "candidate_doi": "10.1109/access.2019.2936210", "reason": "best candidate below acceptance threshold"}
 - **Yat37** — Frank Yates (1937), *The design and analysis of factorial experiments*. Diagnostic: {"title_similarity": 0.7652173913043478, "score": 0.7652173913043478, "candidate_title": "Design and statistical analysis of confounded factorial experiments", "candidate_year": null, "candidate_doi": "10.31274/rtd-180813-14147", "reason": "best candidate below acceptance threshold"}
+- **YZ05b** — Raphael Yuster; Uri Zwick (2005), *Fast sparse matrix multiplication*. Diagnostic: {"title_similarity": 0.825, "score": 0.825, "candidate_title": "Fast algorithm for sparse matrix multiplication", "candidate_year": 1982, "candidate_doi": "10.1016/0020-0190(82)90114-4", "reason": "best candidate below acceptance threshold"}
 

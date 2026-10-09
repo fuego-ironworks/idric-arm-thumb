@@ -1,9 +1,9 @@
 {
   "metadata_source": "Crossref",
   "seed_count": 173,
-  "resolved_direct_count": 141,
-  "unresolved_direct_count": 32,
-  "direct_with_deposited_references": 108,
+  "resolved_direct_count": 140,
+  "unresolved_direct_count": 33,
+  "direct_with_deposited_references": 107,
   "direct_without_deposited_references": [
     "ABFK24",
     "ACW20",
@@ -39,7 +39,7 @@
     "VXXZ24",
     "Zwi06"
   ],
-  "unique_second_hop_reference_count": 2396,
+  "unique_second_hop_reference_count": 2378,
   "resolved": {
     "ABF23": {
       "doi": "10.1145/3564246.3585240",
@@ -1835,19 +1835,6 @@
         "candidate_doi": "10.1109/sfcs.2005.20"
       }
     },
-    "YZ05b": {
-      "doi": "10.1145/1077464.1077466",
-      "title": "Fast sparse matrix multiplication",
-      "publication_year": 2005,
-      "reference_count": 32,
-      "diagnostic": {
-        "title_similarity": 1.0,
-        "score": 1.08,
-        "candidate_title": "Fast sparse matrix multiplication",
-        "candidate_year": 2005,
-        "candidate_doi": "10.1145/1077464.1077466"
-      }
-    },
     "Zwi02": {
       "doi": "10.1145/567112.567114",
       "title": "All pairs shortest paths using bridging sets and rectangular matrix multiplication",
@@ -2092,11 +2079,11 @@
         "title": "Deterministic 3SUM-hardness"
       },
       "diagnostic": {
-        "title_similarity": 0.36666666666666664,
-        "score": 0.36666666666666664,
-        "candidate_title": "Reducing 3SUM to Convolution-3SUM",
-        "candidate_year": 2020,
-        "candidate_doi": "10.1137/1.9781611976014.1",
+        "title_similarity": 0.39436619718309857,
+        "score": 0.39436619718309857,
+        "candidate_title": "Efficient Algorithm for solving 3SUM problem",
+        "candidate_year": 2014,
+        "candidate_doi": "10.33107/ubt-ic.2014.61",
         "reason": "best candidate below acceptance threshold"
       }
     },
@@ -2385,6 +2372,22 @@
         "candidate_title": "Design and statistical analysis of confounded factorial experiments",
         "candidate_year": null,
         "candidate_doi": "10.31274/rtd-180813-14147",
+        "reason": "best candidate below acceptance threshold"
+      }
+    },
+    "YZ05b": {
+      "seed": {
+        "key": "YZ05b",
+        "year": 2005,
+        "authors": "Raphael Yuster; Uri Zwick",
+        "title": "Fast sparse matrix multiplication"
+      },
+      "diagnostic": {
+        "title_similarity": 0.825,
+        "score": 0.825,
+        "candidate_title": "Fast algorithm for sparse matrix multiplication",
+        "candidate_year": 1982,
+        "candidate_doi": "10.1016/0020-0190(82)90114-4",
         "reason": "best candidate below acceptance threshold"
       }
     }
