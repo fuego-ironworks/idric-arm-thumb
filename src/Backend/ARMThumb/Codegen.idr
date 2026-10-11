@@ -29,8 +29,8 @@ record ExportABI where
 
 private
 type_name : String -> String -> Name
-type_name namespace leaf =
-  NS (mkNamespace namespace) (UN (Basic leaf))
+type_name namespace_text leaf =
+  NS (mkNamespace namespace_text) (UN (Basic leaf))
 
 private
 renderer_type_name : String -> Name
