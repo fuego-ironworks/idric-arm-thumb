@@ -77,8 +77,8 @@ validate_external_symbol symbol =
 
 private
 type_name : String -> String -> Name
-type_name namespace leaf =
-  NS (mkNamespace namespace) (UN (Basic leaf))
+type_name namespace_text leaf =
+  NS (mkNamespace namespace_text) (UN (Basic leaf))
 
 private
 renderer_name : String -> Name
