@@ -29,6 +29,14 @@ word_carry = word32_add_carry
 %export "arm-thumb:word_borrow"
 word_borrow : Bits32 → Bits32 → Bits32
 word_borrow = word32_subtract_borrow
+%export "arm-thumb:word_add_chain"
+word_add_chain : Bits32 → Bits32 → Bits32 → Bits32 → Bits32
+word_add_chain lower_left lower_right higher_left higher_right =
+  higher_left + higher_right + word32_add_carry lower_left lower_right
+%export "arm-thumb:word_borrow_chain"
+word_borrow_chain : Bits32 → Bits32 → Bits32 → Bits32 → Bits32
+word_borrow_chain lower_left lower_right higher_left higher_right =
+  higher_left - higher_right - word32_subtract_borrow lower_left lower_right
 %export "arm-thumb:word_left_zero"
 word_left_zero : Bits32 → Bits32
 word_left_zero value = prim__shl_Bits32 value 0

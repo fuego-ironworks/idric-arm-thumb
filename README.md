@@ -95,8 +95,10 @@ The older `idris-arm-backend` remains useful reference code for the broader arit
 ## Next slice
 
 `mul-word-test` compiles `WordKernels.idric` through the real driver, executes
-229 independent Integer-oracle vectors under QEMU, and retains the 916 actual
-result bytes. Its gates require Android ELF32 Thumb-2 objects with no undefined
+233 independent Integer-oracle vectors under QEMU, and retains the 932 actual
+result bytes. It also consumes every shared-corpus pair inside the unsigned
+Word32 domain, executing both low and high products; wider inputs receive
+explicit domain-refusal records. Its gates require Android ELF32 Thumb-2 objects with no undefined
 helpers, correct source refusals and arithmetic defects that retain their
 nonzero status through the outer Idriç runner. Android object generation and
 emulated Linux-user execution are separate evidence; neither is physical MIRO A1

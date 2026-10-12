@@ -33,13 +33,17 @@ binaryRun args output = do
 
 one : String -> String -> String -> String -> IO Int
 one qemu executable expected artifact_stem = do
+  Right expected_file <- openFile expected Read | _ => pure 8
+  expected_size <- fileSize expected_file
+  closeFile expected_file
+  Right number_of_expected_bytes <- pure expected_size | _ => pure 8
   (status,count) <- binaryRun [qemu,"-cpu","cortex-a9",executable] (artifact_stem ++ ".results.bin")
   save (artifact_stem ++ ".candidate.status") (show status ++ "\n")
   save (artifact_stem ++ ".result-bytes") (show count ++ "\n")
   (message, comparison) <- System.Escaped.run ["cmp",expected,artifact_stem ++ ".results.bin"]
   save (artifact_stem ++ ".comparison.stdout") message
   save (artifact_stem ++ ".comparison.status") (show comparison ++ "\n")
-  pure (if status/=0 then status else if count/=916 || comparison/=0 then 9 else 0)
+  pure (if status/=0 then status else if number_of_expected_bytes<=0 || count/=number_of_expected_bytes || comparison/=0 then 9 else 0)
 
 finish : Int -> IO ()
 finish 0 = pure ()
@@ -72,7 +76,8 @@ negative self qemu executable expected artifact_stem required = do
   save (artifact_stem ++ ".outer.stdout") message
   save (artifact_stem ++ ".outer.status") (show status ++ "\n")
   Right child <- readFile (artifact_stem ++ ".candidate.status") | _ => pure False
-  let detected = status==required && child==show required ++ "\n"
+  Right comparison <- readFile (artifact_stem ++ ".comparison.status") | _ => pure False
+  let detected = status==required && child==show required ++ "\n" && (required/=57 || comparison=="0\n")
   putStrLn ((if detected then "PASS " else "FAIL ") ++ artifact_stem ++ " status=" ++ show status)
   pure detected
 

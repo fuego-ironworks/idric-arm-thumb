@@ -14,8 +14,10 @@ next_word_test:
         beq word_test_pass
         ldr r0, [r4, #0]
         ldr r1, [r4, #4]
+        ldr r2, [r4, #8]
         ldr r3, [r4, #12]
-        blx r3
+        ldr r12, [r4, #20]
+        blx r12
         sub sp, sp, #8
         str r0, [sp]
         movs r0, #1
@@ -27,14 +29,16 @@ next_word_test:
         bne word_write_fail
         ldr r0, [sp]
         add sp, sp, #8
-        ldr r2, [r4, #8]
+        ldr r2, [r4, #16]
         cmp r0, r2
         bne word_test_fail
         adds r6, r6, #1
-        adds r4, r4, #16
+        adds r4, r4, #24
         b next_word_test
 word_test_pass:
-        cmp r6, #229
+        ldr r2, =word_test_vector_count
+        ldr r2, [r2]
+        cmp r6, r2
         bne word_test_fail
         movs r0, #0
         b word_test_exit

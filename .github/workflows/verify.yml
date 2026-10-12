@@ -27,6 +27,13 @@ jobs:
           ref: 081b9cde0591154839fb5d80d76e5570e0436300
           path: Idric
 
+      - name: Check out immutable shared multiplication corpus
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          repository: walnut-burgundy/computer-science
+          ref: 32aa3dc5e0e9c2dd19eacb05e515894e252d0886
+          path: STAR
+
       - name: Install host build tools
         run: |
           sudo apt-get update
@@ -57,7 +64,7 @@ jobs:
         run: make verify IDRIC="$GITHUB_WORKSPACE/Idric/build/exec/idris2"
 
       - name: Execute generated Word32 kernels and preserve each defect failure
-        run: make mul-word-test IDRIC="$GITHUB_WORKSPACE/Idric/build/exec/idris2" ARM_CLANG="$ARM_CLANG" QEMU_ARM=/usr/bin/qemu-arm
+        run: make mul-word-test IDRIC="$GITHUB_WORKSPACE/Idric/build/exec/idris2" ARM_CLANG="$ARM_CLANG" QEMU_ARM=/usr/bin/qemu-arm CORPUS="$GITHUB_WORKSPACE/STAR/integer-multiplication/openai-2026/contracts/mul-v1.tsv"
       - name: Preserve generated word arithmetic evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
