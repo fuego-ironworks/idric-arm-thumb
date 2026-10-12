@@ -102,8 +102,10 @@ mutants self clang qemu assembly vectors harness expected directory = do
 
 reject_source : Int -> String -> String -> String -> String -> IO ()
 reject_source required driver source name artifact_stem = do
-  (message,status) <- System.Escaped.run [driver,"--cg","arm-thumb","--source-dir",
-    "tests/source",source,"-o",name]
+  -- The existing System.run/popen interface fixes the process-shell boundary.
+  -- Arguments remain escaped; only stderr is joined to the captured stream.
+  (message,status) <- System.run (escapeCmd [driver,"--cg","arm-thumb","--source-dir",
+    "tests/source",source,"-o",name] ++ " 2>&1")
   save (artifact_stem ++ ".stdout") message
   save (artifact_stem ++ ".status") (show status ++ "\n")
   save (artifact_stem ++ ".required.status") (show required ++ "\n")

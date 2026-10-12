@@ -34,3 +34,9 @@ required nonzero evidence for a dynamic `ExitFailure`, and the absence of a
 `artifact_stem`, explicit `choose` evidence and a guarded `pred` operation.
 Those failures and corrections remain in the generated program's history.
 No other-language helper or oracle fallback is used.
+
+Exact-head CI generated and linked the fixtures, then exposed that the real
+driver writes its refusal diagnostic to stderr. The runner now joins stderr
+at the existing `System.run`/`popen` command boundary, using escaped arguments
+and the fixed descriptor redirection only. The actual child status remains
+separately recorded and must be 1. The program remains Idriç.
