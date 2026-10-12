@@ -61,6 +61,24 @@ emit_instruction (Copy destination source) =
   load_word "r0" source ++ store_word "r0" destination
 emit_instruction (WordConstant destination value) =
   materialise_word32 value ++ store_word "r0" destination
+emit_instruction (WordBinary operation destination left right) =
+  load_word "r0" left ++ load_word "r1" right ++
+  (case operation of
+    AddWord32 => ["        add.w   r0, r0, r1"]
+    SubtractWord32 => ["        sub.w   r0, r0, r1"]
+    AndWord32 => ["        and.w   r0, r0, r1"]
+    OrWord32 => ["        orr.w   r0, r0, r1"]
+    XorWord32 => ["        eor.w   r0, r0, r1"]
+    MultiplyWord32Low => ["        mul     r0, r0, r1"]
+    MultiplyWord32High => ["        umull   r2, r3, r0, r1", "        mov     r0, r3"]
+    AddWord32Carry => ["        adds.w  r2, r0, r1", "        movw    r0, #0", "        adc.w   r0, r0, r0"]
+    SubtractWord32Borrow => ["        cmp     r0, r1", "        movw    r0, #0", "        sbc.w   r0, r0, r0", "        rsb.w   r0, r0, #0"]
+  ) ++ store_word "r0" destination
+emit_instruction (WordShift leftward destination source count) =
+  load_word "r0" source ++
+  (if count == 0 then [] else
+    ["        " ++ (if leftward then "lsl.w" else "lsr.w") ++
+     "   r0, r0, #" ++ show count]) ++ store_word "r0" destination
 emit_instruction (LoadFloat32 destination buffer index) =
   load_word "r0" buffer ++
   load_word "r1" index ++
@@ -123,9 +141,23 @@ validate_instruction function (Copy destination source) = do
 validate_instruction function (WordConstant destination value) = do
   validate_local_home function destination
   expect_representation "Word constant" Word32 destination
-  if value >= -2147483648 && value <= 2147483647
+  if value >= -2147483648 && value <= 4294967295
     then Right ()
-    else Left ("Word constant is outside signed Int32 range: " ++ show value)
+    else Left ("Word constant is outside a 32-bit representation: " ++ show value)
+validate_instruction function (WordBinary operation destination left right) = do
+  validate_local_home function destination
+  validate_local_home function left
+  validate_local_home function right
+  expect_representation "Word result" Word32 destination
+  expect_representation "Word left operand" Word32 left
+  expect_representation "Word right operand" Word32 right
+validate_instruction function (WordShift leftward destination source count) = do
+  validate_local_home function destination
+  validate_local_home function source
+  expect_representation "Word shift result" Word32 destination
+  expect_representation "Word shift source" Word32 source
+  if count >= 0 && count <= 31 then Right ()
+    else Left "Word shift count must be from 0 through 31"
 validate_instruction function (LoadFloat32 destination buffer index) = do
   validate_local_home function destination
   validate_local_home function buffer
@@ -178,7 +210,8 @@ validate_leaf_for_emission function = do
   validate_arguments function function.arguments
   validate_instructions function function.instructions
   validate_local_home function function.result
-  expect_representation "Function result" Float32 function.result
+  if function.result.representation == Float32 || function.result.representation == Word32
+    then Right () else Left "Function result must be Float32 or a 32-bit word"
 
 ||| Emit Android armeabi-v7a Thumb-2. Arguments cross the softfp C ABI as
 ||| raw one-word values in r0-r3; VFPv3-D16 is used inside numerical leaves.

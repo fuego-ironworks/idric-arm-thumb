@@ -139,11 +139,11 @@ reject-invalid-result: $(DRIVER) tests/source/InvalidResult.idric
 		./$(DRIVER) --cg arm-thumb --source-dir tests/source \
 		tests/source/InvalidResult.idric -o invalid_result > $(INVALID_RESULT_LOG) 2>&1; then \
 		cat $(INVALID_RESULT_LOG); \
-		echo 'Expected non-Float32 result ABI to be rejected'; \
+		echo 'Expected pointer result ABI to be rejected'; \
 		exit 1; \
 	fi
 	grep -q 'arm-thumb rejected source ABI' $(INVALID_RESULT_LOG)
-	grep -q 'result must be RendererPrimitives.Float32' $(INVALID_RESULT_LOG)
+	grep -q 'result must be RendererPrimitives.Float32 or a 32-bit word' $(INVALID_RESULT_LOG)
 	test ! -e build/exec/invalid_result.arm-thumb.S
 
 reject: reject-invalid-int reject-too-many-args reject-invalid-result

@@ -5,6 +5,8 @@ import Compiler.ANF
 import Core.Name
 import Core.Name.Namespace
 import Core.TT.Primitive
+import Core.TT.Term
+import Data.Vect
 
 %default covering
 
@@ -21,6 +23,8 @@ private
 data RawInstruction
   = RawCopy Int Int
   | RawWordConstant Int Int
+  | RawWordBinary WordBinaryOperation Int Int Int
+  | RawWordShift Bool Int Int Int
   | RawLoadFloat32 Int Int Int
   | RawFloatBinary FloatBinaryOperation Int Int Int
   | RawFloatUnary FloatUnaryOperation Int Int
@@ -77,13 +81,20 @@ renderer_name leaf =
 private
 data RendererPrimitive
   = BufferLoad
+  | WordBinaryPrimitive WordBinaryOperation
   | Binary FloatBinaryOperation
   | Unary FloatUnaryOperation
 
 private
 renderer_primitive : Name -> Maybe RendererPrimitive
 renderer_primitive name =
-  if name == renderer_name "float32_buffer_load"
+  if name == renderer_name "word32_multiply_high"
+    then Just (WordBinaryPrimitive MultiplyWord32High)
+    else if name == renderer_name "word32_add_carry"
+      then Just (WordBinaryPrimitive AddWord32Carry)
+      else if name == renderer_name "word32_subtract_borrow"
+        then Just (WordBinaryPrimitive SubtractWord32Borrow)
+    else if name == renderer_name "float32_buffer_load"
     then Just BufferLoad
     else if name == renderer_name "float32_add"
       then Just (Binary AddFloat32)
@@ -199,6 +210,48 @@ add_float_unary operation destination value state =
       (add_constraint (HasRepresentation value Float32) state))
 
 private
+add_word_binary :
+  WordBinaryOperation -> Int -> Int -> Int -> BuildState -> BuildState
+add_word_binary operation destination left right state =
+  add_instruction (RawWordBinary operation destination left right)
+    (add_constraint (HasRepresentation destination Word32)
+      (add_constraint (HasRepresentation left Word32)
+        (add_constraint (HasRepresentation right Word32) state)))
+
+private
+lower_word_binary :
+  WordBinaryOperation -> Int -> Int -> Int -> BuildState -> Either String BuildState
+lower_word_binary operation destination left right state = do
+  require_bound "Word left operand" left state
+  require_bound "Word right operand" right state
+  with_destination <- bind_variable "Word destination" destination state
+  Right (add_word_binary operation destination left right with_destination)
+
+private
+word_constant_value : Int -> List RawInstruction -> Maybe Int
+word_constant_value variable [] = Nothing
+word_constant_value variable (RawWordConstant destination value :: rest) =
+  if variable == destination then Just value else word_constant_value variable rest
+word_constant_value variable (_ :: rest) = word_constant_value variable rest
+
+private
+lower_word_shift :
+  Bool -> Int -> Int -> Int -> BuildState -> Either String BuildState
+lower_word_shift leftward destination source count_variable state = do
+  require_bound "Word shift source" source state
+  require_bound "Word shift count" count_variable state
+  case word_constant_value count_variable state.raw_instructions_reversed of
+    Nothing => Left "Word shifts require a constant count from 0 through 31"
+    Just count =>
+      if count < 0 || count > 31
+        then Left "Word shifts require a constant count from 0 through 31"
+        else do
+          with_destination <- bind_variable "Word shift destination" destination state
+          Right (add_instruction (RawWordShift leftward destination source count)
+            (add_constraint (HasRepresentation destination Word32)
+              (add_constraint (HasRepresentation source Word32) with_destination)))
+
+private
 lower_external :
   Int -> Name -> List AVar -> BuildState -> Either String BuildState
 lower_external destination name arguments state =
@@ -207,6 +260,10 @@ lower_external destination name arguments state =
       Left
         ("Unsupported external primitive `" ++ show name ++
          "`; renderer intrinsics are matched by exact fully qualified name")
+    Just (WordBinaryPrimitive operation) =>
+      case arguments of
+        [ALocal left, ALocal right] => lower_word_binary operation destination left right state
+        _ => Left "Word intrinsic requires two local operands"
     Just BufferLoad =>
       case arguments of
         [ALocal buffer, ALocal index] => do
@@ -249,6 +306,25 @@ lower_value destination (AV _ (ALocal source)) state = do
 lower_value destination (APrimVal _ (I32 value)) state = do
   with_destination <- bind_variable "Let destination" destination state
   Right (add_word_constant destination (cast value) with_destination)
+lower_value destination (APrimVal _ (B32 value)) state = do
+  with_destination <- bind_variable "Let destination" destination state
+  Right (add_word_constant destination (cast value) with_destination)
+lower_value destination (AOp _ Nothing (Add Bits32Type) [ALocal left, ALocal right]) state =
+  lower_word_binary AddWord32 destination left right state
+lower_value destination (AOp _ Nothing (Sub Bits32Type) [ALocal left, ALocal right]) state =
+  lower_word_binary SubtractWord32 destination left right state
+lower_value destination (AOp _ Nothing (Mul Bits32Type) [ALocal left, ALocal right]) state =
+  lower_word_binary MultiplyWord32Low destination left right state
+lower_value destination (AOp _ Nothing (BAnd Bits32Type) [ALocal left, ALocal right]) state =
+  lower_word_binary AndWord32 destination left right state
+lower_value destination (AOp _ Nothing (BOr Bits32Type) [ALocal left, ALocal right]) state =
+  lower_word_binary OrWord32 destination left right state
+lower_value destination (AOp _ Nothing (BXOr Bits32Type) [ALocal left, ALocal right]) state =
+  lower_word_binary XorWord32 destination left right state
+lower_value destination (AOp _ Nothing (ShiftL Bits32Type) [ALocal source, ALocal count]) state =
+  lower_word_shift True destination source count state
+lower_value destination (AOp _ Nothing (ShiftR Bits32Type) [ALocal source, ALocal count]) state =
+  lower_word_shift False destination source count state
 lower_value destination (APrimVal _ (I value)) state =
   Left
     ("Idriç Int is 64-bit in the pinned compiler; use Int32 in this " ++
@@ -377,6 +453,20 @@ resolve_instruction slots constraints (RawWordConstant destination value) = do
   destination_local <- resolve_local slots constraints destination
   expect_representation "Word constant" Word32 destination_local
   Right (WordConstant destination_local value)
+resolve_instruction slots constraints (RawWordBinary operation destination left right) = do
+  destination_local <- resolve_local slots constraints destination
+  left_local <- resolve_local slots constraints left
+  right_local <- resolve_local slots constraints right
+  expect_representation "Word binary result" Word32 destination_local
+  expect_representation "Word binary left operand" Word32 left_local
+  expect_representation "Word binary right operand" Word32 right_local
+  Right (WordBinary operation destination_local left_local right_local)
+resolve_instruction slots constraints (RawWordShift leftward destination source count) = do
+  destination_local <- resolve_local slots constraints destination
+  source_local <- resolve_local slots constraints source
+  expect_representation "Word shift result" Word32 destination_local
+  expect_representation "Word shift source" Word32 source_local
+  Right (WordShift leftward destination_local source_local count)
 resolve_instruction slots constraints (RawLoadFloat32 destination buffer index) = do
   destination_local <- resolve_local slots constraints destination
   buffer_local <- resolve_local slots constraints buffer
@@ -450,11 +540,11 @@ lower_leaf :
 lower_leaf requested_symbol argument_representations result_representation
            (MkAFun argument_variables body) = do
   symbol <- validate_external_symbol requested_symbol
-  if result_representation /= Float32
+  if result_representation /= Float32 && result_representation /= Word32
     then
       Left
         ("Export `" ++ symbol ++
-         "` must return RendererPrimitives.Float32, not " ++
+         "` must return RendererPrimitives.Float32 or a 32-bit word, not " ++
          show result_representation)
     else if length argument_variables > 4
       then Left ("Export `" ++ symbol ++ "` has more than four 32-bit softfp ABI arguments")
