@@ -24,7 +24,7 @@ require_rejection driver fixture output_name diagnostics = do
   (output, status) <- run_compiler driver directory
                                  (directory ++ "/" ++ fixture) output_name
   if status == 0
-    then die ("FAIL: compiler accepted " ++ fixture)
+    then die ("FAIL: compiler accepted " ++ fixture ++ "\n" ++ output)
     else pure ()
   if all (`isInfixOf` output) diagnostics
     then pure ()

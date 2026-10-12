@@ -43,6 +43,12 @@ helper with the pinned compiler, then runs the positive and negative source
 controls. Its logs are the execution evidence, not this attempt record.
 The inherited source-to-Thumb and QEMU scalar tests still run afterward.
 
+The first compiled rejection helper exposed a historical driver failure:
+an output-generation UserError could be printed while the process exited zero.
+The backend now catches its output-generation failure, reports it, and exits
+nonzero. The original nonzero-status assertion is retained. The helper also
+prints captured compiler output if that assertion fails again.
+
 The next compiler boundary is canonical Idriç's owned Float32 source/IR
 contract. The current canonical FP8 reference types and the historical
 Float32/Float16 prelude are distinct lines. A canonical-source-to-ARM receipt

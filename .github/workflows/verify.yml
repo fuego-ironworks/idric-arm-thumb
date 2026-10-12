@@ -31,17 +31,43 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential curl ca-certificates clang lld file libgmp-dev qemu-user
 
+      - name: Restore the exact pinned host compiler and installed API
+        id: compiler-cache
+        uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: |
+            Idric/.tools
+            Idric/build
+            Idric/libs/*/build
+            ~/.idris2
+          key: arm-thumb-host-api-${{ runner.os }}-${{ runner.arch }}-ad674be3e2f0eade5cd007c419a0f0c048548d6a-v1
+
       - name: Bootstrap pinned Idriç
+        if: steps.compiler-cache.outputs.cache-hit != 'true'
         run: |
           ./Idric/edric bootstrap
-          printf '%s\n' "$GITHUB_WORKSPACE/Idric/.tools/bin" >> "$GITHUB_PATH"
+
+      - name: Put the pinned Scheme runtime on PATH
+        run: printf '%s\n' "$GITHUB_WORKSPACE/Idric/.tools/bin" >> "$GITHUB_PATH"
 
       - name: Install pinned Idriç support, libraries and compiler API
+        if: steps.compiler-cache.outputs.cache-hit != 'true'
         run: |
           make -C Idric install-support PREFIX="$HOME/.idris2"
           make -C Idric install-bootstrap-libs IDRIS2="$GITHUB_WORKSPACE/Idric/build/exec/idris2"
           make -C Idric install-api IDRIS2_BOOT="$GITHUB_WORKSPACE/Idric/build/exec/idris2"
           make -C Idric install-support
+
+      - name: Save the pinned host compiler before backend qualification
+        if: steps.compiler-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: |
+            Idric/.tools
+            Idric/build
+            Idric/libs/*/build
+            ~/.idris2
+          key: arm-thumb-host-api-${{ runner.os }}-${{ runner.arch }}-ad674be3e2f0eade5cd007c419a0f0c048548d6a-v1
 
       - name: Verify native ARM/Thumb numerical, PrintASCII, and branching paths
         run: make verify IDRIC="$GITHUB_WORKSPACE/Idric/build/exec/idris2"

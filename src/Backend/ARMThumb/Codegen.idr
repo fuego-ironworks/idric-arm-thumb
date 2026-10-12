@@ -12,6 +12,7 @@ import Core.TT
 import Data.String
 import Idris.Syntax
 import Libraries.Utils.Path
+import System
 
 %default covering
 
@@ -272,11 +273,11 @@ compile_numerical_exports qualified_exports definitions = do
     Right source => pure source
 
 private
-compile_arm_thumb :
+write_arm_thumb_output :
   Ref Ctxt Defs -> Ref Syn SyntaxInfo ->
   (temporary_directory : String) -> (output_directory : String) ->
   ClosedTerm -> (requested_output_name : String) -> Core (Maybe String)
-compile_arm_thumb definitions syntax temporary_directory output_directory
+write_arm_thumb_output definitions syntax temporary_directory output_directory
                   term requested_output_name = do
   resolved_compile_data <- getCompileDataWith [backend_name] False ANF term
   qualified_exports <- traverse fully_qualified_export (exported resolved_compile_data)
@@ -291,6 +292,23 @@ compile_arm_thumb definitions syntax temporary_directory output_directory
       _ => compile_numerical_exports qualified_exports anf_definitions
   Core.writeFile assembly_file assembly_source
   pure (Just assembly_file)
+
+-- The historical driver catches output-generation UserError exceptions without
+-- necessarily setting its source-error flag. A backend refusal must never
+-- return process success merely because no source line accompanied the error.
+private
+compile_arm_thumb :
+  Ref Ctxt Defs -> Ref Syn SyntaxInfo ->
+  (temporary_directory : String) -> (output_directory : String) ->
+  ClosedTerm -> (requested_output_name : String) -> Core (Maybe String)
+compile_arm_thumb definitions syntax temporary_directory output_directory
+                  term requested_output_name =
+  catch
+    (write_arm_thumb_output definitions syntax temporary_directory
+                            output_directory term requested_output_name)
+    (\error => do
+      coreLift $ putStrLn ("ARM/Thumb output generation failed: " ++ show error)
+      coreLift exitFailure)
 
 private
 execute_arm_thumb :
