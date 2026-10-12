@@ -151,7 +151,7 @@ canonicalise_argument register E5M2Value =
   ["        uxtb    " ++ register ++ ", " ++ register]
 canonicalise_argument register E3M2Value =
   ["        and.w   " ++ register ++ ", " ++ register ++ ", #63"]
-canonicalise_argument register E5M3Value =
+canonicalise_argument register OotomoE5M3Value =
   ["        uxtb    " ++ register ++ ", " ++ register]
 canonicalise_argument register _ = []
 
@@ -240,7 +240,7 @@ validate_instruction function (NarrowBinary format operation destination left ri
   expect_representation "Narrow binary left operand" representation left
   expect_representation "Narrow binary right operand" representation right
   if format == OotomoE5M3
-    then Left "Ootomo-Naruse E5M3 defines storage conversion, not arithmetic"
+    then Left "Ootomo-Naruse OotomoE5M3 defines storage conversion, not arithmetic"
     else Right ()
 validate_instruction function (Bits8Binary operation destination left right) = do
   validate_local_home function destination
@@ -272,7 +272,7 @@ is_scalar_result Float16Value = True
 is_scalar_result E4M3Value = True
 is_scalar_result E5M2Value = True
 is_scalar_result E3M2Value = True
-is_scalar_result E5M3Value = True
+is_scalar_result OotomoE5M3Value = True
 is_scalar_result _ = False
 
 private

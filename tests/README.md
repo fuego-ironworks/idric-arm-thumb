@@ -32,16 +32,16 @@ derivatives before executing a 14-by-26 matrix-vector product. At the current
 E3M2 scale, 278 of the 364 matrix entries become zero; that loss is reported as
 part of the measurement rather than treated as a test failure.
 
-## E5M3 observational residual measurements
+## OotomoE5M3 observational residual measurements
 
-`make e5m3-observe` exercises the Ootomo-Naruse unsigned E5M3 storage
-conversion without inventing native E5M3 arithmetic. Positive arithmetic cases
-are stored as E5M3, decoded to Float32 for the operation, stored back to E5M3,
+`make ootomo_e5m3-observe` exercises the Ootomo-Naruse unsigned OotomoE5M3 storage
+conversion without inventing native OotomoE5M3 arithmetic. Positive arithmetic cases
+are stored as OotomoE5M3, decoded to Float32 for the operation, stored back to OotomoE5M3,
 then decoded for observation. The runner prints reference, observed value, and
 the numerical residual (`observed - reference`) without grading that residual.
 
 The same 14-by-26 Dakota measurement-model Jacobian is exercised with nonzero
-magnitudes stored as E5M3. Because this E5M3 has neither a sign bit nor a
+magnitudes stored as OotomoE5M3. Because this OotomoE5M3 has neither a sign bit nor a
 distinguished zero, signs and structural zeros are carried as separate test
 metadata. The matrix-vector multiply and accumulation are Float32, and the
 signed result remains Float32 rather than being forced into an unsigned storage

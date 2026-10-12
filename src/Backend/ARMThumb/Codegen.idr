@@ -12,6 +12,7 @@ import Core.TT
 import Data.String
 import Idris.Syntax
 import Libraries.Utils.Path
+import System
 
 %default covering
 
@@ -28,9 +29,21 @@ record ExportABI where
   result_representation : Representation
 
 private
+type_name : String -> String -> Name
+type_name namespace_text leaf =
+  NS (mkNamespace namespace_text) (UN (Basic leaf))
+
+private
 renderer_type_name : String -> Name
-renderer_type_name leaf =
-  NS (mkNamespace "RendererPrimitives") (UN (Basic leaf))
+renderer_type_name = type_name "RendererPrimitives"
+
+private
+float16_type_name : Name
+float16_type_name = type_name "Prelude.Float16" "Float16"
+
+private
+low_precision_type_name : String -> Name
+low_precision_type_name = type_name "Prelude.LowPrecision"
 
 private
 print_ascii_main_name : Name
@@ -46,16 +59,18 @@ classify_abi_type (PrimVal _ (PrT primitive_type)) =
 classify_abi_type (Ref _ (TyCon 0) name) =
   if name == renderer_type_name "Float32"
     then Right Float32
-  else if name == renderer_type_name "Float16"
+  else if name == float16_type_name
     then Right Float16Value
-  else if name == renderer_type_name "E4M3"
+  else if name == low_precision_type_name "E4M3"
     then Right E4M3Value
-  else if name == renderer_type_name "E5M2"
+  else if name == low_precision_type_name "E5M2"
     then Right E5M2Value
-  else if name == renderer_type_name "E3M2"
+  else if name == low_precision_type_name "E3M2"
     then Right E3M2Value
-  else if name == renderer_type_name "E5M3"
-    then Right E5M3Value
+  else if name == low_precision_type_name "E5M3"
+    then Left "ambiguous E5M3 source type; choose signed E4M3 or E5M2, or explicitly unsigned OotomoE5M3"
+  else if name == renderer_type_name "OotomoE5M3"
+    then Right OotomoE5M3Value
   else if name == renderer_type_name "Float32Buffer"
     then Right Float32Pointer
   else Left ("unsupported source type `" ++ show name ++ "`")
@@ -91,7 +106,7 @@ is_scalar_result Float16Value = True
 is_scalar_result E4M3Value = True
 is_scalar_result E5M2Value = True
 is_scalar_result E3M2Value = True
-is_scalar_result E5M3Value = True
+is_scalar_result OotomoE5M3Value = True
 is_scalar_result _ = False
 
 private
@@ -116,7 +131,7 @@ resolve_export_abi (internal_name, external_symbol) = do
           ("arm-thumb rejected source ABI for `" ++ show internal_name ++
            "`: " ++ explanation ++
            ". Supported arguments are Float32, Float16, E4M3, E5M2, E3M2, " ++
-           "E5M3, Bits8, Float32Buffer, and Int32; the result must be a " ++
+           "OotomoE5M3, Bits8, Float32Buffer, and Int32; the result must be a " ++
            "supported scalar value."))
     Right (arguments, result) =>
       if not (is_scalar_result result)
@@ -258,11 +273,11 @@ compile_numerical_exports qualified_exports definitions = do
     Right source => pure source
 
 private
-compile_arm_thumb :
+write_arm_thumb_output :
   Ref Ctxt Defs -> Ref Syn SyntaxInfo ->
   (temporary_directory : String) -> (output_directory : String) ->
   ClosedTerm -> (requested_output_name : String) -> Core (Maybe String)
-compile_arm_thumb definitions syntax temporary_directory output_directory
+write_arm_thumb_output definitions syntax temporary_directory output_directory
                   term requested_output_name = do
   resolved_compile_data <- getCompileDataWith [backend_name] False ANF term
   qualified_exports <- traverse fully_qualified_export (exported resolved_compile_data)
@@ -277,6 +292,23 @@ compile_arm_thumb definitions syntax temporary_directory output_directory
       _ => compile_numerical_exports qualified_exports anf_definitions
   Core.writeFile assembly_file assembly_source
   pure (Just assembly_file)
+
+-- The historical driver catches output-generation UserError exceptions without
+-- necessarily setting its source-error flag. A backend refusal must never
+-- return process success merely because no source line accompanied the error.
+private
+compile_arm_thumb :
+  Ref Ctxt Defs -> Ref Syn SyntaxInfo ->
+  (temporary_directory : String) -> (output_directory : String) ->
+  ClosedTerm -> (requested_output_name : String) -> Core (Maybe String)
+compile_arm_thumb definitions syntax temporary_directory output_directory
+                  term requested_output_name =
+  catch
+    (write_arm_thumb_output definitions syntax temporary_directory
+                            output_directory term requested_output_name)
+    (\error => do
+      coreLift $ putStrLn ("ARM/Thumb output generation failed: " ++ show error)
+      coreLift exitFailure)
 
 private
 execute_arm_thumb :

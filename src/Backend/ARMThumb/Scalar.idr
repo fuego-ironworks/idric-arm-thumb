@@ -11,7 +11,7 @@ to_float32_helper Binary16 = ".Lscalar_f16_to_f32"
 to_float32_helper FP8E4M3 = ".Lscalar_e4m3_to_f32"
 to_float32_helper FP8E5M2 = ".Lscalar_e5m2_to_f32"
 to_float32_helper FP6E3M2 = ".Lscalar_e3m2_to_f32"
-to_float32_helper OotomoE5M3 = ".Lscalar_e5m3_to_f32"
+to_float32_helper OotomoE5M3 = ".Lscalar_ootomo_e5m3_to_f32"
 
 public export
 from_float32_helper : NarrowFloatFormat -> String
@@ -19,7 +19,7 @@ from_float32_helper Binary16 = ".Lscalar_f32_to_f16"
 from_float32_helper FP8E4M3 = ".Lscalar_f32_to_e4m3"
 from_float32_helper FP8E5M2 = ".Lscalar_f32_to_e5m2"
 from_float32_helper FP6E3M2 = ".Lscalar_f32_to_e3m2"
-from_float32_helper OotomoE5M3 = ".Lscalar_f32_to_e5m3"
+from_float32_helper OotomoE5M3 = ".Lscalar_f32_to_ootomo_e5m3"
 
 ||| Descriptor bits consumed by the generic signed-small-float helpers:
 |||   bits 0..3   trailing significand width
@@ -70,15 +70,15 @@ scalar_helper_lines =
   , "        movt    r1, #0x0003"
   , "        b.w     .Lscalar_encode_generic"
   , ""
-  , "@ Ootomo-Naruse unsigned E5M3 storage conversion."
-  , ".Lscalar_e5m3_to_f32:"
+  , "@ Ootomo-Naruse unsigned OotomoE5M3 storage conversion."
+  , ".Lscalar_ootomo_e5m3_to_f32:"
   , "        uxtb    r0, r0"
   , "        lsl.w   r0, r0, #20"
   , "        movw    r1, #0x0000"
   , "        movt    r1, #0x3808"
   , "        add.w   r0, r0, r1"
   , "        bx      lr"
-  , ".Lscalar_f32_to_e5m3:"
+  , ".Lscalar_f32_to_ootomo_e5m3:"
   , "        movw    r1, #0x0000"
   , "        movt    r1, #0x3800"
   , "        sub.w   r0, r0, r1"

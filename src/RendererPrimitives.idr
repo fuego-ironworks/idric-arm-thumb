@@ -1,30 +1,21 @@
 module RendererPrimitives
 
+import Prelude.Float16
+import Prelude.LowPrecision
+
 %default total
 
 ||| Explicit unboxed renderer scalar used at the ARM ABI seam.
 export
 data Float32 : Type where [external]
 
-||| IEEE 754 binary16 scalar payload.
+-- The signed arithmetic types Float16, E4M3, E5M2 and E3M2 are supplied
+-- by the pinned compiler's historical Prelude. Do not duplicate that family.
+-- The unrelated positive-only research codec has its own explicit ABI type;
+-- the historical Prelude's bare E5M3 is deliberately not admitted by this ABI.
+||| Unsigned Ootomo-Naruse storage code, not signed OCP FP8 or a PTX block scale.
 export
-data Float16 : Type where [external]
-
-||| OCP OFP8 E4M3 scalar payload.
-export
-data E4M3 : Type where [external]
-
-||| OCP OFP8 E5M2 scalar payload.
-export
-data E5M2 : Type where [external]
-
-||| OCP MX FP6 E3M2 scalar payload.
-export
-data E3M2 : Type where [external]
-
-||| Ootomo-Naruse unsigned E5M3 storage scalar payload.
-export
-data E5M3 : Type where [external]
+data OotomoE5M3 : Type where [external]
 
 ||| Caller-owned contiguous Float32 memory. The backend assumes a non-null,
 ||| suitably aligned pointer and an in-bounds Int32 index at the FFI boundary.
@@ -53,12 +44,12 @@ export %extern e5m2_to_float32 : E5M2 -> Float32
 export %extern float32_to_e5m2 : Float32 -> E5M2
 export %extern e3m2_to_float32 : E3M2 -> Float32
 export %extern float32_to_e3m2 : Float32 -> E3M2
-export %extern e5m3_to_float32 : E5M3 -> Float32
-export %extern float32_to_e5m3 : Float32 -> E5M3
+export %extern ootomo_e5m3_to_float32 : OotomoE5M3 -> Float32
+export %extern float32_to_ootomo_e5m3 : Float32 -> OotomoE5M3
 
 -- Arithmetic on Float16/E4M3/E5M2/E3M2 is explicitly widen-to-Float32,
 -- compute once in Float32, then round back to the destination format.
--- E5M3 is a storage format in its source paper, so no arithmetic is invented.
+-- OotomoE5M3 is a storage format in its source paper, so no arithmetic is invented.
 export %extern float16_add : Float16 -> Float16 -> Float16
 export %extern float16_subtract : Float16 -> Float16 -> Float16
 export %extern float16_multiply : Float16 -> Float16 -> Float16

@@ -76,9 +76,21 @@ validate_external_symbol symbol =
         else Left ("Invalid C-compatible ARM symbol `" ++ symbol ++ "`")
 
 private
+type_name : String -> String -> Name
+type_name namespace_text leaf =
+  NS (mkNamespace namespace_text) (UN (Basic leaf))
+
+private
 renderer_name : String -> Name
-renderer_name leaf =
-  NS (mkNamespace "RendererPrimitives") (UN (Basic leaf))
+renderer_name = type_name "RendererPrimitives"
+
+private
+float16_source_name : String -> Name
+float16_source_name = type_name "Prelude.Float16"
+
+private
+low_precision_source_name : String -> Name
+low_precision_source_name = type_name "Prelude.LowPrecision"
 
 private
 data RendererPrimitive
@@ -115,8 +127,8 @@ renderer_primitive name =
     , (renderer_name "float32_to_e5m2", FromFloat32 FP8E5M2)
     , (renderer_name "e3m2_to_float32", ToFloat32 FP6E3M2)
     , (renderer_name "float32_to_e3m2", FromFloat32 FP6E3M2)
-    , (renderer_name "e5m3_to_float32", ToFloat32 OotomoE5M3)
-    , (renderer_name "float32_to_e5m3", FromFloat32 OotomoE5M3)
+    , (renderer_name "ootomo_e5m3_to_float32", ToFloat32 OotomoE5M3)
+    , (renderer_name "float32_to_ootomo_e5m3", FromFloat32 OotomoE5M3)
     , (renderer_name "float16_add", NarrowBinaryPrimitive Binary16 AddNarrow)
     , (renderer_name "float16_subtract", NarrowBinaryPrimitive Binary16 SubtractNarrow)
     , (renderer_name "float16_multiply", NarrowBinaryPrimitive Binary16 MultiplyNarrow)
@@ -133,6 +145,22 @@ renderer_primitive name =
     , (renderer_name "e3m2_subtract", NarrowBinaryPrimitive FP6E3M2 SubtractNarrow)
     , (renderer_name "e3m2_multiply", NarrowBinaryPrimitive FP6E3M2 MultiplyNarrow)
     , (renderer_name "e3m2_divide", NarrowBinaryPrimitive FP6E3M2 DivideNarrow)
+    , (float16_source_name "float16_add", NarrowBinaryPrimitive Binary16 AddNarrow)
+    , (float16_source_name "float16_subtract", NarrowBinaryPrimitive Binary16 SubtractNarrow)
+    , (float16_source_name "float16_multiply", NarrowBinaryPrimitive Binary16 MultiplyNarrow)
+    , (float16_source_name "float16_divide", NarrowBinaryPrimitive Binary16 DivideNarrow)
+    , (low_precision_source_name "e4m3_add", NarrowBinaryPrimitive FP8E4M3 AddNarrow)
+    , (low_precision_source_name "e4m3_subtract", NarrowBinaryPrimitive FP8E4M3 SubtractNarrow)
+    , (low_precision_source_name "e4m3_multiply", NarrowBinaryPrimitive FP8E4M3 MultiplyNarrow)
+    , (low_precision_source_name "e4m3_divide", NarrowBinaryPrimitive FP8E4M3 DivideNarrow)
+    , (low_precision_source_name "e5m2_add", NarrowBinaryPrimitive FP8E5M2 AddNarrow)
+    , (low_precision_source_name "e5m2_subtract", NarrowBinaryPrimitive FP8E5M2 SubtractNarrow)
+    , (low_precision_source_name "e5m2_multiply", NarrowBinaryPrimitive FP8E5M2 MultiplyNarrow)
+    , (low_precision_source_name "e5m2_divide", NarrowBinaryPrimitive FP8E5M2 DivideNarrow)
+    , (low_precision_source_name "e3m2_add", NarrowBinaryPrimitive FP6E3M2 AddNarrow)
+    , (low_precision_source_name "e3m2_subtract", NarrowBinaryPrimitive FP6E3M2 SubtractNarrow)
+    , (low_precision_source_name "e3m2_multiply", NarrowBinaryPrimitive FP6E3M2 MultiplyNarrow)
+    , (low_precision_source_name "e3m2_divide", NarrowBinaryPrimitive FP6E3M2 DivideNarrow)
     ]
 
 private
@@ -389,6 +417,8 @@ lower_value destination (APrimVal _ (I value)) state =
      "one-word ARMv7 ABI (got literal " ++ show value ++ ")")
 lower_value destination (AExtPrim _ _ name arguments) state =
   lower_external destination name arguments state
+lower_value destination (AAppName _ _ name arguments) state =
+  lower_external destination name arguments state
 lower_value destination expression state =
   Left
     ("Unsupported ANF value in the runtime-free numerical subset: " ++
@@ -619,7 +649,7 @@ is_scalar_result Float16Value = True
 is_scalar_result E4M3Value = True
 is_scalar_result E5M2Value = True
 is_scalar_result E3M2Value = True
-is_scalar_result E5M3Value = True
+is_scalar_result OotomoE5M3Value = True
 is_scalar_result _ = False
 
 ||| Validate and lower one exported ANF function into representation-tagged IR.
