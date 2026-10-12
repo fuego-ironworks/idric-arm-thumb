@@ -26,7 +26,7 @@ def reference_text(value: float) -> str:
 
 def main() -> int:
     if len(sys.argv) != 3:
-        raise SystemExit("usage: observe_e5m3.py QEMU_ARM EXECUTABLE")
+        raise SystemExit("usage: observe_ootomo_e5m3.py QEMU_ARM EXECUTABLE")
 
     run = subprocess.run([sys.argv[1], "-cpu", "cortex-a9", sys.argv[2]],
                          capture_output=True, check=False)
@@ -77,7 +77,7 @@ def main() -> int:
         ("caster from 4-degree swing", 4.0 * caster_multiplier),
     ]
 
-    print("E5M3 storage observations")
+    print("OotomoE5M3 storage observations")
     print(f"theta={math.degrees(theta):.9f} deg  "
           f"sin={math.sin(theta):.9f}  cos={math.cos(theta):.9f}  "
           f"caster_multiplier={caster_multiplier:.9f}")
@@ -90,12 +90,12 @@ def main() -> int:
               f"{short_number(observed):>12} {reference_text(residual):>12}")
 
     print()
-    print("E5M3 storage contract exercised:")
-    print("  arithmetic: E5M3 inputs -> Float32 operation -> E5M3 storage -> Float32 observation")
-    print("  Jacobian: nonzero magnitudes are E5M3; signs and structural zeros are separate metadata")
-    print("  Jacobian multiply/accumulate remains Float32; signed Jv outputs are not forced into unsigned E5M3")
+    print("OotomoE5M3 storage contract exercised:")
+    print("  arithmetic: OotomoE5M3 inputs -> Float32 operation -> OotomoE5M3 storage -> Float32 observation")
+    print("  Jacobian: nonzero magnitudes are OotomoE5M3; signs and structural zeros are separate metadata")
+    print("  Jacobian multiply/accumulate remains Float32; signed Jv outputs are not forced into unsigned OotomoE5M3")
     print("  rotation and caster use the same physical inputs as the E3M2 observations")
-    print("  no native E5M3 arithmetic contract is introduced")
+    print("  no native OotomoE5M3 arithmetic contract is introduced")
     return 0
 
 

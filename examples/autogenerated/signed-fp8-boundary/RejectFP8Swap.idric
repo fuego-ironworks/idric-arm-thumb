@@ -1,0 +1,10 @@
+module RejectFP8Swap
+
+import RendererPrimitives
+
+%export "arm-thumb:reject_fp8_swap"
+reject_fp8_swap : E5M2 → E4M3
+reject_fp8_swap value = value
+
+main : IO ()
+main = pure ()

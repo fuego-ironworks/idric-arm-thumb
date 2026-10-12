@@ -127,8 +127,8 @@ renderer_primitive name =
     , (renderer_name "float32_to_e5m2", FromFloat32 FP8E5M2)
     , (renderer_name "e3m2_to_float32", ToFloat32 FP6E3M2)
     , (renderer_name "float32_to_e3m2", FromFloat32 FP6E3M2)
-    , (renderer_name "e5m3_to_float32", ToFloat32 OotomoE5M3)
-    , (renderer_name "float32_to_e5m3", FromFloat32 OotomoE5M3)
+    , (renderer_name "ootomo_e5m3_to_float32", ToFloat32 OotomoE5M3)
+    , (renderer_name "float32_to_ootomo_e5m3", FromFloat32 OotomoE5M3)
     , (renderer_name "float16_add", NarrowBinaryPrimitive Binary16 AddNarrow)
     , (renderer_name "float16_subtract", NarrowBinaryPrimitive Binary16 SubtractNarrow)
     , (renderer_name "float16_multiply", NarrowBinaryPrimitive Binary16 MultiplyNarrow)
@@ -649,7 +649,7 @@ is_scalar_result Float16Value = True
 is_scalar_result E4M3Value = True
 is_scalar_result E5M2Value = True
 is_scalar_result E3M2Value = True
-is_scalar_result E5M3Value = True
+is_scalar_result OotomoE5M3Value = True
 is_scalar_result _ = False
 
 ||| Validate and lower one exported ANF function into representation-tagged IR.

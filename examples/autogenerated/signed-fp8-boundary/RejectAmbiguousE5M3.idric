@@ -1,0 +1,10 @@
+module RejectAmbiguousE5M3
+
+import RendererPrimitives
+
+%export "arm-thumb:reject_ambiguous_e5m3"
+reject_ambiguous_e5m3 : E5M3 → E5M3
+reject_ambiguous_e5m3 value = value
+
+main : IO ()
+main = pure ()

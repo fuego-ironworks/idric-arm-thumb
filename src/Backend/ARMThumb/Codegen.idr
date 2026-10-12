@@ -67,7 +67,9 @@ classify_abi_type (Ref _ (TyCon 0) name) =
   else if name == low_precision_type_name "E3M2"
     then Right E3M2Value
   else if name == low_precision_type_name "E5M3"
-    then Right E5M3Value
+    then Left "ambiguous E5M3 source type; choose signed E4M3 or E5M2, or explicitly unsigned OotomoE5M3"
+  else if name == renderer_type_name "OotomoE5M3"
+    then Right OotomoE5M3Value
   else if name == renderer_type_name "Float32Buffer"
     then Right Float32Pointer
   else Left ("unsupported source type `" ++ show name ++ "`")
@@ -103,7 +105,7 @@ is_scalar_result Float16Value = True
 is_scalar_result E4M3Value = True
 is_scalar_result E5M2Value = True
 is_scalar_result E3M2Value = True
-is_scalar_result E5M3Value = True
+is_scalar_result OotomoE5M3Value = True
 is_scalar_result _ = False
 
 private
@@ -128,7 +130,7 @@ resolve_export_abi (internal_name, external_symbol) = do
           ("arm-thumb rejected source ABI for `" ++ show internal_name ++
            "`: " ++ explanation ++
            ". Supported arguments are Float32, Float16, E4M3, E5M2, E3M2, " ++
-           "E5M3, Bits8, Float32Buffer, and Int32; the result must be a " ++
+           "OotomoE5M3, Bits8, Float32Buffer, and Int32; the result must be a " ++
            "supported scalar value."))
     Right (arguments, result) =>
       if not (is_scalar_result result)

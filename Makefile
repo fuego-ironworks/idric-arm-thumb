@@ -20,7 +20,7 @@ SCALARS_OBJECT := build/exec/scalars.arm-thumb.o
 SELFTEST := build/exec/backend-selftest
 SCALAR_SELFTEST := build/exec/scalar-selftest
 E3M2_OBSERVER := build/exec/e3m2-observer
-E5M3_OBSERVER := build/exec/e5m3-observer
+OOTOMO_E5M3_OBSERVER := build/exec/ootomo_e5m3-observer
 INVALID_INT_LOG := build/exec/invalid-int.log
 TOO_MANY_ARGS_LOG := build/exec/too-many-args.log
 INVALID_RESULT_LOG := build/exec/invalid-result.log
@@ -30,7 +30,7 @@ DETERMINISM_B := build/exec/determinism-b.arm-thumb.S
 .PHONY: check-compiler check driver print-ascii print-ascii-test examples inspect \
 	reject reject-invalid-int reject-too-many-args reject-invalid-result assemble abi \
 	semantic scalar-semantic determinism source-test lowering-test assembly-test semantic-test \
-	determinism-test numerical-test branching-spec-test e3m2-observe e5m3-observe test verify clean
+	determinism-test numerical-test branching-spec-test e3m2-observe ootomo_e5m3-observe test verify clean
 
 check-compiler:
 	@$(IDRIC) --version | grep -q '$(IDRIC_REVISION)' || { \
@@ -117,7 +117,7 @@ inspect: examples
 	grep -q '^e4m3_source_add_test:' $(SCALARS_ASSEMBLY)
 	grep -q '^e5m2_source_add_test:' $(SCALARS_ASSEMBLY)
 	grep -q '^e3m2_source_add_test:' $(SCALARS_ASSEMBLY)
-	grep -q '^e5m3_to_f32_test:' $(SCALARS_ASSEMBLY)
+	grep -q '^ootomo_e5m3_to_f32_test:' $(SCALARS_ASSEMBLY)
 	grep -q '^\.Lscalar_decode_generic:' $(SCALARS_ASSEMBLY)
 	grep -q '^\.Lscalar_encode_generic:' $(SCALARS_ASSEMBLY)
 	grep -q 'uxtb' $(SCALARS_ASSEMBLY)
@@ -187,7 +187,7 @@ abi: assemble
 	readelf -sW $(OPERATIONS_OBJECT) | grep -q 'float32_sum_four'
 	readelf -sW $(SCALARS_OBJECT) | grep -q 'float16_add_test'
 	readelf -sW $(SCALARS_OBJECT) | grep -q 'e4m3_add_test'
-	readelf -sW $(SCALARS_OBJECT) | grep -q 'e5m3_to_f32_test'
+	readelf -sW $(SCALARS_OBJECT) | grep -q 'ootomo_e5m3_to_f32_test'
 	@test -z "$(nm -u $(AFFINE_OBJECT))"
 	@test -z "$(nm -u $(OPERATIONS_OBJECT))"
 	@test -z "$(nm -u $(SCALARS_OBJECT))"
@@ -222,14 +222,14 @@ $(E3M2_OBSERVER): $(SCALARS_ASSEMBLY) tests/arm/e3m2_observer.S
 e3m2-observe: $(E3M2_OBSERVER)
 	python3 tests/arm/observe_e3m2.py "$(QEMU_ARM)" "$(E3M2_OBSERVER)"
 
-$(E5M3_OBSERVER): $(SCALARS_ASSEMBLY) tests/arm/e5m3_observer.S
+$(OOTOMO_E5M3_OBSERVER): $(SCALARS_ASSEMBLY) tests/arm/ootomo_e5m3_observer.S
 	$(ARM_CLANG) --target=$(ARM_EXEC_TARGET) -fuse-ld=lld -nostdlib -static \
 		-march=armv7-a -mthumb -mfpu=vfpv3-d16 -mfloat-abi=softfp \
 		-Wl,-e,_start -Wl,--no-dynamic-linker \
-		$(SCALARS_ASSEMBLY) tests/arm/e5m3_observer.S -o $(E5M3_OBSERVER)
+		$(SCALARS_ASSEMBLY) tests/arm/ootomo_e5m3_observer.S -o $(OOTOMO_E5M3_OBSERVER)
 
-e5m3-observe: $(E5M3_OBSERVER)
-	python3 tests/arm/observe_e5m3.py "$(QEMU_ARM)" "$(E5M3_OBSERVER)"
+ootomo_e5m3-observe: $(OOTOMO_E5M3_OBSERVER)
+	python3 tests/arm/observe_ootomo_e5m3.py "$(QEMU_ARM)" "$(OOTOMO_E5M3_OBSERVER)"
 
 $(DETERMINISM_A): $(DRIVER) examples/Operations.idric
 	IDRIS2_PATH="$(CURDIR)/build/ttc:$${IDRIS2_PATH}" \
@@ -257,7 +257,7 @@ determinism-test: determinism
 
 # Preserve the broader numerical suite, but do not let it block the first
 # executable-program milestone while its inherited failures are being repaired.
-numerical-test: scalar-semantic e3m2-observe e5m3-observe source-test lowering-test assembly-test semantic-test determinism-test
+numerical-test: scalar-semantic e3m2-observe ootomo_e5m3-observe source-test lowering-test assembly-test semantic-test determinism-test
 
 # The boring green gate: one real Idriç source program, one Thumb executable,
 # exact one-byte observable behavior.

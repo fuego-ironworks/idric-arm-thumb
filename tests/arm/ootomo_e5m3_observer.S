@@ -12,53 +12,53 @@ _start:
         sub     sp, sp, #112
         mov     r4, sp
 
-        @ E5M3 is storage-only. These helpers decode operands to Float32,
-        @ compute there, store the positive result back to E5M3, then decode
+        @ OotomoE5M3 is storage-only. These helpers decode operands to Float32,
+        @ compute there, store the positive result back to OotomoE5M3, then decode
         @ that stored result for observation.
         movs    r0, #0x7c        @ nominal 1.5
         movs    r1, #0x70        @ nominal 0.5
-        bl      e5m3_add_observe
+        bl      ootomo_e5m3_add_observe
         str     r0, [r4, #0]
 
         movs    r0, #0x7c
         movs    r1, #0x70
-        bl      e5m3_sub_observe
+        bl      ootomo_e5m3_sub_observe
         str     r0, [r4, #4]
 
         movs    r0, #0x7c
         movs    r1, #0x70
-        bl      e5m3_mul_observe
+        bl      ootomo_e5m3_mul_observe
         str     r0, [r4, #8]
 
         movs    r0, #0x7c
         movs    r1, #0x70
-        bl      e5m3_div_observe
+        bl      ootomo_e5m3_div_observe
         str     r0, [r4, #12]
 
         movs    r0, #0x7c
-        bl      e5m3_square_observe
+        bl      ootomo_e5m3_square_observe
         str     r0, [r4, #16]
 
         movs    r0, #0x7c
-        bl      e5m3_cube_observe
+        bl      ootomo_e5m3_cube_observe
         str     r0, [r4, #20]
 
         movs    r0, #0x80        @ nominal 2
-        bl      e5m3_sqrt_observe
+        bl      ootomo_e5m3_sqrt_observe
         str     r0, [r4, #24]
 
         @ Full recovered 14x26 Dakota measurement-model Jacobian.
-        @ E5M3 has no sign and no distinguished zero, so nonzero magnitudes
-        @ are E5M3 payloads while sign and structural-zero metadata remain
+        @ OotomoE5M3 has no sign and no distinguished zero, so nonzero magnitudes
+        @ are OotomoE5M3 payloads while sign and structural-zero metadata remain
         @ separate. Multiplication and accumulation are Float32, as required
         @ for a storage-only format. Signed Jv results remain Float32.
-        ldr     r5, =dakota_jacobian_e5m3
+        ldr     r5, =dakota_jacobian_ootomo_e5m3
         ldr     r6, =dakota_jacobian_sign
         ldr     r7, =dakota_jacobian_zero
         add.w   r9, r4, #28
         movs    r8, #14
 .Ljacobian_row:
-        ldr     r10, =dakota_direction_e5m3
+        ldr     r10, =dakota_direction_ootomo_e5m3
         ldr     r11, =dakota_direction_sign
         movs    r0, #26
         str     r0, [r4, #100]
@@ -70,11 +70,11 @@ _start:
         bne     .Ljacobian_zero
 
         ldrb    r0, [r5], #1
-        bl      e5m3_to_f32_test
+        bl      ootomo_e5m3_to_f32_test
         str     r0, [r4, #104]
 
         ldrb    r0, [r10], #1
-        bl      e5m3_to_f32_test
+        bl      ootomo_e5m3_to_f32_test
         vmov    s2, r0
         ldr     r0, [r4, #104]
         vmov    s1, r0
@@ -116,21 +116,21 @@ _start:
         movs    r1, #0x6b
         movs    r2, #0x84
         movs    r3, #0x88
-        bl      e5m3_rotate_x_observe
+        bl      ootomo_e5m3_rotate_x_observe
         str     r0, [r4, #84]
 
         movs    r0, #0x6b
         movs    r1, #0x76
         movs    r2, #0x84
         movs    r3, #0x88
-        bl      e5m3_rotate_y_observe
+        bl      ootomo_e5m3_rotate_y_observe
         str     r0, [r4, #88]
 
         @ Caster from a 4-degree camber swing. The multiplier is stored as
-        @ E5M3 0x7b; the positive product is stored again before observation.
+        @ OotomoE5M3 0x7b; the positive product is stored again before observation.
         movs    r0, #0x88
         movs    r1, #0x7b
-        bl      e5m3_mul_observe
+        bl      ootomo_e5m3_mul_observe
         str     r0, [r4, #92]
 
         @ Emit raw Float32 observations. The host prints reference/observed/residual.
@@ -146,13 +146,13 @@ _start:
         svc     #0
 
 .align 2
-dakota_direction_e5m3:
+dakota_direction_ootomo_e5m3:
         .byte   0x70,0x68,0x68,0x70,0x68,0x68,0x68,0x70,0x70,0x68,0x68,0x68,0x58,0x58,0x58,0x58,0x58,0x58,0x58,0x58,0x58,0x58,0x58,0x58,0x58,0x58
 
 dakota_direction_sign:
         .byte   0x00,0x01,0x00,0x01,0x00,0x01,0x00,0x00,0x01,0x00,0x01,0x00,0x00,0x01,0x00,0x01,0x00,0x01,0x00,0x01,0x00,0x01,0x00,0x01,0x00,0x01
 
-dakota_jacobian_e5m3:
+dakota_jacobian_ootomo_e5m3:
         .byte   0x78,0x71,0x65,0x00,0x00,0x00,0x6d,0x3d,0x46,0x78,0x78,0x00,0x73,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
         .byte   0x78,0x6c,0x59,0x00,0x00,0x00,0x67,0x32,0x3b,0x78,0x78,0x00,0x00,0x72,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
         .byte   0x78,0x63,0x49,0x00,0x00,0x00,0x5d,0x21,0x29,0x78,0x78,0x00,0x00,0x00,0x71,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00

@@ -1,0 +1,10 @@
+module RejectStorageAsFP8
+
+import RendererPrimitives
+
+%export "arm-thumb:reject_storage_as_fp8"
+reject_storage_as_fp8 : OotomoE5M3 → E4M3
+reject_storage_as_fp8 value = value
+
+main : IO ()
+main = pure ()

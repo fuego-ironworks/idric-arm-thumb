@@ -13,7 +13,7 @@ data Representation
   | E4M3Value
   | E5M2Value
   | E3M2Value
-  | E5M3Value
+  | OotomoE5M3Value
   | Float32
   | Float32Pointer
 
@@ -25,7 +25,7 @@ Eq Representation where
   E4M3Value == E4M3Value = True
   E5M2Value == E5M2Value = True
   E3M2Value == E3M2Value = True
-  E5M3Value == E5M3Value = True
+  OotomoE5M3Value == OotomoE5M3Value = True
   Float32 == Float32 = True
   Float32Pointer == Float32Pointer = True
   _ == _ = False
@@ -38,7 +38,7 @@ Show Representation where
   show E4M3Value = "E4M3"
   show E5M2Value = "E5M2"
   show E3M2Value = "E3M2"
-  show E5M3Value = "E5M3"
+  show OotomoE5M3Value = "OotomoE5M3"
   show Float32 = "Float32"
   show Float32Pointer = "Float32Pointer"
 
@@ -65,7 +65,7 @@ Show NarrowFloatFormat where
   show FP8E4M3 = "E4M3"
   show FP8E5M2 = "E5M2"
   show FP6E3M2 = "E3M2"
-  show OotomoE5M3 = "E5M3"
+  show OotomoE5M3 = "OotomoE5M3"
 
 public export
 format_representation : NarrowFloatFormat -> Representation
@@ -73,7 +73,7 @@ format_representation Binary16 = Float16Value
 format_representation FP8E4M3 = E4M3Value
 format_representation FP8E5M2 = E5M2Value
 format_representation FP6E3M2 = E3M2Value
-format_representation OotomoE5M3 = E5M3Value
+format_representation OotomoE5M3 = OotomoE5M3Value
 
 public export
 data NarrowBinaryOperation
