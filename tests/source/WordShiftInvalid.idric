@@ -1,0 +1,6 @@
+module WordShiftInvalid
+%export "arm-thumb:word_shift_invalid"
+word_shift_invalid : Bits32 → Bits32
+word_shift_invalid value = prim__shl_Bits32 value 32
+main : IO ()
+main = pure ()

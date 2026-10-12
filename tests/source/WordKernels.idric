@@ -1,0 +1,53 @@
+module WordKernels
+import Data.Bits
+import RendererPrimitives
+
+%export "arm-thumb:word_add"
+word_add : Bits32 → Bits32 → Bits32
+word_add left right = left + right
+%export "arm-thumb:word_subtract"
+word_subtract : Bits32 → Bits32 → Bits32
+word_subtract left right = left - right
+%export "arm-thumb:word_and"
+word_and : Bits32 → Bits32 → Bits32
+word_and left right = left .&. right
+%export "arm-thumb:word_or"
+word_or : Bits32 → Bits32 → Bits32
+word_or left right = left .|. right
+%export "arm-thumb:word_xor"
+word_xor : Bits32 → Bits32 → Bits32
+word_xor left right = xor left right
+%export "arm-thumb:word_product_low"
+word_product_low : Bits32 → Bits32 → Bits32
+word_product_low left right = left * right
+%export "arm-thumb:word_product_high"
+word_product_high : Bits32 → Bits32 → Bits32
+word_product_high = word32_multiply_high
+%export "arm-thumb:word_carry"
+word_carry : Bits32 → Bits32 → Bits32
+word_carry = word32_add_carry
+%export "arm-thumb:word_borrow"
+word_borrow : Bits32 → Bits32 → Bits32
+word_borrow = word32_subtract_borrow
+%export "arm-thumb:word_add_chain"
+word_add_chain : Bits32 → Bits32 → Bits32 → Bits32 → Bits32
+word_add_chain lower_left lower_right higher_left higher_right =
+  higher_left + higher_right + word32_add_carry lower_left lower_right
+%export "arm-thumb:word_borrow_chain"
+word_borrow_chain : Bits32 → Bits32 → Bits32 → Bits32 → Bits32
+word_borrow_chain lower_left lower_right higher_left higher_right =
+  higher_left - higher_right - word32_subtract_borrow lower_left lower_right
+%export "arm-thumb:word_left_zero"
+word_left_zero : Bits32 → Bits32
+word_left_zero value = prim__shl_Bits32 value 0
+%export "arm-thumb:word_left_31"
+word_left_31 : Bits32 → Bits32
+word_left_31 value = prim__shl_Bits32 value 31
+%export "arm-thumb:word_right_31"
+word_right_31 : Bits32 → Bits32
+word_right_31 value = prim__shr_Bits32 value 31
+%export "arm-thumb:word_maximum"
+word_maximum : Bits32
+word_maximum = 4294967295
+main : IO ()
+main = pure ()

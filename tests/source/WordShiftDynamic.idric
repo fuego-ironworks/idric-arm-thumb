@@ -1,0 +1,6 @@
+module WordShiftDynamic
+%export "arm-thumb:word_shift_dynamic"
+word_shift_dynamic : Bits32 → Bits32 → Bits32
+word_shift_dynamic value count = prim__shl_Bits32 value count
+main : IO ()
+main = pure ()
