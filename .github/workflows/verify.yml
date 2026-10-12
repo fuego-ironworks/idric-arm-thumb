@@ -56,6 +56,16 @@ jobs:
       - name: Verify native ARM/Thumb numerical, PrintASCII, and branching paths
         run: make verify IDRIC="$GITHUB_WORKSPACE/Idric/build/exec/idris2"
 
+      - name: Execute generated Word32 kernels and preserve each defect failure
+        run: make mul-word-test IDRIC="$GITHUB_WORKSPACE/Idric/build/exec/idris2" ARM_CLANG="$ARM_CLANG" QEMU_ARM=/usr/bin/qemu-arm
+      - name: Preserve generated word arithmetic evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: native-word-arithmetic-evidence
+          path: |
+            build/exec/word*
+
       - name: Build screen-red references and execute RGB565 oracle
         run: sh tests/framebuffer/check.sh
 
