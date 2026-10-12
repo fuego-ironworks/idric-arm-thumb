@@ -2,9 +2,9 @@ module Affine
 
 import RendererPrimitives
 
-||| First Idriç-to-Thumb proof: a*x+b with an entirely unboxed Float32 ABI.
+||| First Idriç-to-Thumb proof: a*x+b with an entirely unboxed RendererPrimitives.Float32 ABI.
 %export "arm-thumb:evaluate_affine"
-evaluate_affine : Float32 -> Float32 -> Float32 -> Float32
+evaluate_affine : RendererPrimitives.Float32 -> RendererPrimitives.Float32 -> RendererPrimitives.Float32 -> RendererPrimitives.Float32
 evaluate_affine a x b =
   float32_add (float32_multiply a x) b
 

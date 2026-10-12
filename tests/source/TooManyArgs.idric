@@ -3,7 +3,7 @@ module TooManyArgs
 import RendererPrimitives
 
 %export "arm-thumb:too_many_args"
-too_many_args : Float32 -> Float32 -> Float32 -> Float32 -> Float32 -> Float32
+too_many_args : RendererPrimitives.Float32 -> RendererPrimitives.Float32 -> RendererPrimitives.Float32 -> RendererPrimitives.Float32 -> RendererPrimitives.Float32 -> RendererPrimitives.Float32
 too_many_args a b c d e = a
 
 main : IO ()
