@@ -3,25 +3,7 @@ name: reddit CLI Android
 on:
   push:
     branches: [main, dex/sibling-backend-boundary]
-    paths:
-      - 'src/Backend/DEX/EncodeRedditCli.idr'
-      - 'reddit-dex.ipkg'
-      - 'tests/dex/RedditCliDexGen.idr'
-      - 'tests/dex/oracles/RedditCli.smali'
-      - 'tests/dex/reddit/**'
-      - 'tests/dex/reddit-host-acceptance.sh'
-      - 'tests/dex/run-current-head-ci.sh'
-      - '.github/workflows/reddit-cli-android.yml'
   pull_request:
-    paths:
-      - 'src/Backend/DEX/EncodeRedditCli.idr'
-      - 'reddit-dex.ipkg'
-      - 'tests/dex/RedditCliDexGen.idr'
-      - 'tests/dex/oracles/RedditCli.smali'
-      - 'tests/dex/reddit/**'
-      - 'tests/dex/reddit-host-acceptance.sh'
-      - 'tests/dex/run-current-head-ci.sh'
-      - '.github/workflows/reddit-cli-android.yml'
 
 permissions:
   contents: write
@@ -35,15 +17,34 @@ env:
   NDK_VERSION: 26.3.11579264
 
 jobs:
+  compilers:
+    uses: ./.github/workflows/ick-compilers.yml
+
   direct-dex:
     name: Direct Reddit DEX / Ubuntu 24.04
     runs-on: ubuntu-24.04
     steps:
       - name: Check out DEX backend
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
+
+      - name: Build the native ICK contract checker
+        id: ick
+        uses: isomorphisms/ai-ci/ick-host@903b2cb27ea572c9c6cb2ffa9f39e0fbf06ec9f8
+      - name: Check out the C stage contract
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: isomorphisms/ai-ci
+          ref: 903b2cb27ea572c9c6cb2ffa9f39e0fbf06ec9f8
+          path: .aici-host
+          sparse-checkout: |
+            src/aici.c
+            contracts/build-toolchain-v0.contract.tsv
+          persist-credentials: false
+      - name: Verify the JNI compiler stages
+        run: make -f ci/Makefile verify ICK="${{ steps.ick.outputs.compiler }}"
 
       - name: Confirm supported host userspace
         run: |
@@ -52,7 +53,7 @@ jobs:
           test "$VERSION_ID" = 24.04
 
       - name: Check out current Idriç
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           repository: isomorphisms/Idric
           ref: ${{ env.IDRIC_COMPILER_REF }}
@@ -71,7 +72,7 @@ jobs:
         run: tests/dex/run-current-head-ci.sh
 
       - name: Retain direct Reddit DEX
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: reddit-direct-dex
           path: |
@@ -81,42 +82,57 @@ jobs:
 
   android-bundles:
     name: Android JNI bundles / ARMv7 + AArch64
-    needs: direct-dex
+    needs: [direct-dex, compilers]
     runs-on: ubuntu-24.04
     steps:
       - name: Check out DEX/JNI source
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
+      - name: Check out the qualified stage interface
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: isomorphisms/ai-ci
+          ref: 903b2cb27ea572c9c6cb2ffa9f39e0fbf06ec9f8
+          path: .ai-ci-ick
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: reddit-ick-*
+          path: .ick-toolchains
+          merge-multiple: true
+      - name: Restore the three installed C frontends
+        run: make -f scripts/ick-toolchains.mk restore
+
       - name: Download direct DEX
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
           name: reddit-direct-dex
           path: build/exec/reddit
 
-      - uses: android-actions/setup-android@v3
+      - uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407
         with:
           packages: platform-tools
 
       - name: Install Android NDK
-        run: yes | sdkmanager "platforms;android-29" "ndk;${NDK_VERSION}"
+        run: sdkmanager "platforms;android-29" "ndk;${NDK_VERSION}"
 
       - name: Build JNI libraries for phone, tablet, and emulator
         env:
           ANDROID_NDK_HOME: ${{ env.ANDROID_HOME }}/ndk/${{ env.NDK_VERSION }}
           ANDROID_API: 24
         run: |
-          ANDROID_ABI=armeabi-v7a bash tests/dex/reddit/build-jni.sh \
+          ICK_ROOT="$PWD/build/ick/armeabi-v7a" ANDROID_ABI=armeabi-v7a bash tests/dex/reddit/build-jni.sh \
             build/exec/reddit/libreddit_cli-armeabi-v7a.so
-          ANDROID_ABI=arm64-v8a bash tests/dex/reddit/build-jni.sh \
+          ICK_ROOT="$PWD/build/ick/arm64-v8a" ANDROID_ABI=arm64-v8a bash tests/dex/reddit/build-jni.sh \
             build/exec/reddit/libreddit_cli-arm64-v8a.so
-          ANDROID_ABI=x86_64 bash tests/dex/reddit/build-jni.sh \
+          ICK_ROOT="$PWD/build/ick/x86_64" ANDROID_ABI=x86_64 bash tests/dex/reddit/build-jni.sh \
             build/exec/reddit/libreddit_cli-x86_64.so
           file build/exec/reddit/libreddit_cli-*.so
 
       - name: Exercise DEX to JNI command boundary
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: reactivecircus/android-emulator-runner@4c44018e59b437e86cdfc41da381398f93ed8808
         with:
           api-level: 29
           arch: x86_64
@@ -127,7 +143,7 @@ jobs:
 
       - name: Retain emulator diagnostics
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: reddit-emulator-diagnostics
           path: build/exec/reddit/emulator-*
@@ -188,7 +204,7 @@ jobs:
           cat build/release/SHA256SUMS
 
       - name: Retain Android bundles
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: reddit-android-bundles
           path: |
@@ -207,7 +223,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Download Android bundles
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
           name: reddit-android-bundles
           path: release

@@ -1,0 +1,3 @@
+build_id	target	toolchain	ick_revision	ick_status	ick_evidence
+reddit-jni-c	android-api24-armeabi-v7a-arm64-v8a-x86_64	ick	c61e448251744a2f40ad743ebef1a027bdcd2f9d	qualified	tests/dex/reddit/division-migration.md
+reddit-jni-assembly-link	android-api24-armeabi-v7a-arm64-v8a-x86_64	ndk	c61e448251744a2f40ad743ebef1a027bdcd2f9d	gap:standalone Android assembler linker and Bionic runtime	tests/dex/reddit/division-migration.md
