@@ -47,6 +47,7 @@ print_ascii_main_name =
 private
 classify_abi_type : Term variables -> Either String Representation
 classify_abi_type (PrimVal _ (PrT Int32Type)) = Right Word32
+classify_abi_type (PrimVal _ (PrT Bits32Type)) = Right Word32
 classify_abi_type (PrimVal _ (PrT primitive_type)) =
   Left ("unsupported source primitive type `" ++ show primitive_type ++ "`")
 classify_abi_type (Ref _ (TyCon 0) name) =
@@ -99,14 +100,14 @@ resolve_export_abi (internal_name, external_symbol) = do
         ("arm-thumb rejected source ABI for `" ++ show internal_name ++
          "`: " ++ explanation ++
          ". Supported arguments are RendererPrimitives.Float32, " ++
-         "RendererPrimitives.Float32Buffer, and Int32; the result must " ++
-         "be RendererPrimitives.Float32.")
+         "RendererPrimitives.Float32Buffer, Int32, and Bits32; the result must " ++
+         "be RendererPrimitives.Float32 or a 32-bit word.")
     Right (arguments, result) =>
-      if result /= Float32
+      if result /= Float32 && result /= Word32
         then
           reject_backend
             ("arm-thumb rejected source ABI for `" ++ show internal_name ++
-             "`: result must be RendererPrimitives.Float32, not " ++
+             "`: result must be RendererPrimitives.Float32 or a 32-bit word, not " ++
              show result ++ ".")
         else if length arguments > 4
           then

@@ -40,6 +40,30 @@ Show Local where
     "@" ++ show local.frame_slot
 
 public export
+data WordBinaryOperation
+  = AddWord32
+  | SubtractWord32
+  | AndWord32
+  | OrWord32
+  | XorWord32
+  | MultiplyWord32Low
+  | MultiplyWord32High
+  | AddWord32Carry
+  | SubtractWord32Borrow
+
+public export
+Show WordBinaryOperation where
+  show AddWord32 = "add-word32"
+  show SubtractWord32 = "subtract-word32"
+  show AndWord32 = "and-word32"
+  show OrWord32 = "or-word32"
+  show XorWord32 = "xor-word32"
+  show MultiplyWord32Low = "multiply-word32-low"
+  show MultiplyWord32High = "multiply-word32-high"
+  show AddWord32Carry = "add-word32-carry"
+  show SubtractWord32Borrow = "subtract-word32-borrow"
+
+public export
 data FloatBinaryOperation
   = AddFloat32
   | SubtractFloat32
@@ -71,6 +95,8 @@ public export
 data Instruction
   = Copy Local Local
   | WordConstant Local Int
+  | WordBinary WordBinaryOperation Local Local Local
+  | WordShift Bool Local Local Int
   | LoadFloat32 Local Local Local
   | FloatBinary FloatBinaryOperation Local Local Local
   | FloatUnary FloatUnaryOperation Local Local
@@ -81,6 +107,11 @@ Show Instruction where
     show destination ++ " = copy " ++ show source
   show (WordConstant destination value) =
     show destination ++ " = word " ++ show value
+  show (WordBinary operation destination left right) =
+    show destination ++ " = " ++ show operation ++ " " ++ show left ++ " " ++ show right
+  show (WordShift leftward destination source count) =
+    show destination ++ " = " ++ (if leftward then "shift-left " else "shift-right ") ++
+    show source ++ " by " ++ show count
   show (LoadFloat32 destination buffer index) =
     show destination ++ " = load " ++ show buffer ++ "[" ++ show index ++ "]"
   show (FloatBinary operation destination left right) =
