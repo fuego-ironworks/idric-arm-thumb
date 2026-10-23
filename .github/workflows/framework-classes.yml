@@ -1,0 +1,37 @@
+name: Direct DEX framework classes
+on:
+  push:
+    branches: [main, dex/native-framework-classes]
+  pull_request:
+jobs:
+  typed-class-adapter:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: isomorphisms/Idric
+          ref: 0e8cfdd1106ebdeffd01b6c519880ea3afc7dc35
+          path: Idric
+      - name: Bootstrap the pinned compiler
+        run: ./Idric/edric bootstrap
+      - name: Check DEX branch boundary
+        run: bash tests/dex/branch-separation.sh
+      - name: Check class encoder and independently decode its DEX
+        run: >-
+          cmake -DIDRIC=${{ github.workspace }}/Idric/build/exec/idris2
+          -DIDRIC_SUPPORT=${{ github.workspace }}/Idric/_
+          -DSCHEME=${{ github.workspace }}/Idric/.tools/bin/scheme
+          -P _/framework-tests.cmake
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: framework-class-evidence
+          path: |
+            build/framework-test.dex
+            build/framework-class-receipt.txt
+            build/framework-test-disassembly/
+          if-no-files-found: error

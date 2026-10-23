@@ -105,6 +105,20 @@ See [`AUDIT.md`](./AUDIT.md) for the starting boundary and
 
 ## Current generic compiler boundary
 
+`Backend.DEX.FrameworkClasses` is a reusable, checked class adapter for
+consumer-owned native callbacks. It emits multiple framework subclasses,
+delegating constructors, optional System.loadLibrary class initializers,
+overloaded native virtual methods, and deterministically sorted DEX metadata.
+The bounded adapter accepts ASCII metadata and framework superclasses; it
+rejects invalid descriptors, duplicate declarations and application-defined
+superclass dependencies. `_/framework-tests.cmake` checks positive and negative
+plans and independently decodes the resulting DEX with pinned baksmali.
+
+This adapter does not extend the generic arithmetic ANF lowerer to arbitrary
+object programs. A consumer can compile an Idriç class-description generator
+and use the checked target plan to encode DEX directly; JNI callback behavior
+and Android application acceptance remain consumer responsibilities.
+
 The checked-ANF compiler slice does not yet claim general calls, recursion,
 constructors, objects, arrays, fields, strings, exceptions, monitors,
 annotations, debug data, wide 64-bit values, floats, Float16, Android framework
