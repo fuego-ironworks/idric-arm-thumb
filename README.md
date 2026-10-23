@@ -2,6 +2,21 @@
 
 Direct Android Runtime DEX backend for Idriç.
 
+The canonical reusable compiler now lives in
+[`isomorphisms/android-NDK/dex/idric`](https://github.com/isomorphisms/android-NDK/tree/08bcb26a4530c1e68835f93c281f3a3a4ff4a77b/dex/idric).
+This repository consumes version **0.2.0** at that exact commit. The source
+snapshot keeps the existing paths usable offline; it is not an independently
+maintained compiler. `deps/idric-dex.lock` records the commit, source tree,
+package blob and build-rule blob. `deps/idric-dex/check-pin.grease` hashes the
+actual worktree, including staged and untracked source, before a build. CI also
+checks those identities against a fresh exact-revision canonical checkout and
+rejects five deliberately divergent copies. Compiler fixes belong upstream;
+consumer updates copy the verified snapshot and update the lock together.
+
+[`deps/idric-dex/README.md`](deps/idric-dex/README.md) records migration,
+commands and the current evidence boundary. All existing application fixtures
+and separate ARM/Thumb history are retained.
+
 This development line is a sibling of the ARM/Thumb backend. Both consume checked compiler forms, but DEX lowering, encoding, packaging, and acceptance are independent of ARM instruction selection and execution.
 
 DEX is ART's class-and-method executable format. Direct DEX output may use
@@ -14,9 +29,8 @@ The DEX executable registers only the `dex` code generator. Its acceptance path 
 
 ## Supported targets
 
-The supported host environment is Debian 13, matching the server deployment
-case. CI performs compiler/backend acceptance inside `debian:13-slim` and
-verifies that userspace before building.
+Maintained Linux GitHub Actions run on Ubuntu. Historical Debian receipts
+remain historical evidence; the runner configuration alone proves no build.
 
 The supported device environment is a physical Android phone. A low-resource
 x86_64 Android emulator is retained only as a fast ART sanity check; it is not

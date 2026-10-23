@@ -7,13 +7,14 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: reddit-cli-android-${{ github.ref }}
   cancel-in-progress: true
 
 env:
-  IDRIC_COMPILER_REF: Idriç
+  IDRIC_COMPILER_REF: 740bbf2b1d9e811fd00c719c3473eede17ceea3b
   NDK_VERSION: 26.3.11579264
 
 jobs:
@@ -29,6 +30,9 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
+
+      - name: Require the pinned compiler snapshot, Grease and ICK
+        uses: ./.github/actions/dex-prerequisites
 
       - name: Build the native ICK contract checker
         id: ick

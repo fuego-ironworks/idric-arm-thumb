@@ -1,0 +1,8 @@
+[compiler]
+	repository = isomorphisms/android-NDK
+	revision = 08bcb26a4530c1e68835f93c281f3a3a4ff4a77b
+	path = dex/idric
+	version = 0.2.0
+	sourceTree = 361e4329da0dd435cff44676a05712de3f1633c0
+	packageBlob = cc5d35b7fdfbbc5e5ac117759537063c769db700
+	makeBlob = 11d9a54bd831d1d67ca27d939527d7747b59557a

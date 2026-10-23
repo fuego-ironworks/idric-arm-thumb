@@ -1,0 +1,52 @@
+#!/usr/bin/env grease
+# Vendored compiler identity, including unstaged, staged and untracked changes.
+if (len(ARGV) < 1 or len(ARGV) > 2) {
+  echo 'usage: grease check-pin.grease CONSUMER [CANONICAL_CHECKOUT]'
+  exit 2
+}
+var consumer = ARGV[0]
+var pin = "$consumer/deps/idric-dex.lock"
+var revision = $(git config --file "$pin" --get compiler.revision)
+var repository = $(git config --file "$pin" --get compiler.repository)
+var package = $(git config --file "$pin" --get compiler.path)
+var version = $(git config --file "$pin" --get compiler.version)
+var source = $(git config --file "$pin" --get compiler.sourceTree)
+var manifest = $(git config --file "$pin" --get compiler.packageBlob)
+var make = $(git config --file "$pin" --get compiler.makeBlob)
+test "$repository" = isomorphisms/android-NDK
+test "$package" = dex/idric
+for identity in (revision, source, manifest, make) {
+  printf '%s\n' "$identity" | rg -q '^[0-9a-f]{40}$'
+}
+if (len(ARGV) === 2) {
+  var canonical = ARGV[1]
+  var canonical_revision = $(git -C "$canonical" rev-parse HEAD)
+  if test "$canonical_revision" != "$revision" {
+    echo 'FAIL canonical revision does not match compiler pin'; exit 1
+  }
+  var canonical_source = $(git -C "$canonical" rev-parse "$revision:$package/src/Backend/DEX")
+  var canonical_manifest = $(git -C "$canonical" rev-parse "$revision:$package/backend.ipkg")
+  var canonical_make = $(git -C "$canonical" rev-parse "$revision:$package/Makefile")
+  test "$canonical_source" = "$source"
+  test "$canonical_manifest" = "$manifest"
+  test "$canonical_make" = "$make"
+}
+var scratch = $(mktemp -d)
+trap --add EXIT { rm -rf "$scratch" }
+env GIT_INDEX_FILE="$scratch/index" git -C "$consumer" read-tree --empty
+env GIT_INDEX_FILE="$scratch/index" git -C "$consumer" add --all --force -- src/Backend/DEX backend.ipkg deps/idric-dex/Makefile
+var snapshot = $(env GIT_INDEX_FILE="$scratch/index" git -C "$consumer" write-tree)
+var actual_source = $(git -C "$consumer" rev-parse "$snapshot:src/Backend/DEX")
+var actual_manifest = $(git -C "$consumer" rev-parse "$snapshot:backend.ipkg")
+var actual_make = $(git -C "$consumer" rev-parse "$snapshot:deps/idric-dex/Makefile")
+if test "$actual_source" != "$source" {
+  echo 'FAIL vendored DEX sources diverge from canonical pin'; exit 1
+}
+if test "$actual_manifest" != "$manifest" {
+  echo 'FAIL vendored DEX package diverges from canonical pin'; exit 1
+}
+if test "$actual_make" != "$make" {
+  echo 'FAIL vendored DEX build diverges from canonical pin'; exit 1
+}
+rg -Fqx "version = $version" "$consumer/backend.ipkg"
+printf 'PASS canonical DEX pin revision=%s version=%s source_tree=%s\n' "$revision" "$version" "$source"
