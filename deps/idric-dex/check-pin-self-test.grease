@@ -1,0 +1,45 @@
+#!/usr/bin/env grease
+if (len(ARGV) !== 2) { echo 'usage: grease check-pin-self-test.grease CONSUMER CANONICAL_CHECKOUT'; exit 2 }
+var consumer = ARGV[0]
+var canonical = ARGV[1]
+var probe = "$consumer/deps/idric-dex/check-pin.grease"
+grease "$probe" "$consumer" "$canonical"
+var scratch = $(mktemp -d)
+trap --add EXIT { rm -rf "$scratch" }
+mkdir -p "$scratch/src/Backend" "$scratch/deps/idric-dex"
+cp -R "$consumer/src/Backend/DEX" "$scratch/src/Backend/"
+cp "$consumer/backend.ipkg" "$scratch/"
+cp "$consumer/deps/idric-dex.lock" "$scratch/deps/"
+cp "$consumer/deps/idric-dex/Makefile" "$scratch/deps/idric-dex/"
+git -C "$scratch" init -q
+grease "$probe" "$scratch" "$canonical"
+printf '\n-- deliberately modified compiler copy\n' >> "$scratch/src/Backend/DEX/Main.idr"
+if grease "$probe" "$scratch" "$canonical" > "$scratch/changed.log" 2>&1 {
+  echo 'FAIL modified compiler copy was accepted'; exit 1
+}
+rg -F 'vendored DEX sources diverge' "$scratch/changed.log"
+cp "$consumer/src/Backend/DEX/Main.idr" "$scratch/src/Backend/DEX/Main.idr"
+printf 'module Backend.DEX.Extra\n' > "$scratch/src/Backend/DEX/Extra.idr"
+if grease "$probe" "$scratch" "$canonical" > "$scratch/untracked.log" 2>&1 {
+  echo 'FAIL extra untracked compiler source was accepted'; exit 1
+}
+rg -F 'vendored DEX sources diverge' "$scratch/untracked.log"
+rm "$scratch/src/Backend/DEX/Extra.idr"
+printf '\n-- deliberately changed package\n' >> "$scratch/backend.ipkg"
+if grease "$probe" "$scratch" "$canonical" > "$scratch/package.log" 2>&1 {
+  echo 'FAIL changed compiler package was accepted'; exit 1
+}
+rg -F 'vendored DEX package diverges' "$scratch/package.log"
+cp "$consumer/backend.ipkg" "$scratch/backend.ipkg"
+printf '\n# deliberately changed build\n' >> "$scratch/deps/idric-dex/Makefile"
+if grease "$probe" "$scratch" "$canonical" > "$scratch/make.log" 2>&1 {
+  echo 'FAIL changed compiler build was accepted'; exit 1
+}
+rg -F 'vendored DEX build diverges' "$scratch/make.log"
+cp "$consumer/deps/idric-dex/Makefile" "$scratch/deps/idric-dex/Makefile"
+git config --file "$scratch/deps/idric-dex.lock" compiler.revision 0000000000000000000000000000000000000000
+if grease "$probe" "$scratch" "$canonical" > "$scratch/revision.log" 2>&1 {
+  echo 'FAIL wrong canonical revision was accepted'; exit 1
+}
+rg -F 'canonical revision does not match' "$scratch/revision.log"
+echo 'PASS five compiler-pin mutations rejected with the intended diagnostics'

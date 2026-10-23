@@ -9,8 +9,12 @@ concurrency:
   group: dex-backend-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  actions: read
+
 env:
-  IDRIC_COMPILER_REF: Idriç
+  IDRIC_COMPILER_REF: 740bbf2b1d9e811fd00c719c3473eede17ceea3b
 
 jobs:
   ubuntu-host:
@@ -22,6 +26,9 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
+
+      - name: Require the pinned compiler snapshot, Grease and ICK
+        uses: ./.github/actions/dex-prerequisites
 
       - name: Confirm supported host userspace
         run: |

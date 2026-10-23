@@ -3,6 +3,9 @@ on:
   push:
     branches: [main, dex/native-framework-classes]
   pull_request:
+permissions:
+  contents: read
+  actions: read
 jobs:
   typed-class-adapter:
     runs-on: ubuntu-24.04
@@ -12,10 +15,12 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
+      - name: Require the pinned compiler snapshot, Grease and ICK
+        uses: ./.github/actions/dex-prerequisites
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           repository: isomorphisms/Idric
-          ref: 0e8cfdd1106ebdeffd01b6c519880ea3afc7dc35
+          ref: 740bbf2b1d9e811fd00c719c3473eede17ceea3b
           path: Idric
       - name: Bootstrap the pinned compiler
         run: ./Idric/edric bootstrap
@@ -23,10 +28,10 @@ jobs:
         run: bash tests/dex/branch-separation.sh
       - name: Check class encoder and independently decode its DEX
         run: >-
-          cmake -DIDRIC=${{ github.workspace }}/Idric/build/exec/idris2
+          cmake -DIDRIC=${{ github.workspace }}/Idric/_/build/exec/idris2
           -DIDRIC_SUPPORT=${{ github.workspace }}/Idric/_
-          -DSCHEME=${{ github.workspace }}/Idric/.tools/bin/scheme
-          -P _/framework-tests.cmake
+          -DSCHEME=${{ github.workspace }}/Idric/_/.tools/bin/scheme
+          -P tests/dex/framework-tests.cmake
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: framework-class-evidence

@@ -2,3 +2,5 @@ build/
 *.o
 *.so
 /Idric/
+/.deps/
+/build-consumer/

@@ -5,8 +5,12 @@ Apply the shared evidence and acceptance guardrails in
 
 ## Keep the current DEX line independent
 
-Despite the historical repository name, current `main` owns the direct DEX
-backend. The ARM/Thumb development line is separate history. Do not route DEX
+The reusable compiler is owned by `isomorphisms/android-NDK/dex/idric`.
+This repository consumes the exact version in `deps/idric-dex.lock`; do not
+independently edit `src/Backend/DEX`, `backend.ipkg` or the vendored Makefile.
+Make compiler changes upstream, verify them, then update the pin and snapshot
+together. Run the pin checker and its five adversarial controls before
+publishing an update. The ARM/Thumb development line is separate history. Do not route DEX
 lowering, encoding, packaging, or acceptance through ARM/Thumb implementation
 layers merely because this repository once carried ARM work.
 

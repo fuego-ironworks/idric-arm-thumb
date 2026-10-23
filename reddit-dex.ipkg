@@ -1,5 +1,5 @@
 package reddit_dex
-version = 0.1.0
+version = 0.2.0
 
 sourcedir = "src"
 
@@ -8,5 +8,7 @@ depends = idris2
 modules =
   Backend.DEX.IR,
   Backend.DEX.Hash,
+  Backend.DEX.Invoke,
+  Backend.DEX.Placement,
   Backend.DEX.Encode,
   Backend.DEX.EncodeRedditCli
