@@ -8,6 +8,9 @@ canonical-pin:
 
 check driver dex-test: canonical-pin
 
+# Also gate the file target: parallel make must not build before verification.
+$(DRIVER): | canonical-pin
+
 branch-separation: canonical-pin legacy-branch-separation
 
 legacy-branch-separation:
