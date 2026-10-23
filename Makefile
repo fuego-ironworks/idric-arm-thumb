@@ -1,5 +1,5 @@
 IDRIC ?= idris2
-IDRIC_REVISION ?= 081b9cde0
+IDRIC_REVISION ?= 0e8cfdd11
 ARM_CLANG ?= clang
 ARM_TARGET ?= armv7a-linux-androideabi21
 ARM_EXEC_TARGET ?= armv7a-linux-gnueabihf
@@ -7,7 +7,7 @@ QEMU_ARM ?= qemu-arm
 ARM_OBJDUMP ?= $(dir $(ARM_CLANG))llvm-objdump
 CORPUS ?=
 
-BACKEND_SOURCES := $(wildcard src/Backend/ARMThumb/*.idr) src/RendererPrimitives.idr backend.ipkg
+BACKEND_SOURCES := $(wildcard src/Backend/ARMThumb/*.idr) src/RendererPrimitives.idr backend.ipkg renderer-primitives.ipkg
 DRIVER := build/exec/idric-arm-thumb
 PRINT_ASCII_ASSEMBLY := build/exec/print-ascii.arm-thumb.S
 PRINT_ASCII_EXEC := build/exec/print-ascii
@@ -42,6 +42,7 @@ check: check-compiler
 driver: $(DRIVER)
 
 $(DRIVER): $(BACKEND_SOURCES)
+	IDRIS2_INC_CGS= $(IDRIC) --typecheck renderer-primitives.ipkg
 	$(IDRIC) --build backend.ipkg
 
 $(PRINT_ASCII_ASSEMBLY): $(DRIVER) tests/characters/PrintASCII.idric

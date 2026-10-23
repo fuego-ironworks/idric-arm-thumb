@@ -1,0 +1,4 @@
+package idric_renderer_primitives
+version = 0.1.0
+sourcedir = "src"
+modules = RendererPrimitives

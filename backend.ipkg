@@ -10,8 +10,7 @@ modules =
   Backend.ARMThumb.Lower,
   Backend.ARMThumb.Emit,
   Backend.ARMThumb.Codegen,
-  Backend.ARMThumb.Main,
-  RendererPrimitives
+  Backend.ARMThumb.Main
 
 main = Backend.ARMThumb.Main
 executable = idric-arm-thumb
