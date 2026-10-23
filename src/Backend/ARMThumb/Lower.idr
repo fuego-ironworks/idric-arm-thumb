@@ -152,7 +152,7 @@ require_bound : String -> Int -> BuildState -> Either String ()
 require_bound role variable state =
   if elem variable state.bound_variables
     then Right ()
-    else Left (role ++ " reads unbound ANF local v" ++ show variable)
+    else Left (role ++ " reads unbound Administrative_Normal_Form local v" ++ show variable)
 
 private
 bind_arguments :
@@ -170,7 +170,7 @@ bind_arguments (argument :: rest) (representation :: representations) state = do
 bind_arguments variables representations state =
   Left
     ("Source ABI describes " ++ show (length representations) ++
-     " arguments, but ANF contains " ++ show (length variables))
+     " arguments, but Administrative_Normal_Form contains " ++ show (length variables))
 
 private
 add_copy : Int -> Int -> BuildState -> BuildState
@@ -253,7 +253,7 @@ lower_word_shift leftward destination source count_variable state = do
 
 private
 lower_external :
-  Int -> Name -> List AVar -> BuildState -> Either String BuildState
+  Int -> Name -> List Administrative_Normal_Form_Variable -> BuildState -> Either String BuildState
 lower_external destination name arguments state =
   case renderer_primitive name of
     Nothing =>
@@ -262,11 +262,11 @@ lower_external destination name arguments state =
          "`; renderer intrinsics are matched by exact fully qualified name")
     Just (WordBinaryPrimitive operation) =>
       case arguments of
-        [ALocal left, ALocal right] => lower_word_binary operation destination left right state
+        [Administrative_Normal_Form_Local_Variable left, Administrative_Normal_Form_Local_Variable right] => lower_word_binary operation destination left right state
         _ => Left "Word intrinsic requires two local operands"
     Just BufferLoad =>
       case arguments of
-        [ALocal buffer, ALocal index] => do
+        [Administrative_Normal_Form_Local_Variable buffer, Administrative_Normal_Form_Local_Variable index] => do
           require_bound "Float32 buffer load" buffer state
           require_bound "Float32 buffer index" index state
           with_destination <- bind_variable "Let destination" destination state
@@ -277,7 +277,7 @@ lower_external destination name arguments state =
              "` requires two local operands, got " ++ show arguments)
     Just (Binary operation) =>
       case arguments of
-        [ALocal left, ALocal right] => do
+        [Administrative_Normal_Form_Local_Variable left, Administrative_Normal_Form_Local_Variable right] => do
           require_bound (show operation ++ " left operand") left state
           require_bound (show operation ++ " right operand") right state
           with_destination <- bind_variable "Let destination" destination state
@@ -288,7 +288,7 @@ lower_external destination name arguments state =
              "` requires two local operands, got " ++ show arguments)
     Just (Unary operation) =>
       case arguments of
-        [ALocal value] => do
+        [Administrative_Normal_Form_Local_Variable value] => do
           require_bound (show operation ++ " operand") value state
           with_destination <- bind_variable "Let destination" destination state
           Right (add_float_unary operation destination value with_destination)
@@ -298,47 +298,47 @@ lower_external destination name arguments state =
              "` requires one local operand, got " ++ show arguments)
 
 private
-lower_value : Int -> ANF -> BuildState -> Either String BuildState
-lower_value destination (AV _ (ALocal source)) state = do
+lower_value : Int -> Administrative_Normal_Form -> BuildState -> Either String BuildState
+lower_value destination (Administrative_Normal_Form_Variable_Expression _ (Administrative_Normal_Form_Local_Variable source)) state = do
   require_bound "Copy" source state
   with_destination <- bind_variable "Let destination" destination state
   Right (add_copy destination source with_destination)
-lower_value destination (APrimVal _ (I32 value)) state = do
+lower_value destination (Administrative_Normal_Form_Primitive_Value _ (I32 value)) state = do
   with_destination <- bind_variable "Let destination" destination state
   Right (add_word_constant destination (cast value) with_destination)
-lower_value destination (APrimVal _ (B32 value)) state = do
+lower_value destination (Administrative_Normal_Form_Primitive_Value _ (B32 value)) state = do
   with_destination <- bind_variable "Let destination" destination state
   Right (add_word_constant destination (cast value) with_destination)
-lower_value destination (AOp _ Nothing (Add Bits32Type) [ALocal left, ALocal right]) state =
+lower_value destination (Administrative_Normal_Form_Primitive_Operation _ Nothing (Add Bits32Type) [Administrative_Normal_Form_Local_Variable left, Administrative_Normal_Form_Local_Variable right]) state =
   lower_word_binary AddWord32 destination left right state
-lower_value destination (AOp _ Nothing (Sub Bits32Type) [ALocal left, ALocal right]) state =
+lower_value destination (Administrative_Normal_Form_Primitive_Operation _ Nothing (Sub Bits32Type) [Administrative_Normal_Form_Local_Variable left, Administrative_Normal_Form_Local_Variable right]) state =
   lower_word_binary SubtractWord32 destination left right state
-lower_value destination (AOp _ Nothing (Mul Bits32Type) [ALocal left, ALocal right]) state =
+lower_value destination (Administrative_Normal_Form_Primitive_Operation _ Nothing (Mul Bits32Type) [Administrative_Normal_Form_Local_Variable left, Administrative_Normal_Form_Local_Variable right]) state =
   lower_word_binary MultiplyWord32Low destination left right state
-lower_value destination (AOp _ Nothing (BAnd Bits32Type) [ALocal left, ALocal right]) state =
+lower_value destination (Administrative_Normal_Form_Primitive_Operation _ Nothing (BAnd Bits32Type) [Administrative_Normal_Form_Local_Variable left, Administrative_Normal_Form_Local_Variable right]) state =
   lower_word_binary AndWord32 destination left right state
-lower_value destination (AOp _ Nothing (BOr Bits32Type) [ALocal left, ALocal right]) state =
+lower_value destination (Administrative_Normal_Form_Primitive_Operation _ Nothing (BOr Bits32Type) [Administrative_Normal_Form_Local_Variable left, Administrative_Normal_Form_Local_Variable right]) state =
   lower_word_binary OrWord32 destination left right state
-lower_value destination (AOp _ Nothing (BXOr Bits32Type) [ALocal left, ALocal right]) state =
+lower_value destination (Administrative_Normal_Form_Primitive_Operation _ Nothing (BXOr Bits32Type) [Administrative_Normal_Form_Local_Variable left, Administrative_Normal_Form_Local_Variable right]) state =
   lower_word_binary XorWord32 destination left right state
-lower_value destination (AOp _ Nothing (ShiftL Bits32Type) [ALocal source, ALocal count]) state =
+lower_value destination (Administrative_Normal_Form_Primitive_Operation _ Nothing (ShiftL Bits32Type) [Administrative_Normal_Form_Local_Variable source, Administrative_Normal_Form_Local_Variable count]) state =
   lower_word_shift True destination source count state
-lower_value destination (AOp _ Nothing (ShiftR Bits32Type) [ALocal source, ALocal count]) state =
+lower_value destination (Administrative_Normal_Form_Primitive_Operation _ Nothing (ShiftR Bits32Type) [Administrative_Normal_Form_Local_Variable source, Administrative_Normal_Form_Local_Variable count]) state =
   lower_word_shift False destination source count state
-lower_value destination (APrimVal _ (I value)) state =
+lower_value destination (Administrative_Normal_Form_Primitive_Value _ (I value)) state =
   Left
     ("Idriç Int is 64-bit in the pinned compiler; use Int32 in this " ++
      "one-word ARMv7 ABI (got literal " ++ show value ++ ")")
-lower_value destination (AExtPrim _ _ name arguments) state =
+lower_value destination (Administrative_Normal_Form_External_Primitive _ _ name arguments) state =
   lower_external destination name arguments state
 lower_value destination expression state =
   Left
-    ("Unsupported ANF value in the runtime-free numerical subset: " ++
+    ("Unsupported Administrative_Normal_Form value in the runtime-free numerical subset: " ++
      show expression)
 
 private
-lower_assignment : Int -> ANF -> BuildState -> Either String BuildState
-lower_assignment destination (ALet _ nested_destination nested_value body) state = do
+lower_assignment : Int -> Administrative_Normal_Form -> BuildState -> Either String BuildState
+lower_assignment destination (Administrative_Normal_Form_Binding _ nested_destination nested_value body) state = do
   after_nested <- lower_assignment nested_destination nested_value state
   lower_assignment destination body after_nested
 lower_assignment destination value state = lower_value destination value state
@@ -349,11 +349,11 @@ fresh_variable_from candidate used =
   if elem candidate used then fresh_variable_from (candidate + 1) used else candidate
 
 private
-collect_tail : ANF -> BuildState -> Either String (BuildState, Int)
-collect_tail (ALet _ destination value body) state = do
+collect_tail : Administrative_Normal_Form -> BuildState -> Either String (BuildState, Int)
+collect_tail (Administrative_Normal_Form_Binding _ destination value body) state = do
   after_value <- lower_assignment destination value state
   collect_tail body after_value
-collect_tail (AV _ (ALocal result)) state = do
+collect_tail (Administrative_Normal_Form_Variable_Expression _ (Administrative_Normal_Form_Local_Variable result)) state = do
   require_bound "Return" result state
   Right (state, result)
 collect_tail expression state = do
@@ -408,11 +408,11 @@ infer_representation :
   List RepresentationConstraint -> Int -> Either String Representation
 infer_representation constraints variable =
   case walk_constraints constraints [variable] [] [] of
-    [] => Left ("No unboxed representation can be inferred for ANF local v" ++ show variable)
+    [] => Left ("No unboxed representation can be inferred for Administrative_Normal_Form local v" ++ show variable)
     [representation] => Right representation
     representations =>
       Left
-        ("ANF local v" ++ show variable ++
+        ("Administrative_Normal_Form local v" ++ show variable ++
          " has conflicting representations: " ++ show representations)
 
 private
@@ -532,13 +532,13 @@ resolve_function symbol argument_variables result_variable result_representation
     (MkLeafFunction symbol arguments instructions result
       (aligned_frame_bytes state.next_slot))
 
-||| Validate and lower one exported ANF function into representation-tagged IR.
+||| Validate and lower one exported Administrative_Normal_Form function into representation-tagged IR.
 public export
 lower_leaf :
-  String -> List Representation -> Representation -> ANFDef ->
+  String -> List Representation -> Representation -> Administrative_Normal_Form_Definition ->
   Either String LeafFunction
 lower_leaf requested_symbol argument_representations result_representation
-           (MkAFun argument_variables body) = do
+           (Make_Administrative_Normal_Form_Function argument_variables body) = do
   symbol <- validate_external_symbol requested_symbol
   if result_representation /= Float32 && result_representation /= Word32
     then
