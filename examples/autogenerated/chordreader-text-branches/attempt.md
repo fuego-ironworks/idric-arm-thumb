@@ -35,6 +35,17 @@ Fallback: none.
 Next boundary: calls/constructors/collections required by the actual parser;
 this small change does not claim those capabilities.
 
+Reconciled the newly maintained framework-class encoder at main
+6ecf378dd3e8dac59091ce8d7f3c3f315f43e4a5. Its existing typed class plan did
+not include implemented interfaces. Added an optional interface-plan entry
+point while preserving the original constructor/API. The application callback
+now uses this shared encoder instead of a duplicate raw writer. Executed the
+original eight rejection cases and deterministic class output, plus the new
+checked .idric interface fixture and two hostile cases. Pinned baksmali decoded
+the actual `.implements View$OnClickListener` and native `onClick(View)`.
+The existing CMake harness also includes these checks; CMake itself was not
+installed on this host, so the constituent commands were executed directly.
+
 Executed host gates: branch-separation self-test and guard; encoder self-test
 (including exact modified UTF-8 bytes for ♭, 𝄪, NUL and empty text); original
 arithmetic/Text fixtures; invalid source ABI refusal. Independent pinned
