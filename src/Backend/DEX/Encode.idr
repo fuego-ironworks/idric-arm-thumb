@@ -351,9 +351,25 @@ unique_prototypes methods =
   foldr (\method, values => insert_prototype (prototype_of method) values) [] methods
 
 private
+utf16_units : String -> List Int
+utf16_units text = concatMap character_units (unpack text)
+  where
+    character_units : Char -> List Int
+    character_units character =
+      let scalar = ord character
+      in if scalar <= 65535 then [scalar]
+         else let supplementary = scalar - 65536
+              in [55296 + supplementary `div` 1024,
+                  56320 + supplementary `mod` 1024]
+
+private
+utf16_order : String -> String -> Ordering
+utf16_order left right = compare (utf16_units left) (utf16_units right)
+
+private
 method_before : MethodPlan -> MethodPlan -> Bool
 method_before left right =
-  case compare left.method_name right.method_name of
+  case utf16_order left.method_name right.method_name of
     LT => True
     GT => False
     EQ => compare_prototype (prototype_of left) (prototype_of right) /= GT
@@ -380,18 +396,30 @@ find_duplicate_method (method :: rest) =
     then Just method.method_name
     else find_duplicate_method rest
 
-private
-ascii_bytes : String -> Either String (List Int)
-ascii_bytes value = traverse encode_character (unpack value)
+||| A DEX string_data_item: UTF-16 unit count, modified UTF-8 and terminator.
+||| DEX encodes NUL as C0 80 and supplementary scalars as two three-byte
+||| surrogate-unit sequences, not ordinary four-byte UTF-8. See the Android
+||| format contract: https://source.android.com/docs/core/runtime/dex-format
+public export
+encode_dex_text : String -> Either String (List Int)
+encode_dex_text value = do
+  if any invalid_scalar (unpack value)
+    then Left "DEX Text contains a value outside the Unicode scalar domain"
+    else Right ()
+  let units = utf16_units value
+  Right (uleb128 (cast (length units)) ++ concatMap modified_unit units ++ [0])
   where
-    encode_character : Char -> Either String Int
-    encode_character character =
-      let code = ord character
-      in if code >= 1 && code <= 127
-           then Right code
-           else Left
-             ("Checked DEX metadata/Text constants currently admit non-NUL ASCII only: " ++
-              show character)
+    invalid_scalar : Char -> Bool
+    invalid_scalar character =
+      let scalar = ord character
+      in scalar < 0 || scalar > 1114111 || (scalar >= 55296 && scalar <= 57343)
+
+    modified_unit : Int -> List Int
+    modified_unit 0 = [192, 128]
+    modified_unit unit =
+      if unit <= 127 then [unit]
+      else if unit <= 2047 then [192 + unit `div` 64, 128 + unit `mod` 64]
+      else [224 + unit `div` 4096, 128 + (unit `div` 64) `mod` 64, 128 + unit `mod` 64]
 
 private
 shorty : Prototype -> String
@@ -421,7 +449,7 @@ method_texts method = concat (map instruction_texts method.instructions)
 private
 type_descriptors : Bool -> String -> List MethodPlan -> List String
 type_descriptors include_text_equal class_descriptor methods =
-  sort
+  sortBy utf16_order
     (nub
       ([class_descriptor, "Ljava/lang/Object;"] ++
        (if include_text_equal
@@ -438,7 +466,7 @@ private
 all_strings :
   Bool -> String -> List MethodPlan -> List Prototype -> List String -> List String
 all_strings include_text_equal descriptor methods prototypes descriptors =
-  sort
+  sortBy utf16_order
     (nub
       (descriptors ++
        map method_name methods ++
@@ -592,8 +620,7 @@ layout_strings_from :
 layout_strings_from current [] accumulated offsets first =
   Right (MkStringLayout accumulated offsets (fromMaybe current first) current)
 layout_strings_from current (value :: rest) accumulated offsets first = do
-  encoded <- ascii_bytes value
-  let item = uleb128 (cast (length (unpack value))) ++ encoded ++ [0]
+  item <- encode_dex_text value
   let next_first =
         case first of
           Nothing => Just current

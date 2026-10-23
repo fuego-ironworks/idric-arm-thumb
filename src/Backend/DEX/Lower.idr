@@ -4,6 +4,7 @@ import Backend.DEX.IR
 import Compiler.ANF
 import Core.Name
 import Core.TT.Primitive
+import Core.TT
 import Data.Vect
 
 %default covering
@@ -12,6 +13,7 @@ private
 record LowerState where
   constructor MkLowerState
   integer_less_name : Name
+  checked_definitions : List (Name, Administrative_Normal_Form_Definition)
   registers : List (Int, Register)
   value_types : List (Int, ValueType)
   result_register : Register
@@ -221,7 +223,62 @@ lower_primitive destination operation arguments state =
          show operation)
 
 private
+inline_checked_leaf :
+  Name -> List Administrative_Normal_Form_Variable ->
+  List (Name, Administrative_Normal_Form_Definition) ->
+  Either String Administrative_Normal_Form
+inline_checked_leaf requested supplied definitions = do
+  definition <- find_definition definitions
+  case definition of
+    Make_Administrative_Normal_Form_Function argument_numbers body => do
+      replacements <- pair_arguments argument_numbers supplied
+      substitute_leaf replacements body
+    _ => Left ("Checked call is not an ordinary function: " ++ show requested)
+  where
+    find_definition : List (Name, Administrative_Normal_Form_Definition) ->
+      Either String Administrative_Normal_Form_Definition
+    find_definition [] = Left ("No checked DEX callee definition for " ++ show requested)
+    find_definition ((name, definition) :: rest) =
+      if underlying_name requested == underlying_name name
+        then Right definition else find_definition rest
+
+    pair_arguments : List Int -> List Administrative_Normal_Form_Variable ->
+      Either String (List (Int, Administrative_Normal_Form_Variable))
+    pair_arguments [] [] = Right []
+    pair_arguments (parameter :: remaining_parameters) (argument :: arguments) =
+      map ((parameter, argument) ::) (pair_arguments remaining_parameters arguments)
+    pair_arguments _ _ = Left ("Checked DEX call arity mismatch for " ++ show requested)
+
+    substitute_variable : List (Int, Administrative_Normal_Form_Variable) ->
+      Administrative_Normal_Form_Variable -> Either String Administrative_Normal_Form_Variable
+    substitute_variable _ Administrative_Normal_Form_Erased_Variable =
+      Right Administrative_Normal_Form_Erased_Variable
+    substitute_variable [] (Administrative_Normal_Form_Local_Variable variable) =
+      Left ("Checked DEX leaf reads a non-parameter local v" ++ show variable)
+    substitute_variable ((parameter, replacement) :: rest) original@(Administrative_Normal_Form_Local_Variable variable) =
+      if parameter == variable then Right replacement else substitute_variable rest original
+
+    -- Only binder-free checked leaves are substituted. Refusing local binders
+    -- prevents variable capture; constructors, recursion, effects and closures
+    -- must acquire their own runtime/lowering rather than being guessed here.
+    substitute_leaf : List (Int, Administrative_Normal_Form_Variable) ->
+      Administrative_Normal_Form -> Either String Administrative_Normal_Form
+    substitute_leaf replacements (Administrative_Normal_Form_Variable_Expression fc variable) =
+      map (Administrative_Normal_Form_Variable_Expression fc) (substitute_variable replacements variable)
+    substitute_leaf replacements (Administrative_Normal_Form_Primitive_Value fc value) =
+      Right (Administrative_Normal_Form_Primitive_Value fc value)
+    substitute_leaf replacements (Administrative_Normal_Form_Primitive_Operation fc Nothing operation arguments) =
+      map (Administrative_Normal_Form_Primitive_Operation fc Nothing operation)
+        (traverse (substitute_variable replacements) arguments)
+    substitute_leaf _ _ =
+      Left ("Checked DEX call " ++ show requested ++
+        " needs binders, constructors, effects or further calls beyond binder-free leaf inlining")
+
+private
 infer_value_type : Administrative_Normal_Form -> LowerState -> Either String ValueType
+infer_value_type (Administrative_Normal_Form_Binding _ variable value body) state = do
+  value_type <- infer_value_type value state
+  infer_value_type body (set_value_type variable value_type state)
 infer_value_type
   (Administrative_Normal_Form_Variable_Expression _
     (Administrative_Normal_Form_Local_Variable source_variable)) state =
@@ -245,13 +302,16 @@ infer_value_type
   (Administrative_Normal_Form_Primitive_Operation _ _ operation arguments) state =
   Left ("Cannot infer DEX value type for primitive " ++ show operation)
 infer_value_type
-  (Administrative_Normal_Form_Named_Function_Application _ _ name [_, _]) state =
+  (Administrative_Normal_Form_Named_Function_Application _ Nothing name [left, right]) state =
   if is_checked_int32_less name state.integer_less_name || is_checked_equal name
     then Right IntegerValue
-    else Left ("Cannot infer DEX value type for checked call " ++ show name)
+    else do
+      expanded <- inline_checked_leaf name [left, right] state.checked_definitions
+      infer_value_type expanded state
 infer_value_type
-  (Administrative_Normal_Form_Named_Function_Application _ _ name _) state =
-  Left ("Cannot infer DEX value type for checked call " ++ show name)
+  (Administrative_Normal_Form_Named_Function_Application _ Nothing name arguments) state = do
+  expanded <- inline_checked_leaf name arguments state.checked_definitions
+  infer_value_type expanded state
 infer_value_type expression state =
   Left ("Cannot infer DEX value type for checked ANF: " ++ show expression)
 
@@ -314,8 +374,14 @@ mutual
               then Left "Checked == is outside the DEX Text equality slice"
               else Right (emit (TextEqual destination left right) state)
           else
-            Left
-              ("Unsupported checked named call in DEX checked slice: " ++ show name)
+            do expanded <- inline_checked_leaf name
+                 [Administrative_Normal_Form_Local_Variable left_variable,
+                  Administrative_Normal_Form_Local_Variable right_variable] state.checked_definitions
+               lower_to destination IntegerValue expanded state
+  lower_to destination destination_type
+    (Administrative_Normal_Form_Named_Function_Application _ Nothing name arguments) state = do
+      expanded <- inline_checked_leaf name arguments state.checked_definitions
+      lower_to destination destination_type expanded state
   lower_to destination destination_type
     (Administrative_Normal_Form_Binding _ nested_destination value body) state = do
       target <- lookup_register "Let destination" nested_destination state
@@ -323,16 +389,16 @@ mutual
       let typed_state = set_value_type nested_destination nested_type state
       after_value <- lower_to target nested_type value typed_state
       lower_to destination destination_type body after_value
-  lower_to destination IntegerValue
+  lower_to destination destination_type
     (Administrative_Normal_Form_Constructor_Case _
       (Administrative_Normal_Form_Local_Variable scrutinee)
       alternatives fallback) state =
-      lower_boolean_case destination scrutinee alternatives fallback state
-  lower_to destination IntegerValue
+      lower_boolean_case destination destination_type scrutinee alternatives fallback state
+  lower_to destination destination_type
     (Administrative_Normal_Form_Constant_Case _
       (Administrative_Normal_Form_Local_Variable scrutinee)
       alternatives fallback) state =
-      lower_boolean_constant_case destination scrutinee alternatives fallback state
+      lower_boolean_constant_case destination destination_type scrutinee alternatives fallback state
   lower_to destination destination_type expression state =
     Left
       ("Unsupported checked ANF for DEX result type " ++ show destination_type ++
@@ -340,10 +406,10 @@ mutual
 
   private
   lower_boolean_case :
-    Register -> Int ->
+    Register -> ValueType -> Int ->
     List Administrative_Normal_Form_Constructor_Alternative ->
     Maybe Administrative_Normal_Form -> LowerState -> Either String LowerState
-  lower_boolean_case destination scrutinee_variable alternatives fallback state = do
+  lower_boolean_case destination destination_type scrutinee_variable alternatives fallback state = do
     scrutinee <- lookup_register "Boolean case scrutinee" scrutinee_variable state
     scrutinee_type <- lookup_value_type "Boolean case scrutinee" scrutinee_variable state
     if scrutinee_type /= IntegerValue
@@ -356,18 +422,18 @@ mutual
     let with_zero = emit (IntegerConstant destination 0) after_done_label
     let with_branch =
           emit (IntegerBranch EqualInteger scrutinee destination false_label) with_zero
-    after_true <- lower_to destination IntegerValue true_body with_branch
+    after_true <- lower_to destination destination_type true_body with_branch
     let with_goto = emit (Goto done_label) after_true
     let at_false = emit (Mark false_label) with_goto
-    after_false <- lower_to destination IntegerValue false_body at_false
+    after_false <- lower_to destination destination_type false_body at_false
     Right (emit (Mark done_label) after_false)
 
   private
   lower_boolean_constant_case :
-    Register -> Int ->
+    Register -> ValueType -> Int ->
     List Administrative_Normal_Form_Constant_Alternative ->
     Maybe Administrative_Normal_Form -> LowerState -> Either String LowerState
-  lower_boolean_constant_case destination scrutinee_variable alternatives fallback state = do
+  lower_boolean_constant_case destination destination_type scrutinee_variable alternatives fallback state = do
     scrutinee <- lookup_register "Boolean case scrutinee" scrutinee_variable state
     scrutinee_type <- lookup_value_type "Boolean case scrutinee" scrutinee_variable state
     if scrutinee_type /= IntegerValue
@@ -380,10 +446,10 @@ mutual
     let with_zero = emit (IntegerConstant destination 0) after_done_label
     let with_branch =
           emit (IntegerBranch EqualInteger scrutinee destination false_label) with_zero
-    after_true <- lower_to destination IntegerValue true_body with_branch
+    after_true <- lower_to destination destination_type true_body with_branch
     let with_goto = emit (Goto done_label) after_true
     let at_false = emit (Mark false_label) with_goto
-    after_false <- lower_to destination IntegerValue false_body at_false
+    after_false <- lower_to destination destination_type false_body at_false
     Right (emit (Mark done_label) after_false)
 
   private
@@ -486,10 +552,11 @@ validate_method_name name =
 ||| classification happen before this function; this pass owns only dense DEX
 ||| virtual-register placement and target instruction planning.
 public export
-lower_method :
+lower_method_with_checked_leaves :
+  List (Name, Administrative_Normal_Form_Definition) ->
   Name -> String -> String -> List ValueType -> ValueType ->
   Administrative_Normal_Form_Definition -> Either String MethodPlan
-lower_method integer_less_name source_name requested_method parameter_types result_type
+lower_method_with_checked_leaves checked_definitions integer_less_name source_name requested_method parameter_types result_type
   (Make_Administrative_Normal_Form_Function arguments body) = do
   method_name <- validate_method_name requested_method
   if length arguments /= length parameter_types
@@ -508,11 +575,18 @@ lower_method integer_less_name source_name requested_method parameter_types resu
   let register_count = parameter_start + parameter_count
   instructions <-
     finish_method result_type body
-      (MkLowerState integer_less_name mapping argument_types result_register 0 [])
+      (MkLowerState integer_less_name checked_definitions mapping argument_types result_register 0 [])
   Right
     (MkMethodPlan source_name method_name parameter_count parameter_types result_type
       register_count instructions)
-lower_method integer_less_name source_name requested_method parameter_types result_type definition =
+lower_method_with_checked_leaves checked_definitions integer_less_name source_name requested_method parameter_types result_type definition =
   Left
     ("DEX export `" ++ source_name ++ "` is not a checked function: " ++
      show definition)
+
+||| Compatibility entry point for callers that supply no checked callees.
+public export
+lower_method :
+  Name -> String -> String -> List ValueType -> ValueType ->
+  Administrative_Normal_Form_Definition -> Either String MethodPlan
+lower_method = lower_method_with_checked_leaves []
