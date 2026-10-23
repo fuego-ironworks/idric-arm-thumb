@@ -1,0 +1,9 @@
+module ChordText
+
+%export "dex:choose_spelling"
+choose_spelling : Text → Text → Text
+choose_spelling supplied expected =
+  if supplied ≟ expected then "A/C♯" else "C♯7♭9"
+
+main : IO ()
+main = pure ()

@@ -129,7 +129,7 @@ lower_exports integer_less_name (selected :: rest) definitions = do
            show selected.internal_name ++ "`")
       Just found => Right found
   method <-
-    lower_method integer_less_name
+    lower_method_with_checked_leaves definitions integer_less_name
       (show selected.internal_name) selected.method_name
       selected.parameter_types selected.result_type definition
   if method.parameter_count /= cast (length selected.parameter_types)
@@ -178,6 +178,12 @@ compile_dex definitions syntax temporary_directory output_directory
   case validate_exports export_abis of
     Left explanation => throw (UserError ("dex rejected exports: " ++ explanation))
     Right () => pure ()
+  let checked_file = output_directory </> (requested_output_name ++ ".checked.anf")
+  Core.writeFile checked_file
+    (render_checked_exports export_abis (anf resolved_compile_data) ++
+     concatMap (\(name, definition) =>
+       "checked definition " ++ show name ++ "\n" ++ show definition ++ "\n\n")
+       (anf resolved_compile_data))
   methods <-
     case lower_exports integer_less_name export_abis (anf resolved_compile_data) of
       Left explanation =>
@@ -189,14 +195,12 @@ compile_dex definitions syntax temporary_directory output_directory
       Left explanation => throw (UserError ("dex encoder rejected plan: " ++ explanation))
       Right encoded => pure encoded
   let dex_file = output_directory </> (requested_output_name ++ ".dex")
-  let checked_file = output_directory </> (requested_output_name ++ ".checked.anf")
   let plan_file = output_directory </> (requested_output_name ++ ".dex.plan")
   let smali_file = output_directory </> (requested_output_name ++ ".smali")
   write_result <- coreLift (write_dex dex_file bytes)
   case write_result of
     Left explanation => throw (UserError ("Could not write DEX: " ++ explanation))
     Right () => pure ()
-  Core.writeFile checked_file (render_checked_exports export_abis (anf resolved_compile_data))
   Core.writeFile plan_file (render_file_plan plan)
   Core.writeFile smali_file (render_smali plan)
   pure (Just dex_file)

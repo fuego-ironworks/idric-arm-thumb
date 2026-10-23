@@ -99,6 +99,14 @@ main = do
     (sha1 [97, 98, 99])
   expect_equal "Adler-32 Wikipedia" 0x11e60398
     (adler32 (map ord (unpack "Wikipedia")))
+  expect_equal "DEX BMP music symbol and UTF-16 length"
+    (Right [1, 226, 153, 173, 0]) (encode_dex_text "♭")
+  expect_equal "DEX supplementary symbol uses a surrogate pair"
+    (Right [2, 237, 160, 180, 237, 180, 170, 0]) (encode_dex_text "𝄪")
+  expect_equal "DEX NUL is modified UTF-8"
+    (Right [1, 192, 128, 0]) (encode_dex_text (pack [chr 0]))
+  expect_equal "DEX empty text"
+    (Right [0, 0]) (encode_dex_text "")
   let plan =
         MkFilePlan "LIdric/SelfTest;"
           [edge_method, wide_move_method, text_identity_method, text_constant_method]

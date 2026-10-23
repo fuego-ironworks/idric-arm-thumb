@@ -226,13 +226,25 @@ layout_class_data method_index codes start classes = go start classes [] [] wher
                encoded_methods method_index codes False virtual
     in go (offset + cast (length item)) rest (bytes ++ item) (offsets ++ [offset])
 
+private
+implemented_interfaces : FrameworkClass -> List (FrameworkClass, List String) -> List String
+implemented_interfaces requested [] = []
+implemented_interfaces requested ((plan, interfaces) :: rest) =
+  if requested.descriptor == plan.descriptor then interfaces
+  else implemented_interfaces requested rest
+
 ||| Deterministic direct DEX 035 encoding of checked framework class plans.
-||| Bounded ASCII metadata; arbitrary method bodies/fields/interfaces are not claimed.
+||| Bounded ASCII metadata; arbitrary method bodies and fields are not claimed.
 public export
-encode_framework_classes : List FrameworkClass -> Either String (List Int)
-encode_framework_classes declarations = do
+encode_framework_classes_implementing : List (FrameworkClass, List String) -> Either String (List Int)
+encode_framework_classes_implementing implementing = do
+  let declarations = map fst implementing
   if null declarations then Left "No framework classes" else Right ()
   traverse_ validate_class declarations
+  if all (all object_type . snd) implementing
+    then Right () else Left "Invalid implemented interface descriptor"
+  if all (\(_, interfaces) => length interfaces == length (unique interfaces)) implementing
+    then Right () else Left "Duplicate implemented interface"
   let classes = sortBy (\a,b => compare a.descriptor b.descriptor) declarations
   if length classes == length (unique (map descriptor classes))
     then Right () else Left "Duplicate framework class"
@@ -247,7 +259,8 @@ encode_framework_classes declarations = do
         (b.owner, b.name, index_of (b.result, b.arguments) prototypes))
         (map (\key => fromMaybe (Sig "" "" "" []) (find (\s => signature_key s == key) signatures))
              (unique (map signature_key signatures)))
-  let types = sort (unique (concatMap (\s => s.owner :: s.result :: s.arguments) signatures))
+  let types = sort (unique (concatMap snd implementing ++
+        concatMap (\s => s.owner :: s.result :: s.arguments) signatures))
   let libraries = mapMaybe native_library classes
   let strings = sort (unique (types ++ map name methods ++ map shorty prototypes ++ libraries))
   if all plain_ascii strings && length strings < 65536 && length types < 65536 &&
@@ -256,7 +269,8 @@ encode_framework_classes declarations = do
   let si = \value => index_of value strings
   let ti = \value => index_of value types
   let mi = \value => index_of (signature_key value) (map signature_key methods)
-  let parameter_lists = unique (filter (not . null) (map snd prototypes))
+  let interface_lists = map (\cls => sortBy (\a,b => compare (ti a) (ti b)) (implemented_interfaces cls implementing)) classes
+  let parameter_lists = unique (filter (not . null) (map snd prototypes ++ interface_lists))
   let string_off = 112
   let type_off = string_off + 4 * cast (length strings)
   let proto_off = type_off + 4 * cast (length types)
@@ -295,9 +309,9 @@ encode_framework_classes declarations = do
         u16 (index_of (s.result,s.arguments) prototypes) ++ u32 (si s.name)) methods
   let proto_bytes = concatMap (\p => u32 (si (shorty p)) ++ u32 (ti (fst p)) ++
         u32 (parameter_offset (snd p))) prototypes
-  let definitions = concatMap (\(cls,offset) => concatMap u32
-        [ti cls.descriptor,1,ti cls.superclass,0,0xffffffff,0,offset,0])
-        (zip classes class_locations)
+  let definitions = concatMap (\((cls,offset),interfaces) => concatMap u32
+        [ti cls.descriptor,1,ti cls.superclass,parameter_offset interfaces,0xffffffff,0,offset,0])
+        (zip (zip classes class_locations) interface_lists)
   let unsigned = header ++ concatMap u32 string_locations ++ concatMap (u32 . si) types ++
         proto_bytes ++ method_bytes ++ definitions ++ type_bytes ++ codes.bytes ++
         string_bytes ++ class_bytes ++ pad after_classes ++ map_bytes
@@ -305,6 +319,17 @@ encode_framework_classes declarations = do
   let signed = take 12 unsigned ++ sha1 (drop 32 unsigned) ++ drop 32 unsigned
   let checksum = adler32 (drop 12 signed)
   Right (take 8 signed ++ map cast (u32 (cast checksum)) ++ drop 12 signed)
+
+||| Compatibility entry point for classes without implemented interfaces.
+public export
+encode_framework_classes : List FrameworkClass -> Either String (List Int)
+encode_framework_classes declarations = encode_framework_classes_implementing (map (\cls => (cls, [])) declarations)
+
+public export
+write_framework_classes_implementing : List (FrameworkClass, List String) -> String -> IO (Either String ())
+write_framework_classes_implementing classes destination = case encode_framework_classes_implementing classes of
+  Left error => pure (Left error)
+  Right bytes => write_dex destination bytes
 
 public export
 write_framework_classes : List FrameworkClass -> String -> IO (Either String ())
